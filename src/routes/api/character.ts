@@ -1,10 +1,11 @@
 // Handles the insertion of mana into characters.
 
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { getAccountPlayers, getPlayerCharacterManaNodesSync, getPlayerCharacterSync, getPlayerCharactersManaNodesSync, getPlayerItemSync, getPlayerSync, getSession, givePlayerItemSync, hasPlayerUnlockedCharacterManaNodeSync, insertPlayerCharacterManaNodesSync, updatePlayerCharacterBondTokenSync, updatePlayerCharacterSync, updatePlayerItemSync, updatePlayerSync } from "../../data/wdfpData";
+import { getAccountPlayers, getPlayerCharacterManaNodesSync, getPlayerCharacterSync, getPlayerCharactersManaNodesSync, getPlayerItemSync, getPlayerSync, getSession, givePlayerItemSync, hasPlayerUnlockedCharacterManaNodeSync, insertPlayerCharacterManaNodesSync, playerOwnsCharacterSync, updatePlayerCharacterBondTokenSync, updatePlayerCharacterSync, updatePlayerItemSync, updatePlayerSync } from "../../data/wdfpData";
 import { generateDataHeaders } from "../../utils";
 import { getCharacterDataSync, getCharacterManaNodeSync, getCharacterManaNodesSync } from "../../lib/assets";
 import { clientSerializeDate } from "../../data/utils";
+import { givePlayerCharacterSync } from "../../lib/character";
 
 interface OverLimitBody {
     viewer_id: number
@@ -32,6 +33,12 @@ interface SetIllustrationSettingsBody {
 interface ReceiveBondTokenBody {
     character_id: number,
     mana_board_index: number,
+    api_count: number,
+    viewer_id: number
+}
+
+interface AddCharacterFromTownBody {
+    character_id: number,
     api_count: number,
     viewer_id: number
 }
@@ -561,6 +568,73 @@ const routes = async (fastify: FastifyInstance) => {
                     }
                 ],
                 "item_list": item_list,
+                "mail_arrived": false
+            }
+        })
+    })
+
+    // Adds a character to the player's roster from the town/encyclopedia screen.
+    // These are story/town NPCs the client lets you recruit once their unlock
+    // condition is met. Awarding the character mirrors any other character grant:
+    // a new owner gets the character inserted; a duplicate is converted to a stack
+    // (and the appropriate awakening item) by givePlayerCharacterSync.
+    fastify.post("/add_character_from_town", async (request: FastifyRequest, reply: FastifyReply) => {
+        const body = request.body as AddCharacterFromTownBody
+
+        const viewerId = body.viewer_id
+        const characterId = body.character_id
+        if (!viewerId || isNaN(viewerId) || !characterId || isNaN(characterId)) return reply.status(400).send({
+            "error": "Bad Request",
+            "message": "Invalid request body."
+        })
+
+        const viewerIdSession = await getSession(viewerId.toString())
+        if (!viewerIdSession) return reply.status(400).send({
+            "error": "Bad Request",
+            "message": "Invalid viewer id."
+        })
+
+        // get player
+        const playerIds = await getAccountPlayers(viewerIdSession.accountId)
+        const playerId = playerIds[0]
+        const player = !isNaN(playerId) ? getPlayerSync(playerId) : null
+
+        if (player === null) return reply.status(500).send({
+            "error": "Internal Server Error",
+            "message": "No players bound to account."
+        })
+
+        // make sure the requested character actually exists in the asset data
+        const characterAssetData = getCharacterDataSync(characterId)
+        if (characterAssetData === null) return reply.status(400).send({
+            "error": "Bad Request",
+            "message": "Character with the specified id does not exist."
+        })
+
+        // grant the character (handles both first-time grants and duplicates)
+        const giveResult = givePlayerCharacterSync(playerId, characterId)
+        if (giveResult === null) return reply.status(500).send({
+            "error": "Internal Server Error",
+            "message": "Failed to grant character."
+        })
+
+        // build the character_list / item_list for the response
+        const characterList: Object[] = []
+        if (giveResult.character !== undefined) characterList.push(giveResult.character)
+
+        const itemList: Record<string, number> = {}
+        if (giveResult.item !== undefined) {
+            itemList[String(giveResult.item.id)] = giveResult.item.count
+        }
+
+        reply.header("content-type", "application/x-msgpack")
+        return reply.status(200).send({
+            "data_headers": generateDataHeaders({
+                viewer_id: viewerId
+            }),
+            "data": {
+                "character_list": characterList,
+                "item_list": itemList,
                 "mail_arrived": false
             }
         })

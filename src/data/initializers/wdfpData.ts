@@ -361,4 +361,35 @@ export default function init(
         PRIMARY KEY (player_id, event_id, round, battle_type),
         FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
     )`).run()
+
+    // Player mailbox. Each mail carries metadata (subject/description/reason) plus a
+    // list of attached rewards (stored in players_mails_attachments). `received`
+    // tracks whether the player has already claimed the attachments.
+    database.prepare(`CREATE TABLE IF NOT EXISTS players_mails (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        player_id INTEGER NOT NULL,
+        reason_id INTEGER NOT NULL,
+        subject TEXT NOT NULL,
+        description TEXT NOT NULL,
+        create_time DATE NOT NULL,
+        receive_time DATE,
+        reward_period_limited INTEGER NOT NULL,
+        reward_limit_time DATE,
+        received INTEGER NOT NULL,
+        FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
+    )`).run()
+
+    // Reward attachments for a mail. reward_type/reward_id/number map onto the
+    // client's (type, type_id, number) attachment tuple. reward_type follows the
+    // RewardType enum (0=ITEM, 1=EQUIPMENT, 2=CHARACTER, 3=BEADS, 4=MANA, 5=EXP).
+    database.prepare(`CREATE TABLE IF NOT EXISTS players_mails_attachments (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        mail_id INTEGER NOT NULL,
+        player_id INTEGER NOT NULL,
+        reward_type INTEGER NOT NULL,
+        reward_id INTEGER,
+        number INTEGER NOT NULL,
+        FOREIGN KEY (mail_id) REFERENCES players_mails (id) ON DELETE CASCADE,
+        FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
+    )`).run()
 }

@@ -718,3 +718,45 @@ export interface MergedPlayerData {
     rushEventClearedFolderList?: Record<string, PlayerRushEventClearedFolders>,
     rushEventPlayedPartyList?: Record<string, PlayerRushEventPlayedParty[]>
 }
+// Mail
+
+export interface RawPlayerMail {
+    id: number,
+    player_id: number,
+    reason_id: number,
+    subject: string,
+    description: string,
+    create_time: string,
+    receive_time: string | null,
+    reward_period_limited: number,
+    reward_limit_time: string | null,
+    received: number
+}
+
+export interface RawPlayerMailAttachment {
+    id: number,
+    mail_id: number,
+    player_id: number,
+    reward_type: number,
+    reward_id: number | null,
+    number: number
+}
+
+export interface PlayerMailAttachment {
+    rewardType: number,
+    rewardId: number | null,
+    number: number
+}
+
+export interface PlayerMail {
+    id: number,
+    reasonId: number,
+    subject: string,
+    description: string,
+    createTime: Date,
+    receiveTime: Date | null,
+    rewardPeriodLimited: boolean,
+    rewardLimitTime: Date | null,
+    received: boolean,
+    attachments: PlayerMailAttachment[]
+}

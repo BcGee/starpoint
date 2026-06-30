@@ -31,6 +31,13 @@ import paymentApiPlugin from "./routes/api/payment"
 import newsApiPlugin from "./routes/api/news"
 import raidEventApiPlugin from "./routes/api/raidEvent"
 import rushEventApiPlugin from "./routes/api/rushEvent"
+import profileApiPlugin from "./routes/api/profile"
+import followApiPlugin from "./routes/api/follow"
+import snsApiPlugin from "./routes/api/sns"
+import historyApiPlugin from "./routes/api/history"
+import loungeApiPlugin from "./routes/api/lounge"
+import bonusApiPlugin from "./routes/api/bonus"
+import howToGetApiPlugin from "./routes/api/howToGet"
 // web routes
 import indexWebPlugin from "./routes/web"
 // web api routes
@@ -121,6 +128,13 @@ fastify.register(paymentApiPlugin, { prefix: `${apiPrefix}/payment` })
 fastify.register(newsApiPlugin, { prefix: `${apiPrefix}/news` })
 fastify.register(raidEventApiPlugin, { prefix: `${apiPrefix}/event/raid` })
 fastify.register(rushEventApiPlugin, { prefix: `${apiPrefix}/event/rush` })
+fastify.register(profileApiPlugin, { prefix: `${apiPrefix}/profile` })
+fastify.register(followApiPlugin, { prefix: `${apiPrefix}/follow` })
+fastify.register(snsApiPlugin, { prefix: `${apiPrefix}/sns` })
+fastify.register(historyApiPlugin, { prefix: `${apiPrefix}/history` })
+fastify.register(loungeApiPlugin, { prefix: `${apiPrefix}/lounge` })
+fastify.register(bonusApiPlugin, { prefix: `${apiPrefix}/bonus` })
+fastify.register(howToGetApiPlugin, { prefix: `${apiPrefix}/how_to_get` })
 
 // openapi
 fastify.register(openapiPlugin, { prefix: "/openapi/service" })

@@ -4,6 +4,7 @@ import { generateViewerId, getServerTime } from "../utils";
 import { Account, DailyChallengePointListCampaign, DailyChallengePointListEntry, MergedPlayerData, PartyCategory, Player, PlayerActiveMission, PlayerBoxGacha, PlayerBoxGachaDrawnReward, PlayerCharacter, PlayerCharacterBondToken, PlayerCharacterExBoost, PlayerDrawnQuest, PlayerEquipment, PlayerGachaCampaign, PlayerGachaInfo, PlayerMultiSpecialExchangeCampaign, PlayerParty, PlayerPartyGroup, PlayerPeriodicRewardPoint, PlayerQuestProgress, PlayerRushEvent, PlayerRushEventClearedFolders, PlayerRushEventPlayedParty, PlayerStartDashExchangeCampaign, RawAccount, RawDailyChallengePointListCampaign, RawDailyChallengePointListEntry, RawPlayer, RawPlayerActiveMission, RawPlayerActiveMissionStage, RawPlayerBoxGacha, RawPlayerCharacter, RawPlayerCharacterBondToken, RawPlayerCharacterManaNode, RawPlayerClearedRegularMission, RawPlayerDrawnQuest, RawPlayerEquipment, RawPlayerGachaCampaign, RawPlayerGachaInfo, RawPlayerItem, RawPlayerMultiSpecialExchangeCampaign, RawPlayerOption, RawPlayerParty, RawPlayerPartyGroup, RawPlayerQuestProgress, RawPlayerRushEvent, RawPlayerRushEventClearedFolder, RawPlayerRushEventPlayedParty, RawPlayerRushEventRanking, RawPlayerStartDashExchangeCampaign, RawPlayerTriggeredTutorial, RawSession, RushEventBattleType, GetRushEventEndlessRankingListResult, Session, SessionType, UserRushEventEndlessBattleRanking, UserRushEventPlayedParty } from "./types";
 import { deserializeBoolean, deserializeNumberList, getDefaultPlayerData, serializeBoolean, serializeNumberList } from "./utils";
 import { getPlayerRushEventEndlessBattleRankingSync } from "../lib/rush";
+import { PlayerMail, PlayerMailAttachment, RawPlayerMail, RawPlayerMailAttachment } from "./types";
 
 const db = getDatabase(Database.WDFP_DATA)
 const expPoolMax = 100000 // the maximum amount of exp that can be pooled
@@ -4573,4 +4574,202 @@ export function dailyResetPlayerSync(
     if (!playerData) return false;
 
     return dailyResetPlayerDataSync(playerData)
+}
+// Mail
+
+/**
+ * Converts a RawPlayerMail (+ its attachments) into a PlayerMail.
+ */
+function buildPlayerMail(
+    raw: RawPlayerMail,
+    attachments: PlayerMailAttachment[]
+): PlayerMail {
+    return {
+        id: raw.id,
+        reasonId: raw.reason_id,
+        subject: raw.subject,
+        description: raw.description,
+        createTime: new Date(raw.create_time),
+        receiveTime: raw.receive_time === null ? null : new Date(raw.receive_time),
+        rewardPeriodLimited: deserializeBoolean(raw.reward_period_limited),
+        rewardLimitTime: raw.reward_limit_time === null ? null : new Date(raw.reward_limit_time),
+        received: deserializeBoolean(raw.received),
+        attachments: attachments
+    }
+}
+
+/**
+ * Gets all of the mails in a player's mailbox that have not yet been received.
+ *
+ * @param playerId The ID of the player.
+ * @returns A list of PlayerMail objects.
+ */
+export function getPlayerMailsSync(
+    playerId: number
+): PlayerMail[] {
+    const rawMails = db.prepare(`
+    SELECT id, player_id, reason_id, subject, description, create_time, receive_time,
+        reward_period_limited, reward_limit_time, received
+    FROM players_mails
+    WHERE player_id = ? AND received = 0
+    ORDER BY id DESC
+    `).all(playerId) as RawPlayerMail[]
+
+    const rawAttachments = db.prepare(`
+    SELECT id, mail_id, player_id, reward_type, reward_id, number
+    FROM players_mails_attachments
+    WHERE player_id = ?
+    `).all(playerId) as RawPlayerMailAttachment[]
+
+    const attachmentBuckets: Record<string, PlayerMailAttachment[]> = {}
+    for (const raw of rawAttachments) {
+        const mailId = raw.mail_id.toString()
+        let bucket = attachmentBuckets[mailId]
+        if (!bucket) {
+            bucket = []
+            attachmentBuckets[mailId] = bucket
+        }
+        bucket.push({
+            rewardType: raw.reward_type,
+            rewardId: raw.reward_id,
+            number: raw.number
+        })
+    }
+
+    return rawMails.map(raw => buildPlayerMail(raw, attachmentBuckets[raw.id.toString()] || []))
+}
+
+/**
+ * Gets a single unreceived mail (with its attachments) from a player's mailbox.
+ *
+ * @param playerId The ID of the player.
+ * @param mailId The ID of the mail.
+ * @returns A PlayerMail object or null.
+ */
+export function getPlayerMailSync(
+    playerId: number,
+    mailId: number
+): PlayerMail | null {
+    const raw = db.prepare(`
+    SELECT id, player_id, reason_id, subject, description, create_time, receive_time,
+        reward_period_limited, reward_limit_time, received
+    FROM players_mails
+    WHERE player_id = ? AND id = ?
+    `).get(playerId, mailId) as RawPlayerMail | undefined
+
+    if (raw === undefined) return null
+
+    const rawAttachments = db.prepare(`
+    SELECT id, mail_id, player_id, reward_type, reward_id, number
+    FROM players_mails_attachments
+    WHERE player_id = ? AND mail_id = ?
+    `).all(playerId, mailId) as RawPlayerMailAttachment[]
+
+    return buildPlayerMail(raw, rawAttachments.map(a => {
+        return { rewardType: a.reward_type, rewardId: a.reward_id, number: a.number }
+    }))
+}
+
+/**
+ * Counts the number of unreceived mails in a player's mailbox.
+ *
+ * @param playerId The ID of the player.
+ * @returns The number of unreceived mails.
+ */
+export function getPlayerMailCountSync(
+    playerId: number
+): number {
+    const row = db.prepare(`
+    SELECT COUNT(*) as count
+    FROM players_mails
+    WHERE player_id = ? AND received = 0
+    `).get(playerId) as { count: number }
+    return row.count
+}
+
+/**
+ * Inserts a mail into a player's mailbox.
+ *
+ * @param playerId The ID of the player.
+ * @param mail The mail data (id is ignored; auto-assigned).
+ * @returns The id of the inserted mail.
+ */
+export function insertPlayerMailSync(
+    playerId: number,
+    mail: Omit<PlayerMail, 'id'>
+): number {
+    const insert = db.prepare(`
+    INSERT INTO players_mails (player_id, reason_id, subject, description, create_time,
+        receive_time, reward_period_limited, reward_limit_time, received)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).run(
+        playerId,
+        mail.reasonId,
+        mail.subject,
+        mail.description,
+        mail.createTime.toISOString(),
+        mail.receiveTime === null ? null : mail.receiveTime.toISOString(),
+        serializeBoolean(mail.rewardPeriodLimited),
+        mail.rewardLimitTime === null ? null : mail.rewardLimitTime.toISOString(),
+        serializeBoolean(mail.received)
+    )
+
+    const mailId = Number(insert.lastInsertRowid)
+
+    for (const attachment of mail.attachments) {
+        db.prepare(`
+        INSERT INTO players_mails_attachments (mail_id, player_id, reward_type, reward_id, number)
+        VALUES (?, ?, ?, ?, ?)
+        `).run(
+            mailId,
+            playerId,
+            attachment.rewardType,
+            attachment.rewardId,
+            attachment.number
+        )
+    }
+
+    return mailId
+}
+
+/**
+ * Marks a mail as received and stamps its receive_time.
+ *
+ * @param playerId The ID of the player.
+ * @param mailId The ID of the mail.
+ */
+export function setPlayerMailReceivedSync(
+    playerId: number,
+    mailId: number
+) {
+    db.prepare(`
+    UPDATE players_mails
+    SET received = 1, receive_time = ?
+    WHERE player_id = ? AND id = ?
+    `).run(new Date().toISOString(), playerId, mailId)
+}
+
+/**
+ * Checks whether a daily-bonus mail has already been issued to a player for a
+ * given server-time day key. Used to make daily mail issuance idempotent so the
+ * same day's reward can't be granted twice (survives server restarts, unlike an
+ * in-memory marker).
+ *
+ * @param playerId The ID of the player.
+ * @param reasonId The reason id that identifies the daily bonus mail type.
+ * @param dayKey A string identifying the day (e.g. "2023-01-07"), stored in the
+ *               mail's description so issuance is idempotent per day.
+ * @returns true if a matching mail already exists.
+ */
+export function playerHasMailForDayKeySync(
+    playerId: number,
+    reasonId: number,
+    dayKey: string
+): boolean {
+    const row = db.prepare(`
+    SELECT id
+    FROM players_mails
+    WHERE player_id = ? AND reason_id = ? AND description = ?
+    `).get(playerId, reasonId, dayKey)
+    return row !== undefined
 }

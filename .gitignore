@@ -15,3 +15,7 @@ build
 .mitmproxy/mitmdump.exe
 .unzip-temp
 .cn-cdn
+# game binary (do not commit)
+*.apk
+*.apk:Zone.Identifier
+*.cjs
