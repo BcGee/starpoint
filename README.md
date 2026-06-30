@@ -5,6 +5,7 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Tutorial
 * Character leveling, uncapping, mana boards, & ex boosting
 * Character stories
+* Character recruitment from town
 * Quests
   - All main quests playable
   - Some event/boss quests playable
@@ -15,9 +16,15 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Armaments
   - Awakening
   - Melting
+* Mailbox
+  - Listing, receiving, & bulk-receiving mail
+  - Reward attachments (items, equipment, characters, beads, mana, exp)
+  - Daily login bonus delivered as mail (per server-time day)
+* Player profile (owned counts & party groups)
 * Most shops
 * Party organization
 * Encyclopedia
+* Missions
 * Time travel to past & future events.
 
 For a more in-depth view of the progress completed, visit the [API routes document](/docs/routes.md).

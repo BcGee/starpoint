@@ -161,8 +161,6 @@ const routes = async (fastify: FastifyInstance) => {
         const questPreviouslyCompleted = questProgress !== null
         const questAccomplished = body.is_accomplished
 
-        const clearReward = !questPreviouslyCompleted && questData.clearReward !== undefined ? givePlayerRewardSync(playerId, questData.clearReward) : null
-        const sPlusClearReward = (clearRank === 5) && (questProgress?.clearRank !== 5) && (questData.sPlusReward !== undefined) ? givePlayerRewardSync(playerId, questData.sPlusReward) : null
         if (questAccomplished) {
             // update quest progress
             if (questPreviouslyCompleted) {
@@ -186,7 +184,9 @@ const routes = async (fastify: FastifyInstance) => {
             }
         }
 
-        // update player
+        // update player (base quest rewards: mana, exp pool, rank, boost) FIRST so
+        // that the reward-granting helpers below accumulate on top of the persisted
+        // values instead of being overwritten by this update.
         updatePlayerSync({
             id: playerId,
             freeMana: newMana,
@@ -195,6 +195,12 @@ const routes = async (fastify: FastifyInstance) => {
             boostPoint: newBoostPoint,
             bossBoostPoint: newBossBoostPoint
         })
+
+        // grant clear / S+ clear rewards AFTER the base update so their mana/beads/exp
+        // are added to the freshly-persisted player state (previously these were granted
+        // before the update and silently overwritten, dropping mana/bead clear rewards).
+        const clearReward = !questPreviouslyCompleted && questData.clearReward !== undefined ? givePlayerRewardSync(playerId, questData.clearReward) : null
+        const sPlusClearReward = (clearRank === 5) && (questProgress?.clearRank !== 5) && (questData.sPlusReward !== undefined) ? givePlayerRewardSync(playerId, questData.sPlusReward) : null
 
         // reward score rewards
         const scoreRewardsResult = givePlayerScoreRewardsSync(playerId, questData.scoreRewardGroupId, questData.scoreRewardGroup, useBoostPoint)
