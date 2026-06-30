@@ -1,15 +1,17 @@
 #!/bin/bash
 # advance-server-time.sh
 # Advances the starpoint server time by 3 days every time it's called.
-# Meant to be run daily via cron.
+# Meant to be run daily via cron/systemd timer.
 
 STARPOINT_URL="http://localhost:8000"
 STATE_FILE="/home/ec2-user/starpoint/.server-time-state"
 
-# Starting date (first event period in KR version)
-START_DATE="2021-07-24T14:00:00"
+# Starting date (matches CDN snapshot era)
+START_DATE="2023-01-07"
 # End date (service end)
-END_DATE="2024-07-20T14:00:00"
+END_DATE="2024-07-20"
+# Fixed time of day (after event start time of 14:00)
+TIME_OF_DAY="15:00:00"
 
 # Read current day offset or start fresh
 if [ -f "$STATE_FILE" ]; then
@@ -18,16 +20,17 @@ else
     OFFSET=0
 fi
 
-# Calculate target date
-TARGET=$(date -u -d "$START_DATE + $OFFSET days" +%Y-%m-%dT%H:%M:%S 2>/dev/null)
+# Calculate target date (date only, append fixed time)
+TARGET_DATE=$(date -u -d "$START_DATE + $OFFSET days" +%Y-%m-%d)
+TARGET="${TARGET_DATE}T${TIME_OF_DAY}"
 
 # Check if we've passed the end date, if so wrap around
-TARGET_EPOCH=$(date -u -d "$TARGET" +%s 2>/dev/null)
-END_EPOCH=$(date -u -d "$END_DATE" +%s 2>/dev/null)
+TARGET_EPOCH=$(date -u -d "$TARGET_DATE" +%s)
+END_EPOCH=$(date -u -d "$END_DATE" +%s)
 
 if [ "$TARGET_EPOCH" -ge "$END_EPOCH" ]; then
     OFFSET=0
-    TARGET=$(date -u -d "$START_DATE" +%Y-%m-%dT%H:%M:%S)
+    TARGET="${START_DATE}T${TIME_OF_DAY}"
 fi
 
 # Set the server time
