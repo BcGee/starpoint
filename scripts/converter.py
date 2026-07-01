@@ -624,56 +624,63 @@ def convert_gacha_rarities(path):
 def convert_gacha(obj):
     converted = {}
     for gacha_id, gacha_data in obj.items():
-        payment_type = int(gacha_data[4])
+        # gacha_data[4] is the gacha KIND (0 = normal beads gacha, 1 = step-up/paid
+        # such as star_heroes 800xxx, 2/3/4 = fukubukuro / ★4-guarantee / new-year,
+        # 7 = comeback). All kinds share the same 45-field layout, so we no longer
+        # skip non-zero kinds (that skip was why paid/step-up banners like 800005 were
+        # missing from gacha.json and returned a 400 on /gacha/exec).
+        gacha_kind = int(gacha_data[4])
 
         # 0 = character; 1 = weapon
         gacha_type = int(gacha_data[13])
-        if payment_type == 0:
-            single_cost = int(gacha_data[5])
-            multi_cost = int(gacha_data[6])
-            discount_single_cost = int(gacha_data[7])
 
-            if gacha_type == 0:
-                converted_gacha = {
-                    "type": gacha_type,
-                    "paymentType": payment_type,
-                    "singleCost": single_cost,
-                    "multiCost": multi_cost,
-                    "discountCost": discount_single_cost,
-                    "movieName": gacha_data[17],
-                    "guaranteeMovieName": gacha_data[18],
-                    #"onceFreeMulti": True if gacha_data[20] == "true" else False,
-                    #"dailyFreeMulti": True if gacha_data[21] == "true" else False,
-                    "startDate": gacha_data[29],
-                    "endDate": gacha_data[30]
-                }
-                # get rarity files
-                converted_gacha["pool"] = {
-                    "3": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[14]}.json")),
-                    "2": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[15]}.json")),
-                    "1": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[16]}.json")),
-                }
-                converted[gacha_id] = converted_gacha 
+        # cost layout differs: normal (kind 0) carries single/multi/discount in
+        # [5][6][7]; special kinds leave those blank and put a single cost in [8].
+        def _int(v):
+            try:
+                return int(v)
+            except (ValueError, TypeError):
+                return 0
+        single_cost = _int(gacha_data[5])
+        multi_cost = _int(gacha_data[6])
+        discount_single_cost = _int(gacha_data[7])
+        if single_cost == 0 and multi_cost == 0 and _int(gacha_data[8]) != 0:
+            # special-kind banner: [8] holds its (single) cost
+            single_cost = _int(gacha_data[8])
+            multi_cost = _int(gacha_data[8])
 
-            elif gacha_type == 1:
-                converted_gacha = {
-                    "type": gacha_type,
-                    "paymentType": payment_type,
-                    "singleCost": single_cost,
-                    "multiCost": multi_cost,
-                    "discountCost": discount_single_cost,
-                    "startDate": gacha_data[29],
-                    "endDate": gacha_data[30]
-                }
-                # get rarity files
-                converted_gacha["pool"] = {
-                    "3": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[22]}.json")),
-                    "2": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[23]}.json")),
-                    "1": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[24]}.json")),
-                }
-                converted[gacha_id] = converted_gacha
-                pass
-    
+        converted_gacha = {
+            "type": gacha_type,
+            # keep the field name "paymentType" for server compatibility, but it now
+            # carries the gacha KIND value (server only branches on the request's
+            # payment_type, not this field, so exposing the kind here is informational).
+            "paymentType": gacha_kind,
+            "singleCost": single_cost,
+            "multiCost": multi_cost,
+            "discountCost": discount_single_cost,
+            "startDate": gacha_data[29],
+            "endDate": gacha_data[30],
+        }
+
+        if gacha_type == 0:
+            # character gacha: movie fields + char-odds pool at [14][15][16]
+            converted_gacha["movieName"] = gacha_data[17]
+            converted_gacha["guaranteeMovieName"] = gacha_data[18]
+            converted_gacha["pool"] = {
+                "3": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[14]}.json")),
+                "2": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[15]}.json")),
+                "1": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[16]}.json")),
+            }
+            converted[gacha_id] = converted_gacha
+        elif gacha_type == 1:
+            # weapon gacha: weapon-odds pool at [22][23][24]
+            converted_gacha["pool"] = {
+                "3": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[22]}.json")),
+                "2": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[23]}.json")),
+                "1": convert_gacha_rarities(os.path.join(FILE_INPUT, "gacha_odds", f"{gacha_data[24]}.json")),
+            }
+            converted[gacha_id] = converted_gacha
+
     return converted
 
 def convert_gacha_campaigns(obj):

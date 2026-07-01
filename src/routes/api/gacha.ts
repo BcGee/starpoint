@@ -260,6 +260,11 @@ const routes = async (fastify: FastifyInstance) => {
         let playerPaidVmoney = player.vmoney
         let playerFreeVmoney = player.freeVmoney
         let gachaCampaigns: UserGachaCampaign[] = []
+        // Whether THIS pull consumes the once-per-day paid summon (isDailyFirst).
+        // Only the paid daily summon (payment_type = VMONEY) may consume it — a normal
+        // 성도석 pull (FREE_VMONEY) / ticket / campaign pull must NOT, otherwise pulling
+        // the free 10x on a banner would wrongly lock out that banner's daily paid summon.
+        let consumedDailyFirst = false
 
         let items: Record<number, number> = {}
 
@@ -283,6 +288,7 @@ const routes = async (fastify: FastifyInstance) => {
                 })
 
                 playerPaidVmoney -= isCharacterGacha ? 50 : 25
+                consumedDailyFirst = true
 
                 pullCount = 1
                 break;
@@ -364,13 +370,16 @@ const routes = async (fastify: FastifyInstance) => {
         const newGachaExchangePoint = (playerGachaData.gachaExchangePoint ?? 0) + pullCount
         if (insertPlayerGachaData) {
             playerGachaData.isAccountFirst = false
-            playerGachaData.isDailyFirst = false
+            // Preserve the daily paid summon availability unless THIS pull consumed it.
+            playerGachaData.isDailyFirst = !consumedDailyFirst
             playerGachaData.gachaExchangePoint = newGachaExchangePoint
             insertPlayerGachaInfoSync(playerId, playerGachaData)
         } else {
             updatePlayerGachaInfoSync(playerId, {
                 gachaId: gachaId,
-                isDailyFirst: false,
+                // Only clear isDailyFirst when a paid daily summon actually consumed it;
+                // a normal 성도석 / ticket / campaign pull leaves it untouched.
+                isDailyFirst: playerGachaData.isDailyFirst && !consumedDailyFirst,
                 isAccountFirst: false,
                 gachaExchangePoint: newGachaExchangePoint
             })

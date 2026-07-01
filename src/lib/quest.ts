@@ -152,6 +152,7 @@ export function givePlayerScoreRewardsSync(
         user_info: {
             free_mana: mana,
             free_vmoney: vmoney,
+            vmoney: 0,
             exp_pool: expPool
         },
         character_list: characterList,
@@ -173,7 +174,8 @@ export function givePlayerRewardsSync(
     rewards: Reward[]
 ): PlayerRewardResult | null {
     let mana = 0
-    let vmoney = 0
+    let vmoney = 0        // free (unpaid) 성도석 → free_vmoney
+    let paidVmoney = 0    // paid 성도석 → vmoney
     let expPool = 0
     let joinedCharacterIdList: number[] = []
     let characters: Map<number, Object> = new Map()
@@ -216,6 +218,10 @@ export function givePlayerRewardsSync(
                 vmoney += (reward as CurrencyReward).count
                 break;
             }
+            case RewardType.PAID_BEADS: {
+                paidVmoney += (reward as CurrencyReward).count
+                break;
+            }
             case RewardType.MANA: {
                 mana += (reward as CurrencyReward).count
                 break;
@@ -227,13 +233,14 @@ export function givePlayerRewardsSync(
         }
     }
 
-    if (mana > 0 || vmoney > 0 || expPool > 0) {
+    if (mana > 0 || vmoney > 0 || paidVmoney > 0 || expPool > 0) {
         // get player
         const player = getPlayerSync(playerId)
         if (player === null) return null;
 
         updatePlayerSync({
             id: playerId,
+            vmoney: player.vmoney + paidVmoney,
             freeVmoney: player.freeVmoney + vmoney,
             freeMana: player.freeMana + mana,
             expPool: player.expPool + expPool
@@ -261,6 +268,7 @@ export function givePlayerRewardsSync(
         user_info: {
             free_mana: mana,
             free_vmoney: vmoney,
+            vmoney: paidVmoney,
             exp_pool: expPool
         },
         character_list: characterList,

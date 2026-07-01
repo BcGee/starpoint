@@ -7,7 +7,8 @@ export enum RewardType {
     CHARACTER,
     BEADS,
     MANA,
-    EXP
+    EXP,
+    PAID_BEADS
 }
 
 export enum BoxGachaRewardType {
@@ -277,6 +278,7 @@ export interface PlayerRewardResult {
     user_info: {
         free_mana: number
         free_vmoney: number
+        vmoney: number
         exp_pool: number
     },
     character_list: Object[]
