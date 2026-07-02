@@ -74,17 +74,18 @@ const routes = async (fastify: FastifyInstance) => {
 
         const rewardResult = allRewards.length > 0 ? givePlayerRewardsSync(playerId, allRewards) : null
 
+        // 보상 지급은 위에서 완료됨(DB 반영). 재화 변동은 다음 /load 에서 클라가 다시 읽는다.
+        // ActiveMissionReceiveResponse 는 클라 스키마상 "빈 응답"(필드 없음)이다 — SWF successHandler
+        // 는 data 가 Object 인지만 확인하고 로컬에서 해당 미션을 수령완료 처리한다. 여기에 user_info/
+        // equipment_list 등을 채워 보내면(특히 clientSerializeEquipment 의 "null":1 필드 등) 클라
+        // msgpack 디코딩이 스키마와 어긋나 successHandler 에 도달 못 해 → 수령완료(회색) 처리 실패.
+        // 따라서 data 는 빈 객체로 보낸다.
+        void rewardResult // 지급은 수행하되 응답 본문에는 싣지 않는다.
+
         reply.header("content-type", "application/x-msgpack")
         return reply.status(200).send({
             "data_headers": generateDataHeaders({ viewer_id: viewerId }),
-            "data": {
-                "user_info": rewardResult?.user_info ?? {},
-                "character_list": rewardResult?.character_list ?? [],
-                "item_list": rewardResult?.items ?? {},
-                "equipment_list": rewardResult?.equipment_list ?? [],
-                "joined_character_id_list": rewardResult?.joined_character_id_list ?? [],
-                "mail_arrived": false
-            }
+            "data": {}
         })
     })
 

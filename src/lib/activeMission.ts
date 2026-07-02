@@ -154,16 +154,24 @@ export function getActiveMissionAssets(): ActiveMissionAssets {
 // 정책: blanc 계정은 고랭크/무한재화 + 스텝업은 서버가 progress 를 직접 관리해야만 동작하는
 // 구조(클라에 progress push API 없음)라, 활성 미션을 전부 클리어 상태(progress≥target)로
 // 노출한다. stages 는 각 스테이지를 넣되 DB 에 수령 기록이 있으면 true, 없으면 false.
-export function serializeAllActiveMissionList(playerId: number): Record<string, {
+//
+// ★ msgpack int-key 인코딩 (핵심): 클라는 all_active_mission_list 를 Map<missionId(int), ...>,
+//   그 안의 stages 를 Map<stageId(int), bool> 로 기대하고 int key 로 조회한다
+//   (SWF: clearedStages.h[int(key)]). JS 객체 {"1":true} 는 msgpack 에서 STRING key 로
+//   인코딩돼 클라의 int-key 조회가 빗나가 → 수령완료(clearedStages==2) 판정 실패 → 받아도
+//   회색처리 안 됨. JS Map 을 쓰면 msgpackr 가 int key 로 인코딩(0x81 0x01 ...)하므로
+//   반드시 Map 으로 반환한다. (미션 "표시"는 값 순회만 해서 string key 여도 됐지만,
+//   stages 는 특정 key 조회가 필수라 이 버그가 드러났다.)
+export function serializeAllActiveMissionList(playerId: number): Map<number, {
     progress: number
-    stages: Record<string, boolean>
+    stages: Map<number, boolean>
     ingame_status: number
 }> {
     // 순환 import 방지: wdfpData 를 지연 require.
     const { getPlayerActiveMissionsSync } = require("../data/wdfpData") as typeof import("../data/wdfpData")
     const dbState = getPlayerActiveMissionsSync(playerId) // { [missionId]: { progress, stages: {stageId: received} } }
 
-    const out: Record<string, { progress: number; stages: Record<string, boolean>; ingame_status: number }> = {}
+    const out = new Map<number, { progress: number; stages: Map<number, boolean>; ingame_status: number }>()
     for (const { missionId, def } of getActiveMissionDefsSync()) {
         const stageKeys = Object.keys(def.rewardsByStage).map(Number).filter(n => !isNaN(n))
         if (stageKeys.length === 0) stageKeys.push(1)
@@ -172,20 +180,20 @@ export function serializeAllActiveMissionList(playerId: number): Record<string, 
         const dbStages: Record<string, boolean> =
             (dbEntry && !Array.isArray(dbEntry.stages)) ? dbEntry.stages as Record<string, boolean> : {}
 
-        // stages 맵: 각 스테이지 -> 수령여부. DB 에 수령 기록(true)이면 true, 아니면 false(미수령).
-        const stages: Record<string, boolean> = {}
+        // stages Map(int key): 각 스테이지 -> 수령여부. DB 수령 기록(true)이면 true, 아니면 false.
+        const stages = new Map<number, boolean>()
         for (const stage of stageKeys.sort((a, b) => a - b)) {
-            stages[String(stage)] = dbStages[String(stage)] === true
+            stages.set(stage, dbStages[String(stage)] === true)
         }
 
-        out[String(missionId)] = {
+        out.set(missionId, {
             // 클라 완료판정은 target_progress <= progress. 미션별 target 은 다양(1/6/10 등)하고
             // 서버가 실제 진행을 추적하지 않으므로, 큰 값으로 줘서 모든 target 을 만족시켜
             // 전부 수령가능(클리어) 상태로 노출한다.
             progress: 999999,
             stages,
             ingame_status: 0,
-        }
+        })
     }
     return out
 }

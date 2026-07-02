@@ -690,7 +690,9 @@ export interface ClientPlayerData {
     drawn_quest_list: UserDrawnQuest[]
     mail_arrived: boolean
     user_periodic_reward_point_list: PlayerPeriodicRewardPoint[]
-    all_active_mission_list: Record<string, PlayerActiveMission>
+    // /load 직렬화 시 int-key Map 을 넣는다(msgpack string-key 버그 회피). deserialize 입력은
+    // 객체 형태라 타입은 넓게 unknown 으로 둔다.
+    all_active_mission_list: unknown
     active_mission_list?: UserActiveMissionInfo[]
     cleared_collect_item_event_mission_list: unknown[]
     box_gacha_list: Record<string, UserBoxGacha[]>

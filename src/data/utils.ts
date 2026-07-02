@@ -898,7 +898,7 @@ export function deserializePlayerData(
             gachaCampaignList: gachaCampaignList,
             drawnQuestList: drawnQuestList,
             periodicRewardPointList: periodicRewardPointList,
-            allActiveMissionList: allActiveMissionList,
+            allActiveMissionList: allActiveMissionList as any,
             boxGachaList: boxGachaList,
             purchasedTimesList: {},
             startDashExchangeCampaignList: startDashExchangeCampaignList,

@@ -51,33 +51,48 @@ def none(v):
     return None if v in ("(None)", "", None) else v
 
 
-KIND_STONE = {"0", "3", "5"}   # 이 category 값들은 성도석 (content id 없음)
-KIND_ITEM = "1"                # content id 있는 아이템/장비
+# active_mission_reward 슬롯 kind 매핑 (blanc 인게임 증언 + 미션 설명으로 역산 확정).
+# 슬롯 = [kind, amount, id] 3칸, [7]부터 반복. id는 kind가 item/equip일 때만 존재.
+#   0 = 성도석(stone/beads)   — "미션 모두 클리어" 완주보상 300/600, id 없음
+#   1 = 아이템/장비           — id 있음(101/100000/999005 등). id>=100000 → equipment, 그 외 item
+#   3 = 마나(mana)            — "마나 보드"/"특별상품" 2000~15000, id 없음
+#   5 = 캐릭터 경험치(pooled_exp) — "Lv강화 경험치"/"유니존 편성" 500~5000, id 없음
+# ※ GeneralRewardKind enum(2=Stone,3=Mana,4=Exp,5=Char)과 다름 — 이 테이블 전용 kind.
+#   blanc 확인: 성도석은 지급됨, 마나/경험치가 누락됐었음 → 3/5를 stone으로 잘못 보냈던 게 원인.
+KIND_MAP = {
+    "0": "stone",
+    "3": "mana",
+    "5": "pooled_exp",
+    # 1은 아래에서 id 범위로 item/equipment 세분
+}
 
 
 def parse_rewards(reward_row):
-    """reward 행에서 보상 슬롯 추출. 슬롯 = (category[7], amount[8], contentId[9]) 3칸.
-    [7]∈{0,3,5} → 성도석, [7]=1 → 아이템/장비([9]=id). 스텝업 전수검증 완료."""
+    """reward 행에서 보상 슬롯 추출. 슬롯 = ([7]=kind, [8]=amount, [9]=id) 3칸 반복."""
     rewards = []
     i = 7
     while i + 2 < len(reward_row):
-        cat = none(reward_row[i])
+        kind_raw = none(reward_row[i])
         amount = none(reward_row[i + 1])
         content_id = none(reward_row[i + 2])
-        if cat is None and amount is None:
+        if kind_raw is None and amount is None:
             i += 3
             continue
         amt = int(amount) if amount and str(amount).isdigit() else 1
-        cat = str(cat) if cat is not None else ""
-        if cat in KIND_STONE:
-            rewards.append({"kind": "stone", "amount": amt})
-        elif cat == KIND_ITEM and content_id is not None:
+        k = str(kind_raw) if kind_raw is not None else ""
+        if k == "1":
+            # 아이템/장비: id 필수
+            if content_id is None:
+                i += 3
+                continue
             cid = int(content_id) if str(content_id).isdigit() else content_id
-            # id 범위로 item/equipment 세분 (>=100000 은 장비 id)
             kind = "equipment" if (isinstance(cid, int) and cid >= 100000) else "item"
             rewards.append({"kind": kind, "id": cid, "amount": amt})
+        elif k in KIND_MAP:
+            # 재화형(성도석/마나/경험치): id 없음
+            rewards.append({"kind": KIND_MAP[k], "amount": amt})
         elif content_id is not None:
-            # 예외적 케이스: category 불명이나 id 존재 → item 으로 처리
+            # 알 수 없는 kind인데 id 존재 → item 으로 처리 (안전 폴백)
             cid = int(content_id) if str(content_id).isdigit() else content_id
             rewards.append({"kind": "item", "id": cid, "amount": amt})
         i += 3
