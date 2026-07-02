@@ -2428,6 +2428,51 @@ function insertPlayerActiveMissionsSync(
 }
 
 /**
+ * 스텝업(active_mission) 스테이지를 '수령됨(received)'으로 기록한다.
+ * 미션 행이 없으면 먼저 생성한다. 이미 수령한 스테이지면 false, 새로 수령했으면 true 반환.
+ *
+ * @param playerId 플레이어 ID
+ * @param missionId 미션 ID
+ * @param stage 스테이지 번호 (= stage row id)
+ * @returns 이번에 새로 수령했으면 true, 이미 수령한 상태였으면 false
+ */
+export function upsertPlayerActiveMissionStageReceivedSync(
+    playerId: number,
+    missionId: number,
+    stage: number
+): boolean {
+    return db.transaction(() => {
+        // 미션 행 보장 (progress 는 표시용, 0 으로 시작).
+        db.prepare(`
+        INSERT OR IGNORE INTO players_active_missions (id, progress, player_id)
+        VALUES (?, 0, ?)
+        `).run(missionId, playerId)
+
+        // 현재 스테이지 상태 확인.
+        const existing = db.prepare(`
+        SELECT status FROM players_active_missions_stages
+        WHERE id = ? AND mission_id = ? AND player_id = ?
+        `).get(stage, missionId, playerId) as { status: number } | undefined
+
+        if (existing !== undefined) {
+            if (deserializeBoolean(existing.status)) return false // 이미 수령
+            db.prepare(`
+            UPDATE players_active_missions_stages
+            SET status = 1
+            WHERE id = ? AND mission_id = ? AND player_id = ?
+            `).run(stage, missionId, playerId)
+            return true
+        }
+
+        db.prepare(`
+        INSERT INTO players_active_missions_stages (id, status, player_id, mission_id)
+        VALUES (?, 1, ?, ?)
+        `).run(stage, playerId, missionId)
+        return true
+    })()
+}
+
+/**
  * Converts a RawPlayerBoxGacha object into a PlayerBoxGacha object.
  * 
  * @param raw The raw object to convert.
