@@ -86,6 +86,7 @@ const routes = async (fastify: FastifyInstance) => {
         const requestedCategories = (body.category_list && body.category_list.length)
             ? body.category_list.map((c) => c.category)
             : [1, 2, 3]
+        console.log("[MISSION/get] body=" + JSON.stringify(body) + " nowMs=" + nowMs + " reqCats=" + JSON.stringify(requestedCategories))
 
         const missionProgressList: {
             mission_category: number,

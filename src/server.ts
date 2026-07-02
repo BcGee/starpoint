@@ -13,6 +13,7 @@ import gachaApiPlugin from "./routes/api/gacha"
 import partyApiPlugin from "./routes/api/party"
 import expodApiPlugin from "./routes/api/expod"
 import storyQuestApiPlugin from "./routes/api/storyQuest"
+import questApiPlugin from "./routes/api/quest"
 import optionApiPlugin from "./routes/api/option"
 import singleBattleQuestApiPlugin from "./routes/api/singleBattleQuest"
 import multiBattleQuestApiPlugin from "./routes/api/multiBattleQuest"
@@ -111,6 +112,7 @@ fastify.register(gachaApiPlugin, { prefix: `${apiPrefix}/gacha` })
 fastify.register(partyApiPlugin, { prefix: `${apiPrefix}/party` })
 fastify.register(expodApiPlugin, { prefix: `${apiPrefix}/expod` })
 fastify.register(storyQuestApiPlugin, { prefix: `${apiPrefix}/story_quest` })
+fastify.register(questApiPlugin, { prefix: `${apiPrefix}/quest` })
 fastify.register(optionApiPlugin, { prefix: `${apiPrefix}/option` })
 fastify.register(singleBattleQuestApiPlugin, { prefix: `${apiPrefix}/single_battle_quest` })
 fastify.register(multiBattleQuestApiPlugin, { prefix: `${apiPrefix}/multi_battle_quest` })

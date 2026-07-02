@@ -68,10 +68,14 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
 - boss quest_id: `BBBBDDD`. 오로치=1014 → 1014001~. `/single_battle_quest/start` category=2.
 - seed: `scripts/seed_boss_progress.js`.
 
-### ⚠️ 오로치 진입 크래시 (미해결)
-- 증상: 오로치 이동 시 클라 에러 → 재접속 루프. mitm 로그에 single_battle_quest/보스 API 없이 크래시.
-- 가설: (a) quest/unlock 404 (위 §4) (b) CDN 보스데이터 파싱 (c) /load 특정 필드.
-- 재현 시 mitm `/tmp/starpoint_api.log` 마지막 API 확인 → 크래시 직전 호출 특정.
+### ⚠️ 오로치 진입 크래시 (진단 완료 — 클라/CDN 영역)
+- **진행도 시드(seed_all_progress.js) 후 진입·전투·클리어 성공.** 원래 "진입 시 에러"는 진행도 부족(prereq 미클리어)이 원인이었고 해소됨.
+- 클리어 후 크래시: mitm 로그 시퀀스 `single_battle_quest/finish(200) → attention/check → story_quest/finish(200) → reproduce/post → attention/check → [재접속]`.
+  - 오로치(1014)는 클리어 시 **스토리 이벤트를 트리거**하는 보스(story_quest/finish 호출됨).
+  - 두 finish 응답 다 정상 200, 클라 successHandler는 누락 필드를 null→Option.None 안전 처리(크래시 아님).
+  - 마지막 attention/check 후 **서버 API 없이 클라 로컬에서 크래시** → 클리어 후 스토리 컷신/연출 재생 단계.
+- **결론: 서버 응답 문제 아님. 오로치 클리어 후 재생되는 스토리 컷신의 CDN asset 누락/손상 또는 클라 로컬 처리 문제. 서버로는 수정 불가.**
+  (CDN story asset 존재 여부 조사 시 boot_ffc6.as의 story/adv 경로 + entities 파일 확인)
 
 ## 6. 이벤트/사이드퀘 노출 로직
 
