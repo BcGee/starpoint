@@ -140,31 +140,52 @@ export function getActiveMissionAssets(): ActiveMissionAssets {
     return activeMissionData
 }
 
-// /load 용 active_mission_list 직렬화.
-// 클라 스키마: Array<{ mission_id, progress_value, stages:[{stage, received}] }>
-// 정책: 활성 미션을 전부 "클리어(수령가능)" 로 노출. progress_value 는 완료 표시용으로 target(=1) 이상.
-// received 는 DB(players_active_missions_stages)에서 이미 수령한 스테이지만 true.
-export function serializeActiveMissionList(playerId: number): import("../data/types").UserActiveMissionInfo[] {
+// /load 용 all_active_mission_list 직렬화.
+//
+// 클라 스키마 (SWF /load 파서 확정): Map<missionId, {
+//   progress: int,                    // 진행도. 클라 isCompleted = target_progress <= progress
+//   stages: Option<Map<stageId, bool>>, // stageId -> 수령여부(true=수령됨, false=미수령)
+//   ingame_status: Option<int>,
+//   ingame_reward_id: ...(생략 가능)
+// }>
+// 클라는 stages 맵의 각 stageId 를 "클리어된 스테이지"로 보고, 값이 false(미수령)인 것만
+// active_mission/receive 로 보낸다 (SWF: clearedStages[k]==1 → 미수령분 수집).
+//
+// 정책: blanc 계정은 고랭크/무한재화 + 스텝업은 서버가 progress 를 직접 관리해야만 동작하는
+// 구조(클라에 progress push API 없음)라, 활성 미션을 전부 클리어 상태(progress≥target)로
+// 노출한다. stages 는 각 스테이지를 넣되 DB 에 수령 기록이 있으면 true, 없으면 false.
+export function serializeAllActiveMissionList(playerId: number): Record<string, {
+    progress: number
+    stages: Record<string, boolean>
+    ingame_status: number
+}> {
     // 순환 import 방지: wdfpData 를 지연 require.
     const { getPlayerActiveMissionsSync } = require("../data/wdfpData") as typeof import("../data/wdfpData")
     const dbState = getPlayerActiveMissionsSync(playerId) // { [missionId]: { progress, stages: {stageId: received} } }
 
-    const out: import("../data/types").UserActiveMissionInfo[] = []
+    const out: Record<string, { progress: number; stages: Record<string, boolean>; ingame_status: number }> = {}
     for (const { missionId, def } of getActiveMissionDefsSync()) {
         const stageKeys = Object.keys(def.rewardsByStage).map(Number).filter(n => !isNaN(n))
         if (stageKeys.length === 0) stageKeys.push(1)
+
         const dbEntry = dbState[String(missionId)]
-        const dbStages: Record<string, boolean> = (dbEntry && !Array.isArray(dbEntry.stages)) ? dbEntry.stages as Record<string, boolean> : {}
-        const stages = stageKeys.sort((a, b) => a - b).map(stage => ({
-            stage,
-            received: dbStages[String(stage)] === true
-        }))
-        out.push({
-            mission_id: missionId,
-            // 완료 상태로 노출: 최소 1 (target). 진행도 게이지는 클라가 로컬 계산으로 덮을 수 있음.
-            progress_value: 1,
-            stages
-        })
+        const dbStages: Record<string, boolean> =
+            (dbEntry && !Array.isArray(dbEntry.stages)) ? dbEntry.stages as Record<string, boolean> : {}
+
+        // stages 맵: 각 스테이지 -> 수령여부. DB 에 수령 기록(true)이면 true, 아니면 false(미수령).
+        const stages: Record<string, boolean> = {}
+        for (const stage of stageKeys.sort((a, b) => a - b)) {
+            stages[String(stage)] = dbStages[String(stage)] === true
+        }
+
+        out[String(missionId)] = {
+            // 클라 완료판정은 target_progress <= progress. 미션별 target 은 다양(1/6/10 등)하고
+            // 서버가 실제 진행을 추적하지 않으므로, 큰 값으로 줘서 모든 target 을 만족시켜
+            // 전부 수령가능(클리어) 상태로 노출한다.
+            progress: 999999,
+            stages,
+            ingame_status: 0,
+        }
     }
     return out
 }
