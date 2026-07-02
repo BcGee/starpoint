@@ -8,7 +8,7 @@
 // 서버는 요청받은 스테이지들의 보상을 지급하고, players_active_missions_stages 에 received 로 기록해 재수령을 막는다.
 
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify"
-import { getSession, getAccountPlayers, upsertPlayerActiveMissionStageReceivedSync } from "../../data/wdfpData"
+import { getSession, getAccountPlayers, upsertPlayerActiveMissionStageReceivedSync, getPlayerSync } from "../../data/wdfpData"
 import { generateDataHeaders } from "../../utils"
 import { getActiveMissionStageRewardsSync } from "../../lib/activeMission"
 import { givePlayerRewardsSync } from "../../lib/quest"
@@ -56,11 +56,19 @@ const routes = async (fastify: FastifyInstance) => {
         const entries: ReceiveMissionEntry[] = body.active_mission_list ?? body.mission_list ?? body.list ?? []
 
         // 요청된 모든 미션/스테이지 보상을 모아서 지급하고, received 기록.
+        // 동시에 응답용 active_mission_list 를 구성한다(클라가 이걸 읽어 로컬 clearedStages 를
+        // 즉시 갱신 → 받는 즉시 회색 처리). 형식: [{mission_id, progress_value, stages:[{stage, received:true}]}]
         const allRewards: Reward[] = []
+        const responseMissions: {
+            mission_id: number
+            progress_value: number
+            stages: { stage: number, received: boolean }[]
+        }[] = []
         for (const entry of entries) {
             const missionId = Number(entry.mission_id)
             if (isNaN(missionId)) continue
             const stages = Array.isArray(entry.stages) ? entry.stages : []
+            const receivedStages: { stage: number, received: boolean }[] = []
             for (const stageRaw of stages) {
                 const stage = Number(stageRaw)
                 if (isNaN(stage)) continue
@@ -69,23 +77,48 @@ const routes = async (fastify: FastifyInstance) => {
                 if (!newlyReceived) continue
                 const rewards = getActiveMissionStageRewardsSync(missionId, stage)
                 for (const r of rewards) allRewards.push(r)
+                receivedStages.push({ stage, received: true })
+            }
+            if (receivedStages.length > 0) {
+                responseMissions.push({
+                    mission_id: missionId,
+                    progress_value: 999999,
+                    stages: receivedStages,
+                })
             }
         }
 
+        // 보상 지급 (DB 반영). givePlayerRewardsSync 는 증분 처리 후 player 를 업데이트한다.
         const rewardResult = allRewards.length > 0 ? givePlayerRewardsSync(playerId, allRewards) : null
 
-        // 보상 지급은 위에서 완료됨(DB 반영). 재화 변동은 다음 /load 에서 클라가 다시 읽는다.
-        // ActiveMissionReceiveResponse 는 클라 스키마상 "빈 응답"(필드 없음)이다 — SWF successHandler
-        // 는 data 가 Object 인지만 확인하고 로컬에서 해당 미션을 수령완료 처리한다. 여기에 user_info/
-        // equipment_list 등을 채워 보내면(특히 clientSerializeEquipment 의 "null":1 필드 등) 클라
-        // msgpack 디코딩이 스키마와 어긋나 successHandler 에 도달 못 해 → 수령완료(회색) 처리 실패.
-        // 따라서 data 는 빈 객체로 보낸다.
-        void rewardResult // 지급은 수행하되 응답 본문에는 싣지 않는다.
+        // 클라(SWF)는 receive 응답을 applyCommonResponse 로 처리한다:
+        //  - data.active_mission_list → 로컬 clearedStages 갱신(즉시 회색)
+        //  - data.user_info → applyCommonResponseUserInfo 로 재화(마나/경험치/성도석) 즉시 화면 갱신
+        // user_info 는 지급 후 player 의 절대값을 담아야 한다(클라가 덮어씀, 증분 아님).
+        // 이게 없으면 재화가 DB엔 들어가도 화면엔 재접속 전까지 반영 안 됨.
+        let userInfo: Record<string, number> = {}
+        if (rewardResult !== null) {
+            const p = getPlayerSync(playerId)
+            if (p !== null) {
+                userInfo = {
+                    "free_mana": p.freeMana,
+                    "paid_mana": p.paidMana,
+                    "free_vmoney": p.freeVmoney,
+                    "vmoney": p.vmoney,
+                    "exp_pool": p.expPool,
+                    "star_crumb": p.starCrumb,
+                    "bond_token": p.bondToken,
+                }
+            }
+        }
 
         reply.header("content-type", "application/x-msgpack")
         return reply.status(200).send({
             "data_headers": generateDataHeaders({ viewer_id: viewerId }),
-            "data": {}
+            "data": {
+                "active_mission_list": responseMissions,
+                "user_info": userInfo
+            }
         })
     })
 
