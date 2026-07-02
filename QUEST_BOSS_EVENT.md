@@ -93,7 +93,26 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
 4. msgpack key 타입(int vs string) 함정 — ACTIVE_MISSION.md 참고.
 5. 이벤트 배틀 로직은 다 구현됨 — "안 됨"은 데이터/시간/해금(quest_unlock) 게이팅이지 라우트 부재 아닌 경우 많음.
 
-## 8. TODO
-- [ ] quest/unlock 라우트 구현 후 사이드퀘/오로치 재검증
-- [ ] 오로치 크래시 mitm 캡처로 마지막 API 특정
-- [ ] carnival_event, history/practice_battle 등 ★ 미구현 중 실제 필요한 것 선별
+## 8. 미션 시스템 (get_mission_progress) — 서머미션 등 세부미션 안 뜸
+
+- 클라 요청(SWF): `{category_list: [{category} | {category, event_id}]}`. 미션종류 enum(param3.index):
+  - case 0/1/2/4 → `{category:N}` (event_id 없음, N=1~5 세부 index 매핑)
+  - **case 3 → `{category:N, event_id:X}` (이벤트 미션 — 서머 등)**
+- 서버 mission.ts: `activeMissionsForCategory(category, now)` — mission.json[category] 에서 서버시간(start~end) 내 미션만.
+  **event_id 를 무시**하고 category 로만 필터.
+- 서버 mission.json: category 1=regular, 2=daily, 3=event (1494개, 서머 포함).
+- ⚠️ **가설(미검증)**: 클라 category(1~5)와 서버 category(1/2/3) 매핑 불일치, 또는 event_id 필터 부재로
+  `mission_progress_list: []`(빈배열) 반환 → 배너 클릭해도 세부미션 0개.
+  - 실측: 게임시간 2023-04-06 기준 서버 category 1=107, 2=8, 3=18 활성인데 실제 응답은 빈배열이었음.
+  - **확정엔 mission.ts 디버그로그([MISSION/get])로 클라 실제 category_list 캡처 필요** (로그 심어둠, 미션탭 열면 찍힘).
+- ⚠️ successHandler 스키마: `mission_progress_list[i] = {mission_category:int, mission_id:int, progress_value:Float, stage:int}`.
+  progress_value 는 **Float** 기대 — 서버가 int 0 보내면 타입체크(8701) 위험(단 빈배열이면 미도달).
+- 서머2020 미션 기간: 2022-03-28~04-10 (현재 게임시간 밖). 서머 자체는 기간 지남.
+
+## 9. TODO
+- [x] quest/unlock 라우트 구현 (배포됨)
+- [x] 진행도 전량 시드 (seed_all_progress.js) → 오로치 진입·클리어 됨
+- [x] 오로치 크래시 진단: 서버 정상, 클리어후 클라 스토리컷신 로컬크래시 (logcat 필요)
+- [ ] 미션 category_list 실측 → 서머/이벤트 미션 빈배열 원인 확정 (mission.ts 디버그로그 대기)
+- [ ] 오로치: ADB logcat 으로 클라 크래시 스택 확보
+- [ ] 사이드퀘: quest/unlock 배포 후 잠긴 사이드퀘 해금 검증
