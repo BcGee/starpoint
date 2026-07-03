@@ -128,9 +128,16 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
 - singleBattleQuest.ts finish: `accumulateBattleMissions()` 호출 → **[BATTLE/stats] 로 실제 statistics(client_checks 포함)+quest_id 를 저널에 로깅.**
 - `src/lib/battleMissionProgress.ts` + `missionAccumulate.ts`: desc 로 미션 분류(clear/kill/skill_chain/combo/aggregate) + finish 통계로 delta 계산.
 
-**⚠️ 배틀 미션 자동누적은 현재 OFF (`ACCUMULATE_ENABLED=false` in missionAccumulate.ts):**
-- 이유: quest_id→미션 트리거 매핑을 실제 트래픽으로 검증 전엔 켜면 안 됨. 지금 켜면 "모든 클리어에 협력배틀 미션 +1" 같은 오판정으로 **틀린 진행도**를 보여줌(솔로 클리어인데 협력미션 오름). blanc 원칙(임의수치 금지) 위반.
-- **다음 단계**: blanc 배틀 1판 → `journalctl -u starpoint | grep '\[BATTLE/stats\]'` 로 실제 client_checks/quest_id 확인 → quest→mission 매핑 확정 → `ACCUMULATE_ENABLED=true` + 정밀 규칙. mitm 도 요청바디 로깅 추가해둠([REQ] 프리픽스, mission/battle_quest 계열).
+**배틀 미션 자동누적 — 실측 검증 후 ON (2026-07-03):**
+- 실측 [BATTLE/stats]로 확정: 흔들리는 미궁 = quest_id 1001, **category 14 (DAILY_EXP_MANA_EVENT)**. client_checks는 미궁/스토리 클리어 모두 `[]` → **미션 추적에 안 쓰임**. 서버가 category+통계로 판정하는 게 맞음.
+- **미션 조건 컬럼 디코딩 (collect_item_event_mission, 실측+데이터 확정):**
+  - `[8] questKind` = 요구 콘텐츠: `12`=흔들리는미궁(→서버 category 14), `7`=붕괴역, `2/5/10`=협력배틀(멀티, 싱글서버 불가→skip), `None`=아무배틀
+  - `[5] subCondition` (questKind None일 때, 전부 "배틀 클리어시 가산"): `0`=약점파괴 `1`=파워플립 `2`=대시 `4`=스킬 `5`=피버 `7`=적토벌 → finish `zones[]`의 해당 카운터 **합산**
+  - 둘 다 None → desc 파싱: "N 스킬체인 클리어"(max_skill_chain_count>=N), "N콤보", 협력(skip), 집계("제N탄 모두 클리어"=별도 pass)
+- **finish `statistics` 실측 필드**: `zones[].{enemy_kill_count, use_dash_count, use_skill_count, use_power_flip_count, fever_count, weak_point_attack_count}`, `max_skill_chain_count`, `max_combo_count`, `clear_phase`(승리에도 0 — 킬수 프록시로 쓰면 안 됨). quest_id/category는 라우트 activeQuest에서.
+- 구현: `src/lib/battleMissionProgress.ts` `battleProgressDelta(def, stats, clearedCategory)` + `missionAccumulate.ts` `accumulateBattleMissions(...)`. finish `is_accomplished` 시 전체 활성 이벤트 미션에 delta 누적.
+- **라이브 검증 PASS**: category14 미궁 finish(33킬) → 적토벌 +33, 미궁클리어 +1 저장+get 반영. **category1 스토리 클리어 → 미궁 미션 안 오름**(오염 없음 확인). 콤보41이어도 "4스킬체인" 미션은 skill_chain=0이라 안 오름(콤보≠체인).
+- ⚠️ 협력배틀(멀티) 미션은 싱글서버에 콘텐츠 없어 영구 미충족(정상). 집계미션/보상지급(*_mission_reward)은 아직 TODO. mitm 요청바디 로깅([REQ]) + [BATTLE/stats] 저널 로깅 상시 유지.
 
 ## 9. 하니와(carnival_event) — 파티리스트 필드명 불일치 ★해결(2026-07-02)
 

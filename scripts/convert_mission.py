@@ -65,8 +65,14 @@ def convert_collect_item_event_missions(obj):
     """collect_item_event_mission rows are the CAMPAIGN/EVENT missions the client
     opens by event_id (e.g. srm21_3_campaign_mission = event 10010). The client
     requests get_mission_progress with {category:4, event_id:X} and expects ONLY
-    that event's missions. Row layout (confirmed 2024-07 snapshot):
+    that event's missions. Row layout (confirmed 2024-07 snapshot + live [BATTLE/stats]):
       [0]=event_id [1]=stage [2]=pattern [3]=desc [4]=target
+      [5]=subCondition (battle-stat counter kind when [8] is None):
+          0=weak_point_attack 1=power_flip 2=dash 4=skill 5=fever 7=enemy_kill
+      [8]=questKind (required content type):
+          2/5/10=협력(멀티, 싱글서버엔 없음) 7=붕괴역 12=흔들리는미궁(server category 14)
+          (None)=아무 배틀 (then [5] decides which battle stat to count)
+      [9]=questKind target id (specific boss/event; unused for 미궁)
       [21]=startDate [22]=endDate
     Grouped by event_id so mission.ts can serve exactly the requested event."""
     by_event = {}
@@ -76,6 +82,11 @@ def convert_collect_item_event_missions(obj):
         event_id = str(row[0])
         if event_id in ("(None)", "", None):
             continue
+
+        def _int_or_none(v):
+            s = str(v)
+            return int(s) if s.lstrip("-").isdigit() else None
+
         by_event.setdefault(event_id, {})[mid] = {
             "category": 4,
             "eventId": int(event_id) if event_id.isdigit() else event_id,
@@ -83,6 +94,10 @@ def convert_collect_item_event_missions(obj):
             "pattern": row[2],
             "desc": row[3],
             "target": int(row[4]) if str(row[4]).isdigit() else 0,
+            # battle-mission classification (server-side accumulation):
+            "subCondition": _int_or_none(row[5]),   # [5] battle-stat counter kind (when questKind is None)
+            "questKind": _int_or_none(row[8]),       # [8] required content type (12=미궁 etc.)
+            "questKindTarget": _int_or_none(row[9]), # [9] specific boss/event id
             "startDate": none(row[21]),
             "endDate": none(row[22]),
         }
