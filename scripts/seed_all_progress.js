@@ -62,8 +62,10 @@ const backupPath = path.join(backupDir, `quest_progress_backup_${ts}.json`)
 fs.writeFileSync(backupPath, JSON.stringify(existing, null, 1))
 console.log(`  백업: ${backupPath} (기존 ${existing.length}행)`)
 
-const insertStmt = db.prepare("INSERT OR IGNORE INTO players_quest_progress (section, quest_id, finished, high_score, clear_rank, best_elapsed_time_ms, player_id) VALUES (?, ?, 1, NULL, NULL, NULL, ?)")
-const updateStmt = db.prepare("UPDATE players_quest_progress SET finished=1 WHERE player_id=? AND section=? AND quest_id=?")
+// clear_rank/high_score/best_elapsed_time_ms 를 NULL 로 두면 클라가 보스/랭크필요 퀘스트 진입 시
+// c3212 크래시("클리어 랭크 정보 없음"). 반드시 clear_rank=5(S+), high_score/best_time 안전값 채울 것.
+const insertStmt = db.prepare("INSERT OR IGNORE INTO players_quest_progress (section, quest_id, finished, high_score, clear_rank, best_elapsed_time_ms, player_id) VALUES (?, ?, 1, 1, 5, 60000, ?)")
+const updateStmt = db.prepare("UPDATE players_quest_progress SET finished=1, clear_rank=COALESCE(clear_rank,5), high_score=COALESCE(high_score,1), best_elapsed_time_ms=COALESCE(best_elapsed_time_ms,60000) WHERE player_id=? AND section=? AND quest_id=?")
 
 let inserted = 0, updated = 0
 const tx = db.transaction(() => {

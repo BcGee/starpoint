@@ -61,6 +61,34 @@ def convert_mission_table(obj, category):
     return out
 
 
+def convert_collect_item_event_missions(obj):
+    """collect_item_event_mission rows are the CAMPAIGN/EVENT missions the client
+    opens by event_id (e.g. srm21_3_campaign_mission = event 10010). The client
+    requests get_mission_progress with {category:4, event_id:X} and expects ONLY
+    that event's missions. Row layout (confirmed 2024-07 snapshot):
+      [0]=event_id [1]=stage [2]=pattern [3]=desc [4]=target
+      [21]=startDate [22]=endDate
+    Grouped by event_id so mission.ts can serve exactly the requested event."""
+    by_event = {}
+    for mid, row in obj.items():
+        if not isinstance(row, list) or len(row) < 23:
+            continue
+        event_id = str(row[0])
+        if event_id in ("(None)", "", None):
+            continue
+        by_event.setdefault(event_id, {})[mid] = {
+            "category": 4,
+            "eventId": int(event_id) if event_id.isdigit() else event_id,
+            "stage": int(row[1]) if str(row[1]).isdigit() else 1,
+            "pattern": row[2],
+            "desc": row[3],
+            "target": int(row[4]) if str(row[4]).isdigit() else 0,
+            "startDate": none(row[21]),
+            "endDate": none(row[22]),
+        }
+    return by_event
+
+
 def main():
     merged = {}
     # category 1 = regular (always-on), 2 = daily, 3 = event
@@ -73,10 +101,17 @@ def main():
         merged.setdefault(str(cat), {}).update(table)
         print(f"  {name}: {len(table)} missions (category {cat})")
 
+    # Event/campaign missions the client opens by event_id (category 4).
+    # Stored under a dedicated "eventMissions" key: { "<event_id>": { "<mid>": {...} } }
+    event_missions = convert_collect_item_event_missions(load("collect_item_event_mission.json"))
+    merged["eventMissions"] = event_missions
+    total_event = sum(len(v) for v in event_missions.values())
+    print(f"  collect_item_event_mission.json: {total_event} missions across {len(event_missions)} events (category 4)")
+
     out_path = os.path.join(OUT, "mission.json")
     json.dump(merged, open(out_path, "w", encoding="utf8"), indent=2, ensure_ascii=False)
-    total = sum(len(v) for v in merged.values())
-    print(f"wrote {out_path}: {total} missions across {len(merged)} categories")
+    total = sum(len(v) for v in merged.values() if isinstance(v, dict) and "eventMissions" not in str(type(v)))
+    print(f"wrote {out_path}: regular/daily/event + {len(event_missions)} event-mission groups")
 
 
 if __name__ == "__main__":

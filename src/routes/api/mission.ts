@@ -25,19 +25,25 @@ import * as path from "path";
 // fails module resolution here, unlike the assets imported from src/lib/assets.ts).
 // Resolve relative to the compiled file location (out/routes/api → ../../assets).
 const missionsData = require(path.join(__dirname, "..", "..", "..", "assets", "mission.json"));
-const missions = missionsData as Record<string, Record<string, MissionDef>>;
 
-// mission.json shape: { "<category>": { "<mission_id>": { category, pattern, desc,
-// target, startDate, endDate } } }. category 1 = regular, 2 = daily, 3 = event.
+// mission.json shape:
+//   { "1": {...regular}, "2": {...daily}, "3": {...event_mission},
+//     "eventMissions": { "<event_id>": { "<mission_id>": {category:4, eventId, stage, pattern, desc, target, startDate, endDate } } } }
+// category 1 = regular, 2 = daily, 3 = event_mission (startdash 등),
+// eventMissions = collect_item_event / campaign missions the client opens by event_id (client category 4).
 type MissionDef = {
     category: number;
+    eventId?: number;
+    stage?: number;
     pattern: string;
     desc: string;
     target: number;
     startDate: string | null;
     endDate: string | null;
 };
-const missionsByCategory = missions as unknown as Record<string, Record<string, MissionDef>>;
+const missionsByCategory = missionsData as unknown as Record<string, Record<string, MissionDef>>;
+// event_id -> { mission_id -> MissionDef }
+const eventMissions = (missionsData.eventMissions || {}) as Record<string, Record<string, MissionDef>>;
 
 // Parses a "YYYY-MM-DD HH:MM:SS" master-data timestamp (UTC) to epoch ms, or null.
 function parseMasterDate(s: string | null): number | null {
@@ -63,6 +69,26 @@ function activeMissionsForCategory(category: number, nowMs: number): string[] {
     return ids;
 }
 
+// Returns the active missions for a specific event_id (client category 4 = 캠페인/이벤트 미션),
+// time-filtered. Each entry carries its own stage (multi-stage campaign missions).
+// The client opens an event and asks for {category:4, event_id:X}; it shows ONLY that event's
+// missions, so serving the wrong event's list = "세부미션 0개". This is why 서머/캠페인 미션이 안 떴다.
+function activeEventMissions(eventId: number, nowMs: number): { id: number, stage: number }[] {
+    const table = eventMissions[String(eventId)];
+    if (!table) return [];
+    const out: { id: number, stage: number }[] = [];
+    for (const [id, def] of Object.entries(table)) {
+        const start = parseMasterDate(def.startDate);
+        const end = parseMasterDate(def.endDate);
+        if (start !== null && nowMs < start) continue;
+        if (end !== null && nowMs > end) continue;
+        const nid = Number(id);
+        if (isNaN(nid)) continue;
+        out.push({ id: nid, stage: def.stage ?? 1 })
+    }
+    return out;
+}
+
 const routes = async (fastify: FastifyInstance) => {
     fastify.post("/get_mission_progress", async (request: FastifyRequest, reply: FastifyReply) => {
         const body = request.body as GetMissionProgressBody
@@ -83,10 +109,7 @@ const routes = async (fastify: FastifyInstance) => {
         // (falls back to categories 1/2/3 if none specified). Progress starts at 0;
         // the client pushes real progress via update_mission_progress.
         const nowMs = getServerDate().getTime()
-        const requestedCategories = (body.category_list && body.category_list.length)
-            ? body.category_list.map((c) => c.category)
-            : [1, 2, 3]
-        console.log("[MISSION/get] body=" + JSON.stringify(body) + " nowMs=" + nowMs + " reqCats=" + JSON.stringify(requestedCategories))
+        console.log("[MISSION/get] body=" + JSON.stringify(body) + " nowMs=" + nowMs)
 
         const missionProgressList: {
             mission_category: number,
@@ -95,18 +118,53 @@ const routes = async (fastify: FastifyInstance) => {
             stage: number
         }[] = []
 
-        for (const category of requestedCategories) {
-            for (const id of activeMissionsForCategory(category, nowMs)) {
+        // 클라 미션 category(요청) → 서버 데이터 매핑.
+        //   클라 1 = regular         → mission.json["1"]
+        //   클라 2 = daily           → mission.json["2"]
+        //   클라 4 = event(+event_id) → eventMissions[event_id]  (★ event_id 로 정확히 그 이벤트의 미션만)
+        // ★ 핵심 수정: 예전엔 event_id 를 무시하고 event_mission(cat3, summer 등) 전체를 반환했다.
+        //   클라는 자기가 연 이벤트(event_id)의 미션만 화면에 필터하므로, event_id 가 안 맞는
+        //   미션을 받으면 "세부미션 0개"로 뜬다(서머/캠페인 미션 안보임의 진짜 원인).
+        //   이제 event_id 가 있으면 eventMissions[event_id] 에서 그 이벤트 미션만 정확히 서빙한다.
+        //   응답 mission_category 는 클라가 준 값 그대로 echo, stage 는 미션 정의의 stage 사용.
+        const clientToServerCategory: Record<number, number> = { 1: 1, 2: 2 }
+
+        const entries = (body.category_list && body.category_list.length)
+            ? body.category_list
+            : [{ category: 1 }, { category: 2 }]
+
+        for (const entry of entries) {
+            const clientCat = entry.category
+            const eventId = (entry as { event_id?: number }).event_id
+
+            if (eventId !== undefined && eventId !== null && !isNaN(Number(eventId))) {
+                // 이벤트/캠페인 미션: event_id 로 정확히 매칭
+                for (const { id, stage } of activeEventMissions(Number(eventId), nowMs)) {
+                    missionProgressList.push({
+                        mission_category: clientCat,
+                        mission_id: id,
+                        progress_value: 0,
+                        stage: stage
+                    })
+                }
+                continue
+            }
+
+            // event_id 없는 요청(regular/daily): category 매핑으로 서빙
+            const serverCat = clientToServerCategory[clientCat]
+            if (serverCat === undefined) continue
+            for (const id of activeMissionsForCategory(serverCat, nowMs)) {
                 const nid = Number(id)
                 if (isNaN(nid)) continue
                 missionProgressList.push({
-                    mission_category: category,
+                    mission_category: clientCat,
                     mission_id: nid,
                     progress_value: 0,
                     stage: 1
                 })
             }
         }
+        console.log("[MISSION/get] served=" + missionProgressList.length + " for " + JSON.stringify(entries))
 
         reply.header("content-type", "application/x-msgpack")
         return reply.status(200).send({
@@ -157,7 +215,9 @@ interface GetMissionProgressBody {
     api_count: number,
     viewer_id: number,
     category_list: {
-        category: number
+        category: number,
+        // 이벤트/캠페인 미션 요청 시 클라가 채워 보냄 (예: {category:4, event_id:10010}).
+        event_id?: number
     }[]
 }
 

@@ -93,26 +93,39 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
 4. msgpack key 타입(int vs string) 함정 — ACTIVE_MISSION.md 참고.
 5. 이벤트 배틀 로직은 다 구현됨 — "안 됨"은 데이터/시간/해금(quest_unlock) 게이팅이지 라우트 부재 아닌 경우 많음.
 
-## 8. 미션 시스템 (get_mission_progress) — 서머미션 등 세부미션 안 뜸
+## 8. 미션 시스템 (get_mission_progress) — 서머/캠페인 세부미션 안 뜸 ★해결(2026-07-03)
 
-- 클라 요청(SWF): `{category_list: [{category} | {category, event_id}]}`. 미션종류 enum(param3.index):
-  - case 0/1/2/4 → `{category:N}` (event_id 없음, N=1~5 세부 index 매핑)
-  - **case 3 → `{category:N, event_id:X}` (이벤트 미션 — 서머 등)**
-- 서버 mission.ts: `activeMissionsForCategory(category, now)` — mission.json[category] 에서 서버시간(start~end) 내 미션만.
-  **event_id 를 무시**하고 category 로만 필터.
-- 서버 mission.json: category 1=regular, 2=daily, 3=event (1494개, 서머 포함).
-- ⚠️ **가설(미검증)**: 클라 category(1~5)와 서버 category(1/2/3) 매핑 불일치, 또는 event_id 필터 부재로
-  `mission_progress_list: []`(빈배열) 반환 → 배너 클릭해도 세부미션 0개.
-  - 실측: 게임시간 2023-04-06 기준 서버 category 1=107, 2=8, 3=18 활성인데 실제 응답은 빈배열이었음.
-  - **확정엔 mission.ts 디버그로그([MISSION/get])로 클라 실제 category_list 캡처 필요** (로그 심어둠, 미션탭 열면 찍힘).
-- ⚠️ successHandler 스키마: `mission_progress_list[i] = {mission_category:int, mission_id:int, progress_value:Float, stage:int}`.
-  progress_value 는 **Float** 기대 — 서버가 int 0 보내면 타입체크(8701) 위험(단 빈배열이면 미도달).
-- 서머2020 미션 기간: 2022-03-28~04-10 (현재 게임시간 밖). 서머 자체는 기간 지남.
+**근본원인 확정 (SWF + mitm + 디버그로그):**
+- 클라 요청: `{category_list: [{category:4, event_id:X}]}`. 미션 화면을 열면 그 이벤트의 event_id 를 담아 보냄.
+  실측: 하니와/서머 화면 → `{event_id:10010, category:4}`.
+- **event_id 10010 = `srm21_3_campaign_mission` (캠페인 미션, collect_item_event 정의)**, 기간 2023-03-25~04-09.
+  그 미션들은 `collect_item_event_mission.json` 의 각 행 `[0]==event_id` 로 묶임 (id 1915~1950, 36개).
+- ❌ 예전 mission.ts: **event_id 를 무시**하고 `mission.json["3"]`(event_mission=startdash/summer 2051~2068) 활성분을 전부 반환.
+  클라는 자기가 연 이벤트(event_id 10010)의 미션만 화면에 필터 → 받은 2051~ 은 event 10010 소속이 아니라 **전부 걸러짐 → "세부미션 0개"**.
+  (즉 서버는 200+18개 미션을 보냈지만 클라 화면엔 안 뜬 것 — 빈배열이 아니라 "엉뚱한 이벤트 미션"이 문제였음.)
 
-## 9. TODO
+**수정 (배포 완료):**
+- `scripts/convert_mission.py`: `collect_item_event_mission.json` 을 event_id 별로 변환 → `mission.json["eventMissions"]["<event_id>"]`.
+  행 스키마: `[0]=event_id [1]=stage [2]=pattern [3]=desc [4]=target [21]=start [22]=end`. 24개 이벤트, 708개 미션.
+- `src/routes/api/mission.ts`: 요청에 `event_id` 있으면 `activeEventMissions(event_id, now)` 로 **그 이벤트의 미션만** 서빙(기간필터 + 각 미션의 stage). event_id 없으면 기존대로 category(1=regular/2=daily) 서빙.
+- 검증: 배포본에서 event 10010 @ 2023-04-05 → 캠페인 미션 28개(1915~1942, 04-05 활성분), @04-08 → 36개. PASS.
+- ⚠️ successHandler 스키마: `{mission_category:int, mission_id:int, progress_value:Float, stage:int}`.
+  progress_value 는 Float 기대지만 AS3 에선 int 이 Number 라 0 도 통과(크래시 아님). stage 는 미션 정의값 사용.
+- ⚠️ 다른 이벤트(서머 등)도 각자 event_id 로 열림. event_mission.json(cat3, 2051~) 은 startdash/구서머 등 pattern 기반 별개 계열 — 클라가 event_id 로 안 여는 것들.
+
+## 9. 하니와(carnival_event) — 파티리스트 필드명 불일치 ★해결(2026-07-02)
+
+- carnival_event/index 는 200 인데도 클라가 응답 디코드 중 크래시 → 재접속 루프.
+- 원인(SWF validator 확정): `user_party_group_list[].party_list[]` 원소 필드명이 /load(맵형)과 다름.
+  carnival(배열형)은 **`party_name`/`party_edited`/`party_id`** 필수. 서버가 /load 필드명(`name`/`edited`, party_id 누락)으로 보내
+  → 8702(party_name)/8703(party_edited)/8700(party_id) throw → 크래시.
+- 수정: `serializeCarnivalPartyGroups` 가 party_id(slot)/party_name/party_edited 내보내게. 배포+실DB검증 완료.
+
+## 10. TODO
 - [x] quest/unlock 라우트 구현 (배포됨)
 - [x] 진행도 전량 시드 (seed_all_progress.js) → 오로치 진입·클리어 됨
 - [x] 오로치 크래시 진단: 서버 정상, 클리어후 클라 스토리컷신 로컬크래시 (logcat 필요)
-- [ ] 미션 category_list 실측 → 서머/이벤트 미션 빈배열 원인 확정 (mission.ts 디버그로그 대기)
-- [ ] 오로치: ADB logcat 으로 클라 크래시 스택 확보
-- [ ] 사이드퀘: quest/unlock 배포 후 잠긴 사이드퀘 해금 검증
+- [x] **미션 서머/캠페인 안뜸 원인 확정 + 수정**: event_id 무시가 원인 → eventMissions[event_id] 서빙 (배포됨)
+- [x] **하니와 재접속 루프 수정**: party_* 필드명 (배포됨)
+- [ ] item/sell, item/use_item 라우트 (조사완료, 미구현): 아이템 판매(마나)/사용(스태미나)
+- [ ] 오로치: ADB logcat 으로 클라 크래시 스택 확보 (서버측 수정 불가 결론)
