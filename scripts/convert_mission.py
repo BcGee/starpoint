@@ -104,6 +104,58 @@ def convert_collect_item_event_missions(obj):
     return by_event
 
 
+# collect_item_event_mission_reward 슬롯 kind 매핑 (active_mission_reward 와 동일 계열).
+# 이 테이블은 행 앞에 [0]=reward_id 가 있어 슬롯이 [6]부터 시작 (active_mission 은 [7]부터).
+# 슬롯 = [kind, amount, id] 3칸 반복. id 는 kind=1(item/equip)일 때만.
+#   0=성도석(stone/beads)  1=item/equip(id>=100000→equipment)  3=마나(mana)  5=경험치(pooled_exp)
+#   2,4 = 희소 특수재화(스타크럼/티켓 추정, amount=1) — 잘못 지급 위험 있어 미지급+로그.
+REWARD_KIND_MAP = {"0": "stone", "3": "mana", "5": "pooled_exp"}
+
+
+def parse_mission_rewards(reward_row):
+    """collect_item_event_mission_reward 행에서 보상 슬롯 추출 (슬롯 [6]=kind,[7]=amt,[8]=id 부터 3칸 반복)."""
+    rewards = []
+    i = 6
+    while i + 2 < len(reward_row):
+        kind_raw = none(reward_row[i])
+        amount = none(reward_row[i + 1])
+        content_id = none(reward_row[i + 2])
+        if kind_raw is None and amount is None:
+            i += 3
+            continue
+        amt = int(amount) if amount and str(amount).isdigit() else 1
+        k = str(kind_raw) if kind_raw is not None else ""
+        if k == "1":
+            if content_id is None:
+                i += 3
+                continue
+            cid = int(content_id) if str(content_id).isdigit() else content_id
+            kind = "equipment" if (isinstance(cid, int) and cid >= 100000) else "item"
+            rewards.append({"kind": kind, "id": cid, "amount": amt})
+        elif k in REWARD_KIND_MAP:
+            rewards.append({"kind": REWARD_KIND_MAP[k], "amount": amt})
+        else:
+            # unknown kind (2/4 등) — 지급하지 않고 원본 kind 기록 (오지급 방지)
+            rewards.append({"kind": "unknown", "rawKind": k, "amount": amt})
+        i += 3
+    return rewards
+
+
+def convert_mission_reward_table(obj):
+    """{ "<mission_id>": { "<stage>": [reward_row] } } → { "<mission_id>": { "<stage>": [rewards] } }"""
+    out = {}
+    for mid, stages in obj.items():
+        if not isinstance(stages, dict):
+            continue
+        stage_map = {}
+        for stage, row in stages.items():
+            if isinstance(row, list):
+                stage_map[stage] = parse_mission_rewards(row)
+        if stage_map:
+            out[mid] = stage_map
+    return out
+
+
 def main():
     merged = {}
     # category 1 = regular (always-on), 2 = daily, 3 = event
@@ -122,6 +174,11 @@ def main():
     merged["eventMissions"] = event_missions
     total_event = sum(len(v) for v in event_missions.values())
     print(f"  collect_item_event_mission.json: {total_event} missions across {len(event_missions)} events (category 4)")
+
+    # Event mission rewards, keyed by mission_id → { stage → [rewards] }. Granted on completion.
+    event_rewards = convert_mission_reward_table(load("collect_item_event_mission_reward.json"))
+    merged["eventMissionRewards"] = event_rewards
+    print(f"  collect_item_event_mission_reward.json: {len(event_rewards)} mission rewards")
 
     out_path = os.path.join(OUT, "mission.json")
     json.dump(merged, open(out_path, "w", encoding="utf8"), indent=2, ensure_ascii=False)

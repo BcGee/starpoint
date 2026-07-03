@@ -1,19 +1,31 @@
-// Bridges single_battle_quest/finish → players_mission_progress accumulation.
+// Bridges single_battle_quest/finish → players_mission_progress accumulation + reward grant.
 //
-// Called once per accomplished battle. For every event mission that is (a) currently
-// active by server time and (b) advanced by this battle (per battleProgressDelta, using
-// the cleared quest's category + finish statistics), it increments the player's stored
-// progress. Home/UI missions are handled separately (client push). Battle missions are
-// server-accumulated here — confirmed necessary: the client never pushes them.
-//
-// Also logs the raw finish statistics ([BATTLE/stats]) for ongoing verification.
+// Called once per accomplished battle. For every active event mission advanced by this battle
+// (per battleProgressDelta, using the cleared quest's category + finish statistics), increments
+// the player's stored progress. When a mission crosses its target for the first time, its
+// rewards are granted as MAIL (collect_item_event missions have NO client receive API — reward
+// delivery is server-driven; mail is the standard WF delivery channel). reward_sent flag makes
+// it idempotent (never granted twice).
 
 import * as path from "path"
-import { incrementPlayerMissionProgressSync } from "../data/wdfpData"
+import {
+    incrementPlayerMissionProgressSync,
+    getPlayerMissionProgressByIdsSync,
+    isMissionRewardSentSync,
+    markMissionRewardSentSync,
+    insertPlayerMailSync,
+} from "../data/wdfpData"
 import { battleProgressDelta, FinishStatistics, MissionDefLite } from "./battleMissionProgress"
+import { RewardType } from "./types"
 
 const missionsData = require(path.join(__dirname, "..", "..", "assets", "mission.json"))
 const eventMissions = (missionsData.eventMissions || {}) as Record<string, Record<string, MissionDefLite>>
+// mission_id → { stage → [ {kind, id?, amount, rawKind?} ] }
+const eventMissionRewards = (missionsData.eventMissionRewards || {}) as Record<string, Record<string, MissionReward[]>>
+
+interface MissionReward { kind: string, id?: number, amount: number, rawKind?: string }
+
+const MISSION_REWARD_REASON_ID = 91001 // distinct reason id for mission-completion mails
 
 function parseMasterDate(s: string | null): number | null {
     if (!s) return null
@@ -29,15 +41,58 @@ function isActive(def: MissionDefLite, nowMs: number): boolean {
     return true
 }
 
+// Maps a parsed mission-reward kind → server RewardType. Unknown kinds return null (skip + log).
+function rewardKindToType(kind: string): number | null {
+    switch (kind) {
+        case "item": return RewardType.ITEM
+        case "equipment": return RewardType.EQUIPMENT
+        case "stone": return RewardType.BEADS       // 성도석 = free beads
+        case "mana": return RewardType.MANA
+        case "pooled_exp": return RewardType.EXP
+        default: return null                          // unknown (rare kind 2/4) — do NOT grant
+    }
+}
+
+// Sends a mission's rewards as a single mail. Idempotent per (player, missionPattern).
+function grantMissionRewards(playerId: number, missionPattern: string, missionId: number, stage: number, desc: string): void {
+    if (isMissionRewardSentSync(playerId, missionPattern)) return
+    const stageRewards = eventMissionRewards[String(missionId)]
+    // reward keys are stages; fall back to stage "1" then first available
+    const rewards: MissionReward[] = (stageRewards && (stageRewards[String(stage)] || stageRewards["1"] || Object.values(stageRewards)[0])) || []
+
+    const attachments: { rewardType: number, rewardId: number | null, number: number }[] = []
+    for (const r of rewards) {
+        const rt = rewardKindToType(r.kind)
+        if (rt === null) {
+            console.log("[MISSION/reward] skip unknown kind '" + (r.rawKind ?? r.kind) + "' amt=" + r.amount + " mission=" + missionPattern)
+            continue
+        }
+        const needsId = rt === RewardType.ITEM || rt === RewardType.EQUIPMENT || rt === RewardType.CHARACTER
+        attachments.push({ rewardType: rt, rewardId: needsId ? (r.id ?? null) : null, number: r.amount })
+    }
+
+    // Always mark sent (even if attachments empty) so we don't re-check every battle.
+    markMissionRewardSentSync(playerId, missionPattern)
+    if (attachments.length === 0) return
+
+    const now = new Date()
+    insertPlayerMailSync(playerId, {
+        reasonId: MISSION_REWARD_REASON_ID,
+        subject: "미션 보상",
+        description: desc || "미션 달성 보상",
+        createTime: now,
+        receiveTime: null,
+        rewardPeriodLimited: false,
+        rewardLimitTime: null,
+        received: false,
+        attachments,
+    })
+    console.log("[MISSION/reward] granted " + attachments.length + " reward(s) via mail for " + missionPattern)
+}
+
 /**
- * Accumulate battle-mission progress for all active event missions after a battle clear.
- *
- * @param playerId         player whose progress to advance
- * @param stats            the finish request's statistics object (raw; may carry extra fields)
- * @param nowMs            current server time (ms)
- * @param clearedQuestId   the cleared quest id (for logging)
- * @param clearedCategory  the cleared quest's QuestCategory (drives questKind matching)
- * @returns number of mission rows advanced (for logging)
+ * Accumulate battle-mission progress for all active event missions after a battle clear,
+ * and grant rewards (as mail) for any mission that reaches its target.
  */
 export function accumulateBattleMissions(
     playerId: number,
@@ -46,42 +101,48 @@ export function accumulateBattleMissions(
     clearedQuestId?: number,
     clearedCategory?: number
 ): number {
-    // Ground-truth log of what the client actually sent (kept for ongoing verification).
     try {
         const zones = Array.isArray(stats.zones) ? stats.zones : []
         const killSum = zones.reduce((a, z) => a + (typeof z.enemy_kill_count === "number" ? z.enemy_kill_count : 0), 0)
         console.log("[BATTLE/stats] " + JSON.stringify({
-            quest_id: clearedQuestId,
-            category: clearedCategory,
-            clear_phase: stats.clear_phase,
-            max_skill_chain_count: stats.max_skill_chain_count,
-            max_combo_count: stats.max_combo_count,
-            enemy_kill_total: killSum,
-            client_checks: stats.client_checks
+            quest_id: clearedQuestId, category: clearedCategory,
+            clear_phase: stats.clear_phase, max_skill_chain_count: stats.max_skill_chain_count,
+            max_combo_count: stats.max_combo_count, enemy_kill_total: killSum, client_checks: stats.client_checks
         }))
     } catch { /* ignore */ }
 
     if (typeof clearedCategory !== "number") return 0
 
-    let advanced = 0
-    const advancedDetail: string[] = []
+    // Collect the missions advanced by this battle + their delta.
+    const advancedList: { eventId: number, id: number, def: MissionDefLite, delta: number }[] = []
     for (const [eventId, table] of Object.entries(eventMissions)) {
         for (const [id, def] of Object.entries(table)) {
             if (!isActive(def, nowMs)) continue
             const delta = battleProgressDelta(def, stats, clearedCategory)
             if (delta <= 0) continue
-            incrementPlayerMissionProgressSync(playerId, {
-                missionPattern: def.pattern,
-                missionId: Number(id),
-                category: def.category ?? 4,
-                eventId: Number(eventId),
-                stage: def.stage ?? 1,
-                delta
-            })
-            advanced++
-            advancedDetail.push(def.pattern + "+" + delta)
+            advancedList.push({ eventId: Number(eventId), id: Number(id), def, delta })
         }
     }
-    if (advanced > 0) console.log("[BATTLE/mission] advanced " + advanced + " rows: " + advancedDetail.slice(0, 20).join(", "))
-    return advanced
+    if (advancedList.length === 0) return 0
+
+    // Read pre-increment progress so we can detect target-crossing this battle.
+    const before = getPlayerMissionProgressByIdsSync(playerId, advancedList.map(a => a.id))
+
+    const detail: string[] = []
+    for (const a of advancedList) {
+        incrementPlayerMissionProgressSync(playerId, {
+            missionPattern: a.def.pattern, missionId: a.id, category: a.def.category ?? 4,
+            eventId: a.eventId, stage: a.def.stage ?? 1, delta: a.delta,
+        })
+        detail.push(a.def.pattern + "+" + a.delta)
+
+        // completion check: crossed target this battle → grant rewards once
+        const prev = before[a.id] ? before[a.id].progress_value : 0
+        const nowVal = prev + a.delta
+        if (a.def.target > 0 && nowVal >= a.def.target && prev < a.def.target) {
+            grantMissionRewards(playerId, a.def.pattern, a.id, a.def.stage ?? 1, a.def.desc)
+        }
+    }
+    console.log("[BATTLE/mission] advanced " + advancedList.length + " rows: " + detail.slice(0, 20).join(", "))
+    return advancedList.length
 }

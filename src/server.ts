@@ -29,6 +29,7 @@ import encyclopediaApiPlugin from "./routes/api/encyclopedia"
 import mailApiPlugin from "./routes/api/mail"
 import rankingEventApiPlugin from "./routes/api/rankingEvent"
 import missionApiPlugin from "./routes/api/mission"
+import itemApiPlugin from "./routes/api/item"
 import activeMissionApiPlugin from "./routes/api/activeMission"
 import paymentApiPlugin from "./routes/api/payment"
 import newsApiPlugin from "./routes/api/news"
@@ -129,6 +130,7 @@ fastify.register(encyclopediaApiPlugin, { prefix: `${apiPrefix}/encyclopedia` })
 fastify.register(mailApiPlugin, { prefix: `${apiPrefix}/mail` })
 fastify.register(rankingEventApiPlugin, { prefix: `${apiPrefix}/ranking_event` })
 fastify.register(missionApiPlugin, { prefix: `${apiPrefix}/mission` })
+fastify.register(itemApiPlugin, { prefix: `${apiPrefix}/item` })
 fastify.register(activeMissionApiPlugin, { prefix: `${apiPrefix}/active_mission` })
 fastify.register(paymentApiPlugin, { prefix: `${apiPrefix}/payment` })
 fastify.register(newsApiPlugin, { prefix: `${apiPrefix}/news` })

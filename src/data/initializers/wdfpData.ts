@@ -410,7 +410,10 @@ export default function init(
         stage INTEGER NOT NULL DEFAULT 1,
         progress_value INTEGER NOT NULL DEFAULT 0,
         received INTEGER NOT NULL DEFAULT 0,
+        reward_sent INTEGER NOT NULL DEFAULT 0,
         PRIMARY KEY (player_id, mission_pattern),
         FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
     )`).run()
+    // add reward_sent to pre-existing tables (idempotent migration; ignore if column exists)
+    try { database.prepare(`ALTER TABLE players_mission_progress ADD COLUMN reward_sent INTEGER NOT NULL DEFAULT 0`).run() } catch (e) { /* column already exists */ }
 }

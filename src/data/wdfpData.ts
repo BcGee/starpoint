@@ -4906,6 +4906,25 @@ export function setPlayerMissionProgressSync(
 }
 
 /**
+ * Returns whether a mission's reward has already been sent (reward_sent flag).
+ */
+export function isMissionRewardSentSync(playerId: number, missionPattern: string): boolean {
+    const row = db.prepare(`
+    SELECT reward_sent FROM players_mission_progress WHERE player_id = ? AND mission_pattern = ?
+    `).get(playerId, missionPattern) as { reward_sent: number } | undefined
+    return row !== undefined && row.reward_sent === 1
+}
+
+/**
+ * Marks a mission's reward as sent so it is never granted twice.
+ */
+export function markMissionRewardSentSync(playerId: number, missionPattern: string): void {
+    db.prepare(`
+    UPDATE players_mission_progress SET reward_sent = 1 WHERE player_id = ? AND mission_pattern = ?
+    `).run(playerId, missionPattern)
+}
+
+/**
  * Increments a mission's progress by `delta` (server-accumulated battle missions).
  * Creates the row at `delta` if absent.
  */
