@@ -137,7 +137,11 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
 - **finish `statistics` 실측 필드**: `zones[].{enemy_kill_count, use_dash_count, use_skill_count, use_power_flip_count, fever_count, weak_point_attack_count}`, `max_skill_chain_count`, `max_combo_count`, `clear_phase`(승리에도 0 — 킬수 프록시로 쓰면 안 됨). quest_id/category는 라우트 activeQuest에서.
 - 구현: `src/lib/battleMissionProgress.ts` `battleProgressDelta(def, stats, clearedCategory)` + `missionAccumulate.ts` `accumulateBattleMissions(...)`. finish `is_accomplished` 시 전체 활성 이벤트 미션에 delta 누적.
 - **라이브 검증 PASS**: category14 미궁 finish(33킬) → 적토벌 +33, 미궁클리어 +1 저장+get 반영. **category1 스토리 클리어 → 미궁 미션 안 오름**(오염 없음 확인). 콤보41이어도 "4스킬체인" 미션은 skill_chain=0이라 안 오름(콤보≠체인).
-- ⚠️ 협력배틀(멀티) 미션은 싱글서버에 콘텐츠 없어 영구 미충족(정상). 집계미션/보상지급(*_mission_reward)은 아직 TODO. mitm 요청바디 로깅([REQ]) + [BATTLE/stats] 저널 로깅 상시 유지.
+- ✅ 보상지급 완료(commit 52190ec): 미션 target 도달 시 자동 우편 지급(collect_item_event_mission_reward → eventMissionRewards, reward_sent 플래그로 중복방지). kind 0=성도석 1=item/equip 3=마나 5=경험치, 2/4(희소)는 미지급+로그.
+- ✅ 집계 미션 완료(commit dc0787c): "제N탄 미션 모두 클리어"=같은 stage 비집계 미션 전부 target 도달 시, "미션 전부 클리어"=모든 제N탄 완료 시. `evaluateAggregateMissions()`가 배틀 누적 후 재평가(2-pass), 완료 시 progress=target+보상우편. 라이브검증 PASS.
+- ⚠️ 협력배틀(멀티) 미션은 싱글서버에 콘텐츠 없어 영구 미충족(정상) → 협력 미션 포함 stage 의 집계도 현실적으로 완료 불가(원본 게임도 협력 필요). 로직은 정확, 데이터 특성.
+- ⚠️ exchange 교환소(star_crumb/bond_token)는 이 APK SWF 가 실제로 호출 안 함 — 클라 exchange 계열은 gacha/exchange_character·equipment(구현됨) + multi_special_exchange(멀티) 뿐. 이전 문서의 exchange/* 미구현 항목은 허상 → 구현 불필요.
+- mitm 요청바디 로깅([REQ]) + [BATTLE/stats] 저널 로깅 상시 유지.
 
 ## 9. 하니와(carnival_event) — 파티리스트 필드명 불일치 ★해결(2026-07-02)
 
