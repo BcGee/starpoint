@@ -16,6 +16,9 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Armaments
   - Awakening
   - Melting
+* Items
+  - Selling items for mana
+  - Using consumable items (stamina potions restore stamina)
 * Mailbox
   - Listing, receiving, & bulk-receiving mail
   - Reward attachments (items, equipment, characters, beads, mana, exp)
@@ -25,6 +28,14 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Party organization
 * Encyclopedia
 * Missions
+  - Regular / daily missions
+  - Event & campaign missions (served per event_id)
+  - Step-up (active) missions
+  - Battle-mission progress tracking (kills, skill chains, content clears — accumulated server-side at battle finish)
+  - Mission completion rewards delivered as mail
+* Events
+  - Carnival events (e.g. Haniwa)
+  - Rush / ranking events
 * Time travel to past & future events.
 
 For a more in-depth view of the progress completed, visit the [API routes document](/docs/routes.md).
