@@ -392,4 +392,25 @@ export default function init(
         FOREIGN KEY (mail_id) REFERENCES players_mails (id) ON DELETE CASCADE,
         FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
     )`).run()
+
+    // Mission progress (STAGE 2). Stores per-player progress for every mission the
+    // client tracks. Keyed by (player_id, mission_pattern) because the client pushes
+    // progress by pattern string (update_mission_progress) and mission ids overlap
+    // across categories/events — pattern is the stable unique key. mission_id/category
+    // are stored alongside so get_mission_progress can echo them back.
+    //   progress_value : current progress (client-pushed for home missions; server-
+    //                     accumulated at battle finish for battle missions)
+    //   received       : reward claimed flag (0/1)
+    database.prepare(`CREATE TABLE IF NOT EXISTS players_mission_progress (
+        player_id INTEGER NOT NULL,
+        mission_pattern TEXT NOT NULL,
+        mission_id INTEGER NOT NULL,
+        category INTEGER NOT NULL,
+        event_id INTEGER,
+        stage INTEGER NOT NULL DEFAULT 1,
+        progress_value INTEGER NOT NULL DEFAULT 0,
+        received INTEGER NOT NULL DEFAULT 0,
+        PRIMARY KEY (player_id, mission_pattern),
+        FOREIGN KEY (player_id) REFERENCES players (id) ON DELETE CASCADE
+    )`).run()
 }

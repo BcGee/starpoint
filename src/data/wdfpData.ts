@@ -4818,3 +4818,124 @@ export function playerHasMailForDayKeySync(
     `).get(playerId, reasonId, dayKey)
     return row !== undefined
 }
+
+// ---------------------------------------------------------------------------
+// Mission progress (STAGE 2) — players_mission_progress
+// ---------------------------------------------------------------------------
+
+export interface RawPlayerMissionProgress {
+    player_id: number
+    mission_pattern: string
+    mission_id: number
+    category: number
+    event_id: number | null
+    stage: number
+    progress_value: number
+    received: number
+}
+
+/**
+ * Returns all stored mission progress rows for a player, keyed by mission_pattern.
+ */
+export function getPlayerMissionProgressSync(
+    playerId: number
+): Record<string, RawPlayerMissionProgress> {
+    const rows = db.prepare(`
+    SELECT player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received
+    FROM players_mission_progress
+    WHERE player_id = ?
+    `).all(playerId) as RawPlayerMissionProgress[]
+    const out: Record<string, RawPlayerMissionProgress> = {}
+    for (const r of rows) out[r.mission_pattern] = r
+    return out
+}
+
+/**
+ * Returns stored progress for the given mission_ids (used by get_mission_progress
+ * to echo saved progress back to the client). Keyed by mission_id.
+ */
+export function getPlayerMissionProgressByIdsSync(
+    playerId: number,
+    missionIds: number[]
+): Record<number, RawPlayerMissionProgress> {
+    if (missionIds.length === 0) return {}
+    const placeholders = missionIds.map(() => "?").join(",")
+    const rows = db.prepare(`
+    SELECT player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received
+    FROM players_mission_progress
+    WHERE player_id = ? AND mission_id IN (${placeholders})
+    `).all(playerId, ...missionIds) as RawPlayerMissionProgress[]
+    const out: Record<number, RawPlayerMissionProgress> = {}
+    for (const r of rows) out[r.mission_id] = r
+    return out
+}
+
+/**
+ * Upserts a mission's progress by pattern. Sets progress_value to the larger of the
+ * existing and new value (progress never regresses). Creates the row if absent.
+ */
+export function setPlayerMissionProgressSync(
+    playerId: number,
+    params: {
+        missionPattern: string,
+        missionId: number,
+        category: number,
+        eventId?: number | null,
+        stage?: number,
+        progressValue: number
+    }
+): void {
+    db.prepare(`
+    INSERT INTO players_mission_progress (player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+    ON CONFLICT(player_id, mission_pattern) DO UPDATE SET
+        progress_value = MAX(progress_value, excluded.progress_value),
+        mission_id = excluded.mission_id,
+        category = excluded.category,
+        event_id = excluded.event_id,
+        stage = excluded.stage
+    `).run(
+        playerId,
+        params.missionPattern,
+        params.missionId,
+        params.category,
+        params.eventId ?? null,
+        params.stage ?? 1,
+        params.progressValue
+    )
+}
+
+/**
+ * Increments a mission's progress by `delta` (server-accumulated battle missions).
+ * Creates the row at `delta` if absent.
+ */
+export function incrementPlayerMissionProgressSync(
+    playerId: number,
+    params: {
+        missionPattern: string,
+        missionId: number,
+        category: number,
+        eventId?: number | null,
+        stage?: number,
+        delta: number
+    }
+): void {
+    db.prepare(`
+    INSERT INTO players_mission_progress (player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+    ON CONFLICT(player_id, mission_pattern) DO UPDATE SET
+        progress_value = progress_value + excluded.progress_value,
+        mission_id = excluded.mission_id,
+        category = excluded.category,
+        event_id = excluded.event_id,
+        stage = excluded.stage
+    `).run(
+        playerId,
+        params.missionPattern,
+        params.missionId,
+        params.category,
+        params.eventId ?? null,
+        params.stage ?? 1,
+        params.delta
+    )
+}

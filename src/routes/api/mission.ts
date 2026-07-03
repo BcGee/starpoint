@@ -17,7 +17,7 @@
 // master data that a full implementation would build on.
 
 import { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
-import { getSession } from "../../data/wdfpData";
+import { getSession, getAccountPlayers, getPlayerMissionProgressByIdsSync, setPlayerMissionProgressSync } from "../../data/wdfpData";
 import { generateDataHeaders, getServerDate } from "../../utils";
 import * as path from "path";
 // Load mission master data at runtime via an indirect require so tsc doesn't pull
@@ -44,6 +44,36 @@ type MissionDef = {
 const missionsByCategory = missionsData as unknown as Record<string, Record<string, MissionDef>>;
 // event_id -> { mission_id -> MissionDef }
 const eventMissions = (missionsData.eventMissions || {}) as Record<string, Record<string, MissionDef>>;
+
+// pattern -> { missionId, category, eventId, stage } index, built once from all mission
+// tables. The client's update_mission_progress pushes progress by mission_pattern
+// (string), so we need pattern → mission_id/category to persist it correctly.
+type PatternInfo = { missionId: number, category: number, eventId: number | null, stage: number };
+const patternIndex: Record<string, PatternInfo> = (() => {
+    const idx: Record<string, PatternInfo> = {};
+    for (const cat of ["1", "2", "3"]) {
+        const table = missionsByCategory[cat];
+        if (!table) continue;
+        for (const [id, def] of Object.entries(table)) {
+            if (def && def.pattern) idx[def.pattern] = { missionId: Number(id), category: Number(cat), eventId: null, stage: def.stage ?? 1 };
+        }
+    }
+    for (const [eventId, table] of Object.entries(eventMissions)) {
+        for (const [id, def] of Object.entries(table)) {
+            if (def && def.pattern) idx[def.pattern] = { missionId: Number(id), category: def.category ?? 4, eventId: Number(eventId), stage: def.stage ?? 1 };
+        }
+    }
+    return idx;
+})();
+
+// Resolves a viewer_id (session) to the underlying player_id.
+async function resolvePlayerId(viewerId: number): Promise<number | null> {
+    const session = await getSession(viewerId.toString());
+    if (!session) return null;
+    const playerIds = await getAccountPlayers(session.accountId);
+    const playerId = playerIds[0];
+    return isNaN(playerId) ? null : playerId;
+}
 
 // Parses a "YYYY-MM-DD HH:MM:SS" master-data timestamp (UTC) to epoch ms, or null.
 function parseMasterDate(s: string | null): number | null {
@@ -99,15 +129,16 @@ const routes = async (fastify: FastifyInstance) => {
             "message": "Invalid request body."
         })
 
-        const viewerIdSession = await getSession(viewerId.toString())
-        if (!viewerIdSession) return reply.status(400).send({
+        const playerId = await resolvePlayerId(viewerId)
+        if (playerId === null) return reply.status(400).send({
             "error": "Bad Request",
             "message": "Invalid viewer id."
         })
 
         // Build the mission progress list for the categories the client asked about
-        // (falls back to categories 1/2/3 if none specified). Progress starts at 0;
-        // the client pushes real progress via update_mission_progress.
+        // (falls back to categories 1/2 if none specified). Progress values are read
+        // from players_mission_progress (STAGE 2) — home missions are client-pushed via
+        // update_mission_progress, battle missions are server-accumulated at finish.
         const nowMs = getServerDate().getTime()
         console.log("[MISSION/get] body=" + JSON.stringify(body) + " nowMs=" + nowMs)
 
@@ -133,6 +164,9 @@ const routes = async (fastify: FastifyInstance) => {
             ? body.category_list
             : [{ category: 1 }, { category: 2 }]
 
+        // Pass 1: enumerate the (mission_id, category, stage) tuples that are active for
+        // the requested categories/events.
+        const candidates: { clientCat: number, missionId: number, stage: number }[] = []
         for (const entry of entries) {
             const clientCat = entry.category
             const eventId = (entry as { event_id?: number }).event_id
@@ -140,12 +174,7 @@ const routes = async (fastify: FastifyInstance) => {
             if (eventId !== undefined && eventId !== null && !isNaN(Number(eventId))) {
                 // 이벤트/캠페인 미션: event_id 로 정확히 매칭
                 for (const { id, stage } of activeEventMissions(Number(eventId), nowMs)) {
-                    missionProgressList.push({
-                        mission_category: clientCat,
-                        mission_id: id,
-                        progress_value: 0,
-                        stage: stage
-                    })
+                    candidates.push({ clientCat, missionId: id, stage })
                 }
                 continue
             }
@@ -156,13 +185,20 @@ const routes = async (fastify: FastifyInstance) => {
             for (const id of activeMissionsForCategory(serverCat, nowMs)) {
                 const nid = Number(id)
                 if (isNaN(nid)) continue
-                missionProgressList.push({
-                    mission_category: clientCat,
-                    mission_id: nid,
-                    progress_value: 0,
-                    stage: 1
-                })
+                candidates.push({ clientCat, missionId: nid, stage: 1 })
             }
+        }
+
+        // Pass 2: look up saved progress for those mission_ids and emit. Missing = 0.
+        const savedProgress = getPlayerMissionProgressByIdsSync(playerId, candidates.map((c) => c.missionId))
+        for (const c of candidates) {
+            const saved = savedProgress[c.missionId]
+            missionProgressList.push({
+                mission_category: c.clientCat,
+                mission_id: c.missionId,
+                progress_value: saved ? saved.progress_value : 0,
+                stage: c.stage
+            })
         }
         console.log("[MISSION/get] served=" + missionProgressList.length + " for " + JSON.stringify(entries))
 
@@ -187,16 +223,42 @@ const routes = async (fastify: FastifyInstance) => {
             "message": "Invalid request body."
         })
 
-        const viewerIdSession = await getSession(viewerId.toString())
-        if (!viewerIdSession) return reply.status(400).send({
+        const playerId = await resolvePlayerId(viewerId)
+        if (playerId === null) return reply.status(400).send({
             "error": "Bad Request",
             "message": "Invalid viewer id."
         })
 
-        // STAGE 2 TODO: persist body.mission_param_list progress to
-        // players_mission_progress and grant mission_reward on completion.
-        // For now we accept the push and return empty (no reward), which keeps the
-        // client happy without a DB migration.
+        // Persist the client-pushed progress (home/UI missions — the client computes
+        // these locally in MissionCounterLogic and pushes them here as an ARRAY of
+        // {mission_pattern, progress_value}). Resolve each pattern → mission_id/category
+        // via the master-data index, then store (progress never regresses).
+        // NOTE: battle missions are NOT pushed here — the client never calls
+        // update_mission_progress for battle progress; those are accumulated
+        // server-side at single_battle_quest/finish (see that handler).
+        const rawList = (body as { mission_param_list?: unknown }).mission_param_list
+        const paramList: { mission_pattern: string, progress_value: number }[] =
+            Array.isArray(rawList) ? rawList as any : (rawList ? [rawList as any] : [])
+        console.log("[MISSION/update] body=" + JSON.stringify(body))
+        for (const p of paramList) {
+            if (!p || typeof p.mission_pattern !== "string") continue
+            const info = patternIndex[p.mission_pattern]
+            if (!info) {
+                console.log("[MISSION/update] unknown pattern (not in master data): " + p.mission_pattern)
+                continue
+            }
+            const progress = Number(p.progress_value)
+            if (isNaN(progress)) continue
+            setPlayerMissionProgressSync(playerId, {
+                missionPattern: p.mission_pattern,
+                missionId: info.missionId,
+                category: info.category,
+                eventId: info.eventId,
+                stage: info.stage,
+                progressValue: progress
+            })
+        }
+
         reply.header("content-type", "application/x-msgpack")
         return reply.status(200).send({
             "data_headers": generateDataHeaders({
@@ -224,10 +286,11 @@ interface GetMissionProgressBody {
 interface UpdateMissionProgressBody {
     viewer_id: number,
     api_count: number,
+    // Client pushes an ARRAY of pushed progress (MissionCounterLogic.send).
     mission_param_list: {
         progress_value: number,
         mission_pattern: string
-    }
+    }[]
 }
 
 export default routes;

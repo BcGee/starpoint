@@ -113,6 +113,25 @@ QuestCategory(src/lib/types.ts:23): 0=EMPTY 1=MAIN 2=BOSS_BATTLE 3=CHARACTER 4=E
   progress_value 는 Float 기대지만 AS3 에선 int 이 Number 라 0 도 통과(크래시 아님). stage 는 미션 정의값 사용.
 - ⚠️ 다른 이벤트(서머 등)도 각자 event_id 로 열림. event_mission.json(cat3, 2051~) 은 startdash/구서머 등 pattern 기반 별개 계열 — 클라가 event_id 로 안 여는 것들.
 
+## 8-2. 미션 진행도 추적 (STAGE 2) — 적 토벌 x40 등 진행 안 오름 ★인프라 완료/누적 대기(2026-07-03)
+
+**클라 계약 확정 (SWF 전수 — BattleQuestFinishRealRemote / MissionCounterLogic / CollectItemEventMissionScene / MissionClientCheckManager):**
+1. **미션 화면은 서버 progress_value 를 그대로 표시** — `CollectItemEventMissionScene.remoteInput→applyMissionProgress`(파일 …§‒§/ｰ/§—§/ー/…int.as:466-477, 713-714)가 `get_mission_progress` 응답값을 숫자 그대로 씀. **로컬 계산 없음.** → 서버가 progress 를 소유한다. 서버가 0 주면 화면 0.
+2. **홈/UI 미션 5종만 클라가 push** — `MissionCounterLogic.send()`(파일 §⁃§/ￚ/§⎯§/…int.as:57-87)가 `update_mission_progress` 로 **배열** `[{mission_pattern, progress_value}]` 전송. 대상: character_detail_zoom_illust_for_1min_count / character_detail_play_dot_sp_motion_count / home_tap_town_character_count / home_change_voice_count / twitter_check. **이게 유일한 update_mission_progress 호출부** (grep 전수 확인).
+3. **배틀 미션은 update_mission_progress 로 안 옴** — QuestResult 씬 20여개 전부 mission refs 0, mitm 로그 update 0건. 배틀 통계는 `single_battle_quest/finish` 요청의 `statistics` 로만 서버 도달: **`{max_power, max_skill_chain_count, max_combo_count, clear_phase, zones, party, client_checks}`** (파일 ー/§⎯§/§⁃§/…int.as:247-260 getStatistics). ⚠️ 서버 QuestStatistics 인터페이스는 clear_phase+party 만 선언 → 나머지(스킬체인/콤보/client_checks)를 **파싱 안 하고 버리고 있었음** (예전에 "finish 에 스킬체인수 없다"고 한 건 서버 타입만 보고 한 오판; 클라는 다 보냄).
+4. `client_checks` = `MissionClientCheckManager.getClearedIds()`(배틀 중 충족된 클라체크 id 배열, 디버프/보스컷인 등 특수조건). mission_client_check.json 은 hard_multi 3개뿐 — 캠페인 배틀미션(협력클리어/토벌/스킬체인)은 client_check 없이 desc 기반 판정.
+
+**서버 구현 (배포 완료, 2026-07-03):**
+- `players_mission_progress(player_id, mission_pattern PK, mission_id, category, event_id, stage, progress_value, received)` 테이블 신설 (initializers/wdfpData.ts, CREATE IF NOT EXISTS 라 재시작 시 자동생성).
+- wdfpData.ts: `getPlayerMissionProgressByIdsSync` / `setPlayerMissionProgressSync`(MAX, 역행방지) / `incrementPlayerMissionProgressSync`(+delta).
+- mission.ts: get_mission_progress 가 저장값 반환(없으면 0), update_mission_progress 가 push 배열을 pattern→mission_id 인덱스로 매핑해 저장. **홈 미션은 이제 완전 작동.** 라이브 검증: mission 1918 progress=7 seed→get 응답에 7 반영 PASS.
+- singleBattleQuest.ts finish: `accumulateBattleMissions()` 호출 → **[BATTLE/stats] 로 실제 statistics(client_checks 포함)+quest_id 를 저널에 로깅.**
+- `src/lib/battleMissionProgress.ts` + `missionAccumulate.ts`: desc 로 미션 분류(clear/kill/skill_chain/combo/aggregate) + finish 통계로 delta 계산.
+
+**⚠️ 배틀 미션 자동누적은 현재 OFF (`ACCUMULATE_ENABLED=false` in missionAccumulate.ts):**
+- 이유: quest_id→미션 트리거 매핑을 실제 트래픽으로 검증 전엔 켜면 안 됨. 지금 켜면 "모든 클리어에 협력배틀 미션 +1" 같은 오판정으로 **틀린 진행도**를 보여줌(솔로 클리어인데 협력미션 오름). blanc 원칙(임의수치 금지) 위반.
+- **다음 단계**: blanc 배틀 1판 → `journalctl -u starpoint | grep '\[BATTLE/stats\]'` 로 실제 client_checks/quest_id 확인 → quest→mission 매핑 확정 → `ACCUMULATE_ENABLED=true` + 정밀 규칙. mitm 도 요청바디 로깅 추가해둠([REQ] 프리픽스, mission/battle_quest 계열).
+
 ## 9. 하니와(carnival_event) — 파티리스트 필드명 불일치 ★해결(2026-07-02)
 
 - carnival_event/index 는 200 인데도 클라가 응답 디코드 중 크래시 → 재접속 루프.
