@@ -1,0 +1,10 @@
+[Unit]
+Description=Advance StarPoint server time by 3 days (daily) and restart server
+After=starpoint.service
+
+[Service]
+Type=oneshot
+User=ec2-user
+# 1) advance offset +3 and set time on the running server, 2) restart so ExecStartPost re-pins it
+ExecStart=/home/ec2-user/starpoint/scripts/advance-server-time.sh advance
+ExecStartPost=/bin/bash -c 'sudo systemctl restart starpoint'

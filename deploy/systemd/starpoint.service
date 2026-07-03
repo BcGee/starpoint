@@ -1,0 +1,16 @@
+[Unit]
+Description=Starpoint Node server (World Flipper)
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/starpoint
+ExecStart=/usr/bin/node --env-file=.env out/server.js
+ExecStartPost=/bin/bash -c 'sleep 2 && /home/ec2-user/starpoint/scripts/advance-server-time.sh set'
+Restart=on-failure
+RestartSec=5
+Environment=NODE_OPTIONS=--max-old-space-size=1024
+
+[Install]
+WantedBy=multi-user.target
