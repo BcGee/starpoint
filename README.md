@@ -19,6 +19,7 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Items
   - Selling items for mana
   - Using consumable items (stamina potions restore stamina)
+* Stamina & pooled EXP natural recovery over real elapsed time
 * Mailbox
   - Listing, receiving, & bulk-receiving mail
   - Reward attachments (items, equipment, characters, beads, mana, exp)
@@ -36,6 +37,7 @@ A work-in-progress server emulator for the global version of a mobile pinball ga
 * Events
   - Carnival events (e.g. Haniwa)
   - Rush / ranking events
+* Server clock ticks in real time from a pinned date; daily +3-day jump at 05:00 KST
 * Time travel to past & future events.
 
 For a more in-depth view of the progress completed, visit the [API routes document](/docs/routes.md).
