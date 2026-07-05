@@ -63,16 +63,19 @@ interface ReceiveAllBody {
     viewer_id: number
 }
 
-// The client's mail attachment tuple uses a "type" field that does NOT match the
-// internal RewardType enum ordering. These constants map our stored RewardType
-// onto the client-facing mail attachment `type` values observed in captured traffic
-// (type 1 = character, 4 = mana, 5 = equipment, 6 = item).
+// The client renders a mail's reward via the `MailKind` enum (decompiled from the
+// game client). The mail's `type` field MUST equal the MailKind enum index, and
+// `type_id` is the reward's id. Verified MailKind indices:
+//   0 Item, 1 PaidVirtualMoney, 2 FreeVirtualMoney (beads), 3 Character,
+//   4 Equipment, 5 StarCrumb, 6 FreeMana, 7 PooledExperience, 8 BondToken,
+//   9 BossBoostPoint, 10 BoostPoint, 11 Degree, 12 DailyChallengePoint,
+//   13 PeriodicRewardPoint
 const ClientMailType = {
-    CHARACTER: 1,
-    EQUIPMENT: 5,
-    ITEM: 6,
-    MANA: 4,
-    BEADS: 3,
+    ITEM: 0,
+    BEADS: 2,
+    CHARACTER: 3,
+    EQUIPMENT: 4,
+    MANA: 6,
     EXP: 7
 } as const
 
@@ -88,12 +91,26 @@ function clientMailTypeForReward(rewardType: number): number {
     }
 }
 
+// Currency-type rewards (beads/mana/exp) map to parameterless MailKind members
+// (FreeVirtualMoney/FreeMana/PooledExperience), so their type_id MUST be null.
+// Only item-like rewards (item/character/equipment) carry a type_id.
+function clientMailTypeIdForReward(attachment: PlayerMailAttachment): number | null {
+    switch (attachment.rewardType) {
+        case RewardType.BEADS:
+        case RewardType.MANA:
+        case RewardType.EXP:
+            return null
+        default:
+            return attachment.rewardId ?? null
+    }
+}
+
 // Serializes a mail's attachment into the (type, type_id, number) tuple the client
 // renders in the mailbox list.
 function serializeMailAttachment(attachment: PlayerMailAttachment) {
     return {
         "type": clientMailTypeForReward(attachment.rewardType),
-        "type_id": attachment.rewardId,
+        "type_id": clientMailTypeIdForReward(attachment),
         "number": attachment.number
     }
 }
@@ -106,9 +123,9 @@ function serializeMail(mail: PlayerMail) {
         "id": mail.id,
         "reason_id": mail.reasonId,
         "subject": mail.subject,
-        "description": mail.description,
+        "description": Buffer.byteLength(mail.description, "utf8") > 31 ? mail.description.slice(0, 10) : mail.description,
         "type": primary ? clientMailTypeForReward(primary.rewardType) : 0,
-        "type_id": primary ? primary.rewardId : null,
+        "type_id": primary ? clientMailTypeIdForReward(primary) : null,
         "number": primary ? primary.number : 0,
         "create_time": clientSerializeDate(mail.createTime),
         "receive_time": mail.receiveTime === null ? null : clientSerializeDate(mail.receiveTime),
@@ -288,7 +305,7 @@ const routes = async (fastify: FastifyInstance) => {
         // unreceived mail in the box (the "receive all" button sends no ids).
         const requestedIds = Array.isArray(body.mail_ids) && body.mail_ids.length > 0
             ? body.mail_ids
-            : getPlayerMailsSync(playerId).map(m => m.id)
+            : getPlayerMailsSync(playerId).map((m: PlayerMail) => m.id)
 
         // collect all attachments across the requested mails, skipping any that are
         // missing or already received

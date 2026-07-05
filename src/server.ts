@@ -38,6 +38,7 @@ import historyApiPlugin from "./routes/api/history"
 import loungeApiPlugin from "./routes/api/lounge"
 import bonusApiPlugin from "./routes/api/bonus"
 import howToGetApiPlugin from "./routes/api/howToGet"
+import comicApiPlugin from "./routes/api/comic"
 // web routes
 import indexWebPlugin from "./routes/web"
 // web api routes
@@ -54,6 +55,18 @@ import infodeskPlugin from "./routes/infodesk";
 const fastify = Fastify({
     logger: false
 })
+
+// Optional request tracing (set STARPOINT_TRACE=1). Logs every incoming request
+// path and flags 404s (unimplemented endpoints) so we can see exactly where the
+// game client gets stuck (e.g. during the tutorial).
+if (process.env.STARPOINT_TRACE === "1") {
+    fastify.addHook('onResponse', (request, reply, done) => {
+        const code = reply.statusCode
+        const marker = code === 404 ? " <<< 404 UNIMPLEMENTED" : ""
+        console.error(`[trace] ${request.method} ${request.url} -> ${code}${marker}`)
+        done()
+    })
+}
 
 // serializers
 fastify.addHook('onSend', (_, reply, payload, done) => {
@@ -135,6 +148,7 @@ fastify.register(historyApiPlugin, { prefix: `${apiPrefix}/history` })
 fastify.register(loungeApiPlugin, { prefix: `${apiPrefix}/lounge` })
 fastify.register(bonusApiPlugin, { prefix: `${apiPrefix}/bonus` })
 fastify.register(howToGetApiPlugin, { prefix: `${apiPrefix}/how_to_get` })
+fastify.register(comicApiPlugin, { prefix: `${apiPrefix}/comic` })
 
 // openapi
 fastify.register(openapiPlugin, { prefix: "/openapi/service" })

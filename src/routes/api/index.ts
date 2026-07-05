@@ -29,16 +29,22 @@ const routes = async (fastify: FastifyInstance) => {
         })
 
         const session = await getSession(zat)
-        if (session === null || session.type !== SessionType.ZAT) return reply.status(400).send({
-            "error": "Bad Request",
-            "message": "Invalid zat provided."
-        })
+        if (session === null || session.type !== SessionType.ZAT) {
+            if (process.env.STARPOINT_TRACE === "1") console.error(`[trace] /load 400: invalid zat (session=${session === null ? "null" : "type=" + session.type}) viewer=${viewerId}`)
+            return reply.status(400).send({
+                "error": "Bad Request",
+                "message": "Invalid zat provided."
+            })
+        }
 
         const viewerSession = await getSession(String(viewerId))
-        if (viewerSession === null || viewerSession.type !== SessionType.VIEWER) return reply.status(400).send({
-            "error": "Bad Request",
-            "message": "Invalid viewer ID provided."
-        })
+        if (viewerSession === null || viewerSession.type !== SessionType.VIEWER) {
+            if (process.env.STARPOINT_TRACE === "1") console.error(`[trace] /load 400: invalid viewer (session=${viewerSession === null ? "null" : "type=" + viewerSession.type}) viewer=${viewerId}`)
+            return reply.status(400).send({
+                "error": "Bad Request",
+                "message": "Invalid viewer ID provided."
+            })
+        }
 
         const accountId = session.accountId
 

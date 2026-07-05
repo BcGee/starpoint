@@ -224,6 +224,30 @@ const routes = async (fastify: FastifyInstance) => {
         reply.status(200).send({})
     })
 
+    // Promotion endpoints. The game calls these during login/startup; returning a
+    // 404 stalls the flow (e.g. the tutorial intro). Starpoint runs no promotions,
+    // so these mirror the captured "empty" responses from the live server.
+    fastify.post("/v3/promotion/checkUrlPromotion", (_, reply: FastifyReply) => {
+        reply.status(200).send({
+            "result": "NO_PROMOTION"
+        })
+    })
+
+    fastify.post("/v3/promotion/popup/getList", (_, reply: FastifyReply) => {
+        reply.status(200).send({
+            "popups": []
+        })
+    })
+
+    fastify.post("/v3/promotion/getStartingPopups", (request: FastifyRequest, reply: FastifyReply) => {
+        const body = (request.body || {}) as { appId?: string, playerId?: string }
+        reply.status(200).send({
+            "promotions": [],
+            "appId": body.appId ?? "",
+            "playerId": body.playerId ?? ""
+        })
+    })
+
     /**
      * Tells the client the status of the user's policy agreements.
      */

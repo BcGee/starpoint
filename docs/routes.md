@@ -110,9 +110,9 @@ Endpoint | Status
 [/service/v3/log/writeRoundLog](./routes/service_v3_log_writeRoundLog.md) | :no_entry:
 [/service/v3/log/writeSdkBasicLog](./routes/service_v3_log_writeSdkBasicLog.md) | :no_entry:
 [/service/v3/player/heartbeat](./routes/service_v3_player_heartbeat.md) | :warning:
-[/service/v3/promotion/checkUrlPromotion](./routes/service_v3_promotion_checkUrlPromotion.md) | :no_entry:
-[/service/v3/promotion/getStartingPopups](./routes/service_v3_promotion_getStartingPopups.md) | :no_entry:
-[/service/v3/promotion/popup/getList](./routes/service_v3_promotion_popup_getList.md) | :no_entry:
+[/service/v3/promotion/checkUrlPromotion](./routes/service_v3_promotion_checkUrlPromotion.md) | :white_check_mark:
+[/service/v3/promotion/getStartingPopups](./routes/service_v3_promotion_getStartingPopups.md) | :white_check_mark:
+[/service/v3/promotion/popup/getList](./routes/service_v3_promotion_popup_getList.md) | :white_check_mark:
 [/service/v3/push/token/register](./routes/service_v3_push_token_register.md) | :white_check_mark:
 [/service/v3/util/country/get](./routes/service_v3_util_country_get.md) | :white_check_mark:
 [/service/v3/zat/login](./routes/service_v3_zat_login.md) | :white_check_mark:
