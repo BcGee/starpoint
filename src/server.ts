@@ -13,6 +13,8 @@ import gachaApiPlugin from "./routes/api/gacha"
 import partyApiPlugin from "./routes/api/party"
 import expodApiPlugin from "./routes/api/expod"
 import storyQuestApiPlugin from "./routes/api/storyQuest"
+import questApiPlugin from "./routes/api/quest"
+import carnivalEventApiPlugin from "./routes/api/carnivalEvent"
 import optionApiPlugin from "./routes/api/option"
 import singleBattleQuestApiPlugin from "./routes/api/singleBattleQuest"
 import multiBattleQuestApiPlugin from "./routes/api/multiBattleQuest"
@@ -27,6 +29,8 @@ import encyclopediaApiPlugin from "./routes/api/encyclopedia"
 import mailApiPlugin from "./routes/api/mail"
 import rankingEventApiPlugin from "./routes/api/rankingEvent"
 import missionApiPlugin from "./routes/api/mission"
+import itemApiPlugin from "./routes/api/item"
+import activeMissionApiPlugin from "./routes/api/activeMission"
 import paymentApiPlugin from "./routes/api/payment"
 import newsApiPlugin from "./routes/api/news"
 import raidEventApiPlugin from "./routes/api/raidEvent"
@@ -123,6 +127,8 @@ fastify.register(gachaApiPlugin, { prefix: `${apiPrefix}/gacha` })
 fastify.register(partyApiPlugin, { prefix: `${apiPrefix}/party` })
 fastify.register(expodApiPlugin, { prefix: `${apiPrefix}/expod` })
 fastify.register(storyQuestApiPlugin, { prefix: `${apiPrefix}/story_quest` })
+fastify.register(questApiPlugin, { prefix: `${apiPrefix}/quest` })
+fastify.register(carnivalEventApiPlugin, { prefix: `${apiPrefix}/carnival_event` })
 fastify.register(optionApiPlugin, { prefix: `${apiPrefix}/option` })
 fastify.register(singleBattleQuestApiPlugin, { prefix: `${apiPrefix}/single_battle_quest` })
 fastify.register(multiBattleQuestApiPlugin, { prefix: `${apiPrefix}/multi_battle_quest` })
@@ -137,6 +143,8 @@ fastify.register(encyclopediaApiPlugin, { prefix: `${apiPrefix}/encyclopedia` })
 fastify.register(mailApiPlugin, { prefix: `${apiPrefix}/mail` })
 fastify.register(rankingEventApiPlugin, { prefix: `${apiPrefix}/ranking_event` })
 fastify.register(missionApiPlugin, { prefix: `${apiPrefix}/mission` })
+fastify.register(itemApiPlugin, { prefix: `${apiPrefix}/item` })
+fastify.register(activeMissionApiPlugin, { prefix: `${apiPrefix}/active_mission` })
 fastify.register(paymentApiPlugin, { prefix: `${apiPrefix}/payment` })
 fastify.register(newsApiPlugin, { prefix: `${apiPrefix}/news` })
 fastify.register(raidEventApiPlugin, { prefix: `${apiPrefix}/event/raid` })

@@ -607,6 +607,19 @@ export interface UserQuestProgress {
     clear_rank?: number
 }
 
+// active_mission (스텝업) — 클라 /load 스키마 (CommonResponseActiveMissionInfo)
+// active_mission_list: Option<Array<{ mission_id:Int, progress_value:Int,
+//   stages:Option<Array<{ stage:Int, received:Bool }>> }>>
+export interface UserActiveMissionStageInfo {
+    stage: number
+    received: boolean
+}
+export interface UserActiveMissionInfo {
+    mission_id: number
+    progress_value: number
+    stages: UserActiveMissionStageInfo[]
+}
+
 export interface UserGachaInfo {
     gacha_id: number
     is_daily_first: boolean
@@ -677,7 +690,10 @@ export interface ClientPlayerData {
     drawn_quest_list: UserDrawnQuest[]
     mail_arrived: boolean
     user_periodic_reward_point_list: PlayerPeriodicRewardPoint[]
-    all_active_mission_list: Record<string, PlayerActiveMission>
+    // /load 직렬화 시 int-key Map 을 넣는다(msgpack string-key 버그 회피). deserialize 입력은
+    // 객체 형태라 타입은 넓게 unknown 으로 둔다.
+    all_active_mission_list: unknown
+    active_mission_list?: UserActiveMissionInfo[]
     cleared_collect_item_event_mission_list: unknown[]
     box_gacha_list: Record<string, UserBoxGacha[]>
     gacha_campaign_list: UserGachaCampaign[]

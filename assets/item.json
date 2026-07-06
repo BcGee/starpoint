@@ -1,0 +1,7394 @@
+{
+  "1": {
+    "pattern": "ability_material_0",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "2": {
+    "pattern": "ability_material_1",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "3": {
+    "pattern": "ability_material_2",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "4": {
+    "pattern": "ability_material_3",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "5": {
+    "pattern": "ability_material_4",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "6": {
+    "pattern": "ability_material_5",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "7": {
+    "pattern": "ability_material_6",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "8": {
+    "pattern": "ability_material_7",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "9": {
+    "pattern": "ability_material_8",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "10": {
+    "pattern": "ability_material_9",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "11": {
+    "pattern": "ability_material_10",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "12": {
+    "pattern": "ability_material_11",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "13": {
+    "pattern": "ability_material_12",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "14": {
+    "pattern": "ability_material_13",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "15": {
+    "pattern": "ability_material_14",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "16": {
+    "pattern": "ability_material_15",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "42": {
+    "pattern": "ability_material_41",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "43": {
+    "pattern": "ability_material_42",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "44": {
+    "pattern": "ability_material_43",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "45": {
+    "pattern": "ability_material_44",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "46": {
+    "pattern": "ability_material_45",
+    "salePrice": 5,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "47": {
+    "pattern": "ability_material_46",
+    "salePrice": 25,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "48": {
+    "pattern": "ability_material_47",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49": {
+    "pattern": "ability_material_48",
+    "salePrice": 150,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50": {
+    "pattern": "ability_material_49",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "51": {
+    "pattern": "ability_material_50",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "52": {
+    "pattern": "ability_material_51",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "53": {
+    "pattern": "ability_material_52",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "54": {
+    "pattern": "ability_material_53",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "55": {
+    "pattern": "ability_material_54",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "56": {
+    "pattern": "ability_material_55",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "57": {
+    "pattern": "ability_material_56",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "58": {
+    "pattern": "ability_material_57",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "59": {
+    "pattern": "ability_material_58",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "60": {
+    "pattern": "ability_material_59",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "61": {
+    "pattern": "ability_material_60",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "62": {
+    "pattern": "ability_material_61",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "63": {
+    "pattern": "ability_material_62",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "64": {
+    "pattern": "ability_material_63",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "65": {
+    "pattern": "ability_material_64",
+    "salePrice": 100,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "66": {
+    "pattern": "ability_material_65",
+    "salePrice": 300,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "67": {
+    "pattern": "ability_material_66",
+    "salePrice": 500,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "99": {
+    "pattern": "ability_material_40",
+    "salePrice": 50,
+    "useKind": 0,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100": {
+    "pattern": "bit_stamina_potion",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 1,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "101": {
+    "pattern": "half_stamina_potion",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "102": {
+    "pattern": "stamina_potion",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 50,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "106": {
+    "pattern": "large_stamina_potion",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 100,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "200": {
+    "pattern": "limited_stamina_potion_00_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "201": {
+    "pattern": "limited_stamina_potion_01_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "202": {
+    "pattern": "limited_stamina_potion_02_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "203": {
+    "pattern": "limited_stamina_potion_03_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "204": {
+    "pattern": "limited_stamina_potion_04_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "205": {
+    "pattern": "limited_stamina_potion_05_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "206": {
+    "pattern": "limited_stamina_potion_06_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "207": {
+    "pattern": "limited_stamina_potion_07_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "208": {
+    "pattern": "limited_stamina_potion_08_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "209": {
+    "pattern": "limited_stamina_potion_09_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "210": {
+    "pattern": "limited_stamina_potion_10_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "211": {
+    "pattern": "limited_stamina_potion_11_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "212": {
+    "pattern": "limited_stamina_potion_12_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "213": {
+    "pattern": "limited_stamina_potion_13_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "214": {
+    "pattern": "limited_stamina_potion_14_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "215": {
+    "pattern": "limited_stamina_potion_15_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "216": {
+    "pattern": "limited_stamina_potion_16_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "217": {
+    "pattern": "limited_stamina_potion_17_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "218": {
+    "pattern": "limited_stamina_potion_18_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "219": {
+    "pattern": "limited_stamina_potion_19_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "220": {
+    "pattern": "limited_stamina_potion_20_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "221": {
+    "pattern": "limited_stamina_potion_ny22",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "222": {
+    "pattern": "limited_stamina_potion_21_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "223": {
+    "pattern": "limited_stamina_potion_22_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "224": {
+    "pattern": "limited_stamina_potion_23_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "225": {
+    "pattern": "limited_stamina_potion_24_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "226": {
+    "pattern": "limited_stamina_potion_25_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "227": {
+    "pattern": "limited_stamina_potion_26_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "228": {
+    "pattern": "limited_stamina_potion_27_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "229": {
+    "pattern": "limited_stamina_potion_28_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "230": {
+    "pattern": "limited_stamina_potion_29_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "231": {
+    "pattern": "limited_stamina_potion_30_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "232": {
+    "pattern": "limited_stamina_potion_31_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "233": {
+    "pattern": "limited_stamina_potion_32_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "234": {
+    "pattern": "limited_stamina_potion_one_day_only",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "235": {
+    "pattern": "limited_stamina_potion_33_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "236": {
+    "pattern": "limited_stamina_potion_34_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "237": {
+    "pattern": "limited_stamina_potion_35_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "238": {
+    "pattern": "limited_stamina_potion_36_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "239": {
+    "pattern": "limited_stamina_potion_37_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "240": {
+    "pattern": "limited_stamina_potion_38_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "241": {
+    "pattern": "limited_stamina_potion_39_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "242": {
+    "pattern": "limited_stamina_potion_40_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "243": {
+    "pattern": "limited_stamina_potion_41_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "244": {
+    "pattern": "limited_stamina_potion_42_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "245": {
+    "pattern": "limited_stamina_potion_ny23",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "246": {
+    "pattern": "limited_stamina_potion_43_00",
+    "salePrice": 1,
+    "useKind": 2,
+    "useValue": 25,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "901": {
+    "pattern": "whiteday_21_stamina_present_01",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 100,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "10001": {
+    "pattern": "awaking_crystal_3",
+    "salePrice": 50,
+    "useKind": 4,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "10002": {
+    "pattern": "awaking_crystal_4",
+    "salePrice": 50,
+    "useKind": 4,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "10003": {
+    "pattern": "awaking_crystal_5",
+    "salePrice": 50,
+    "useKind": 4,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "11001": {
+    "pattern": "awaking_crystal_piece_3",
+    "salePrice": 50,
+    "useKind": 5,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "11002": {
+    "pattern": "awaking_crystal_piece_4",
+    "salePrice": 50,
+    "useKind": 5,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "11003": {
+    "pattern": "awaking_crystal_piece_5",
+    "salePrice": 50,
+    "useKind": 5,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "12001": {
+    "pattern": "equipment_awaking_crystal_4",
+    "salePrice": 50,
+    "useKind": 6,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "12002": {
+    "pattern": "equipment_awaking_crystal_5",
+    "salePrice": 50,
+    "useKind": 6,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "13001": {
+    "pattern": "equipment_awaking_crystal_piece_5",
+    "salePrice": 50,
+    "useKind": 7,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14001": {
+    "pattern": "alterite_red_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14002": {
+    "pattern": "alterite_red_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14003": {
+    "pattern": "alterite_red_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14004": {
+    "pattern": "alterite_blue_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14005": {
+    "pattern": "alterite_blue_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14006": {
+    "pattern": "alterite_blue_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14007": {
+    "pattern": "alterite_yellow_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14008": {
+    "pattern": "alterite_yellow_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14009": {
+    "pattern": "alterite_yellow_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14010": {
+    "pattern": "alterite_green_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14011": {
+    "pattern": "alterite_green_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14012": {
+    "pattern": "alterite_green_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14013": {
+    "pattern": "alterite_black_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14014": {
+    "pattern": "alterite_black_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14015": {
+    "pattern": "alterite_black_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14016": {
+    "pattern": "alterite_white_r3",
+    "salePrice": 100,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "14017": {
+    "pattern": "alterite_white_r4",
+    "salePrice": 300,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "14018": {
+    "pattern": "alterite_white_r5",
+    "salePrice": 500,
+    "useKind": 21,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "14033": {
+    "pattern": "equipment_enhancement_material_red_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14034": {
+    "pattern": "equipment_enhancement_material_blue_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14035": {
+    "pattern": "equipment_enhancement_material_yellow_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14036": {
+    "pattern": "equipment_enhancement_material_green_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14037": {
+    "pattern": "equipment_enhancement_material_white_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14038": {
+    "pattern": "equipment_enhancement_material_black_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "14040": {
+    "pattern": "equipment_enhancement_material_none_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 200
+  },
+  "14041": {
+    "pattern": "equipment_enhancement_material_red_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "14042": {
+    "pattern": "equipment_enhancement_material_blue_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "14043": {
+    "pattern": "equipment_enhancement_material_yellow_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "14044": {
+    "pattern": "equipment_enhancement_material_green_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "14045": {
+    "pattern": "equipment_enhancement_material_white_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "14046": {
+    "pattern": "equipment_enhancement_material_black_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "20001": {
+    "pattern": "gacha_ticket_0",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20002": {
+    "pattern": "gacha_ticket_1",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20003": {
+    "pattern": "gacha_ticket_2",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "20004": {
+    "pattern": "gacha_ticket_3",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "20005": {
+    "pattern": "gacha_equip_ticket_one_0",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20006": {
+    "pattern": "gacha_equip_ticket_ten_0",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20007": {
+    "pattern": "gacha_ticket_4",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20008": {
+    "pattern": "gacha_ticket_5",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20009": {
+    "pattern": "gacha_ticket_xmas19",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20010": {
+    "pattern": "gacha_ticket_10_xmas19",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20011": {
+    "pattern": "gacha_ticket_advent_event_thunder_pickup",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20012": {
+    "pattern": "gacha_ticket_10_advent_event_thunder_pickup",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20013": {
+    "pattern": "gacha_ticket_ny20",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20014": {
+    "pattern": "gacha_ticket_10_ny20",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20015": {
+    "pattern": "gacha_ticket_fukubukuro_2020",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20016": {
+    "pattern": "gacha_ticket_new_character_pickup02",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20017": {
+    "pattern": "gacha_ticket_10_new_character_pickup02",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20018": {
+    "pattern": "gacha_ticket_unison_1_1",
+    "salePrice": 1,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20019": {
+    "pattern": "gacha_ticket_unison_1_10",
+    "salePrice": 1,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20020": {
+    "pattern": "gacha_ticket_new_character_pickup_05",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20021": {
+    "pattern": "gacha_ticket_10_new_character_pickup_05",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20022": {
+    "pattern": "gacha_ticket_woman_character_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20023": {
+    "pattern": "gacha_ticket_10_woman_character_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20024": {
+    "pattern": "gacha_ticket_new_character_pickup_06",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20025": {
+    "pattern": "gacha_ticket_10_new_character_pickup_06",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20026": {
+    "pattern": "gacha_ticket_thunder_element_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20027": {
+    "pattern": "gacha_ticket_10_thunder_element_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20028": {
+    "pattern": "gacha_ticket_new_character_pickup_07",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20029": {
+    "pattern": "gacha_ticket_10_new_character_pickup_07",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20030": {
+    "pattern": "gacha_ticket_black_element_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20031": {
+    "pattern": "gacha_ticket_10_black_element_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20032": {
+    "pattern": "gacha_ticket_new_character_pickup_08",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20033": {
+    "pattern": "gacha_ticket_10_new_character_pickup_08",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20034": {
+    "pattern": "gacha_ticket_white_element_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20035": {
+    "pattern": "gacha_ticket_10_white_element_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20036": {
+    "pattern": "gacha_ticket_new_character_pickup_09",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20037": {
+    "pattern": "gacha_ticket_10_new_character_pickup_09",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20038": {
+    "pattern": "gacha_ticket_no_pickup_world_flipper_gacha",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20039": {
+    "pattern": "gacha_ticket_10_no_pickup_world_flipper_gacha",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20040": {
+    "pattern": "gacha_ticket_equipment_pickup_2",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20041": {
+    "pattern": "gacha_ticket_10_equipment_pickup_2",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20042": {
+    "pattern": "gacha_ticket_new_character_pickup_10",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20043": {
+    "pattern": "gacha_ticket_10_new_character_pickup_10",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20044": {
+    "pattern": "gacha_ticket_green_element_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20045": {
+    "pattern": "gacha_ticket_10_green_element_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20046": {
+    "pattern": "gacha_ticket_new_character_pickup_11",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20047": {
+    "pattern": "gacha_ticket_10_new_character_pickup_11",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20048": {
+    "pattern": "gacha_ticket_thunder_element_pickup_02",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20049": {
+    "pattern": "gacha_ticket_10_thunder_element_pickup_02",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20050": {
+    "pattern": "gacha_ticket_equipment_pickup_3",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20051": {
+    "pattern": "gacha_ticket_10_equipment_pickup_3",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20052": {
+    "pattern": "gacha_ticket_new_character_pickup_12",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20053": {
+    "pattern": "gacha_ticket_10_new_character_pickup_12",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20054": {
+    "pattern": "gacha_ticket_red_element_pickup_01",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20055": {
+    "pattern": "gacha_ticket_10_red_element_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20056": {
+    "pattern": "gacha_ticket_new_character_pickup_13",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20057": {
+    "pattern": "gacha_ticket_10_new_character_pickup_13",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20058": {
+    "pattern": "gacha_ticket_white_element_pickup_02",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20059": {
+    "pattern": "gacha_ticket_10_white_element_pickup_02",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20060": {
+    "pattern": "gacha_ticket_new_character_pickup_14",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20061": {
+    "pattern": "gacha_ticket_10_new_character_pickup_14",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20062": {
+    "pattern": "gacha_ticket_black_element_pickup_02",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "20063": {
+    "pattern": "gacha_ticket_10_black_element_pickup_02",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20064": {
+    "pattern": "gacha_ticket_10_fukubukuro_2021",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "20065": {
+    "pattern": "gacha_ticket_1_fukubukuro_2021",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "20066": {
+    "pattern": "gacha_ticket_10_revival_smr20_character_pickup_01",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "20067": {
+    "pattern": "gacha_ticket_rarity_over4_guaranteed_02",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "30002": {
+    "pattern": "event_shadow_matter_r2",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30003": {
+    "pattern": "event_chaos_matter_r3",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30004": {
+    "pattern": "event_dark_matter",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30005": {
+    "pattern": "event_abyss_matter_r5",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30006": {
+    "pattern": "event_shadow_matter_r2_re02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30007": {
+    "pattern": "event_chaos_matter_r3_re02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30008": {
+    "pattern": "event_dark_matter_re02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30009": {
+    "pattern": "event_abyss_matter_r5_re02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30010": {
+    "pattern": "event_shadow_matter_r2_re03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30011": {
+    "pattern": "event_chaos_matter_r3_re03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30012": {
+    "pattern": "event_dark_matter_re03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30013": {
+    "pattern": "event_abyss_matter_r5_re03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30014": {
+    "pattern": "event_shadow_matter_r2_re04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30015": {
+    "pattern": "event_chaos_matter_r3_re04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30016": {
+    "pattern": "event_dark_matter_re04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30017": {
+    "pattern": "event_abyss_matter_r5_re04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30018": {
+    "pattern": "event_shadow_matter_r2_re05",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30019": {
+    "pattern": "event_chaos_matter_r3_re05",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30020": {
+    "pattern": "event_dark_matter_re05",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30021": {
+    "pattern": "event_abyss_matter_r5_re05",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30022": {
+    "pattern": "event_shadow_matter_r2_re06",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "30023": {
+    "pattern": "event_chaos_matter_r3_re06",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30024": {
+    "pattern": "event_dark_matter_re06",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30025": {
+    "pattern": "event_abyss_matter_r5_re06",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30026": {
+    "pattern": "event_chaos_matter_r3_constant",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "30027": {
+    "pattern": "event_dark_matter_constant",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "30028": {
+    "pattern": "event_abyss_matter_r5_constant",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30029": {
+    "pattern": "dark_matter_quest_challenge_item",
+    "salePrice": 0,
+    "useKind": 19,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "30101": {
+    "pattern": "box_token_cyberpunk01",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30102": {
+    "pattern": "box_token_fakeprincess01",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30103": {
+    "pattern": "box_token_summer_2020",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30104": {
+    "pattern": "box_token_yokai_emaki_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30105": {
+    "pattern": "box_token_cyberpunk01_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30106": {
+    "pattern": "box_token_anv1",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30107": {
+    "pattern": "box_token_fakeprincess01_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30108": {
+    "pattern": "box_token_desert_bonds_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30109": {
+    "pattern": "box_token_summer_2020_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30110": {
+    "pattern": "box_token_cyberpunk02_hero",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30111": {
+    "pattern": "box_token_yokai_emaki_01_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30112": {
+    "pattern": "box_token_summer_2021",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30113": {
+    "pattern": "box_token_crown_beasts",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30114": {
+    "pattern": "box_token_anv1_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30115": {
+    "pattern": "box_token_anv2",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30116": {
+    "pattern": "box_token_raid_event_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30117": {
+    "pattern": "box_token_desert_bonds_01_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30118": {
+    "pattern": "box_token_vt22",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30119": {
+    "pattern": "box_token_raid_event_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30120": {
+    "pattern": "box_token_cyberpunk02_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30121": {
+    "pattern": "box_token_raid_event_03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30122": {
+    "pattern": "box_token_summer_2021_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30123": {
+    "pattern": "box_token_2halfanv",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30124": {
+    "pattern": "box_token_summer_2022",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30125": {
+    "pattern": "box_token_crown_beasts_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30126": {
+    "pattern": "box_token_raid_event_04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30127": {
+    "pattern": "box_token_anv2_re01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "30128": {
+    "pattern": "box_token_anv3",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "40000": {
+    "pattern": "boss_coin_owl_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40001": {
+    "pattern": "boss_coin_owl_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40010": {
+    "pattern": "boss_coin_treant_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40011": {
+    "pattern": "boss_coin_treant_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40020": {
+    "pattern": "boss_coin_lich_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40021": {
+    "pattern": "boss_coin_lich_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40022": {
+    "pattern": "boss_coin_lich_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40030": {
+    "pattern": "boss_coin_lich_another_thunder_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40031": {
+    "pattern": "boss_coin_lich_another_thunder_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40040": {
+    "pattern": "boss_coin_guardian_totem_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40041": {
+    "pattern": "boss_coin_guardian_totem_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40050": {
+    "pattern": "boss_coin_guardian_golem_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40051": {
+    "pattern": "boss_coin_guardian_golem_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40052": {
+    "pattern": "boss_coin_guardian_golem_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40060": {
+    "pattern": "boss_coin_guardian_golem_another_water_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40061": {
+    "pattern": "boss_coin_guardian_golem_another_water_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40070": {
+    "pattern": "boss_coin_guardian_golem_another_light_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40071": {
+    "pattern": "boss_coin_guardian_golem_another_light_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40080": {
+    "pattern": "boss_coin_kraken_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40081": {
+    "pattern": "boss_coin_kraken_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40090": {
+    "pattern": "boss_coin_hermit_crab_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40091": {
+    "pattern": "boss_coin_hermit_crab_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40092": {
+    "pattern": "boss_coin_hermit_crab_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40100": {
+    "pattern": "boss_coin_hermit_crab_another_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40101": {
+    "pattern": "boss_coin_hermit_crab_another_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40110": {
+    "pattern": "boss_coin_arch_evil_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40111": {
+    "pattern": "boss_coin_arch_evil_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40112": {
+    "pattern": "boss_coin_arch_evil_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40120": {
+    "pattern": "boss_coin_boar_rider_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40121": {
+    "pattern": "boss_coin_boar_rider_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40122": {
+    "pattern": "boss_coin_boar_rider_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40130": {
+    "pattern": "boss_coin_white_tiger_ghost_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40131": {
+    "pattern": "boss_coin_white_tiger_ghost_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40132": {
+    "pattern": "boss_coin_white_tiger_ghost_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40140": {
+    "pattern": "boss_coin_white_tiger_ghost_another_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40141": {
+    "pattern": "boss_coin_white_tiger_ghost_another_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40150": {
+    "pattern": "boss_coin_security_armor_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40151": {
+    "pattern": "boss_coin_security_armor_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40152": {
+    "pattern": "boss_coin_security_armor_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40160": {
+    "pattern": "boss_coin_administrator_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40161": {
+    "pattern": "boss_coin_administrator_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40162": {
+    "pattern": "boss_coin_administrator_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40170": {
+    "pattern": "boss_coin_administrator_another_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40171": {
+    "pattern": "boss_coin_administrator_another_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40180": {
+    "pattern": "boss_coin_ghost_fox_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40181": {
+    "pattern": "boss_coin_ghost_fox_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40182": {
+    "pattern": "boss_coin_ghost_fox_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40190": {
+    "pattern": "boss_coin_orochi_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40191": {
+    "pattern": "boss_coin_orochi_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40192": {
+    "pattern": "boss_coin_orochi_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40200": {
+    "pattern": "boss_coin_light_guardian_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40201": {
+    "pattern": "boss_coin_light_guardian_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40210": {
+    "pattern": "boss_coin_discarded_dragon_thunder_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 999999
+  },
+  "40211": {
+    "pattern": "boss_coin_discarded_dragon_thunder_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "40220": {
+    "pattern": "boss_coin_discarded_dragon_fire_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40221": {
+    "pattern": "boss_coin_discarded_dragon_fire_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40230": {
+    "pattern": "boss_coin_discarded_dragon_light_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40231": {
+    "pattern": "boss_coin_discarded_dragon_light_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40232": {
+    "pattern": "boss_coin_elements_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40233": {
+    "pattern": "boss_coin_elements_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40234": {
+    "pattern": "boss_coin_discarded_dragon_water_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40235": {
+    "pattern": "boss_coin_discarded_dragon_water_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40236": {
+    "pattern": "boss_coin_discarded_dragon_fire2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40237": {
+    "pattern": "boss_coin_discarded_dragon_fire2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40238": {
+    "pattern": "boss_coin_discarded_dragon_fire2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40239": {
+    "pattern": "boss_coin_discarded_dragon_dark_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40240": {
+    "pattern": "boss_coin_discarded_dragon_dark_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40241": {
+    "pattern": "boss_coin_discarded_dragon_dark_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40242": {
+    "pattern": "hw20_cookies_1",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40243": {
+    "pattern": "hw20_cookies_2",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40244": {
+    "pattern": "hw20_cookies_3",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40245": {
+    "pattern": "boss_coin_discarded_dragon_thunder2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40246": {
+    "pattern": "boss_coin_discarded_dragon_thunder2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40247": {
+    "pattern": "boss_coin_discarded_dragon_thunder2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40248": {
+    "pattern": "xm20_exchange_item_01",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40249": {
+    "pattern": "xm20_exchange_item_02",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40250": {
+    "pattern": "xm20_exchange_item_03",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40251": {
+    "pattern": "boss_coin_discarded_dragon_water2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40252": {
+    "pattern": "boss_coin_discarded_dragon_water2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40253": {
+    "pattern": "boss_coin_discarded_dragon_water2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40254": {
+    "pattern": "boss_coin_discarded_dragon_wind_1_silver",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40255": {
+    "pattern": "boss_coin_discarded_dragon_wind_2_gold",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40256": {
+    "pattern": "boss_coin_discarded_dragon_wind_3_purple",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40257": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_1_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40258": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_1_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40259": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_1_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40260": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40261": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40262": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40263": {
+    "pattern": "boss_coin_dorsal_brothers_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40264": {
+    "pattern": "boss_coin_dorsal_brothers_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40265": {
+    "pattern": "boss_coin_dorsal_brothers_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40266": {
+    "pattern": "boss_coin_discarded_dragon_thunder_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40267": {
+    "pattern": "boss_coin_discarded_dragon_thunder_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40268": {
+    "pattern": "boss_coin_discarded_dragon_thunder_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40269": {
+    "pattern": "boss_coin_discarded_dragon_fire_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40270": {
+    "pattern": "boss_coin_discarded_dragon_fire_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40271": {
+    "pattern": "boss_coin_discarded_dragon_fire_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40272": {
+    "pattern": "boss_coin_discarded_dragon_water_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40273": {
+    "pattern": "boss_coin_discarded_dragon_water_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40274": {
+    "pattern": "boss_coin_discarded_dragon_water_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40275": {
+    "pattern": "boss_coin_grizzly_fire_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40276": {
+    "pattern": "boss_coin_grizzly_fire_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40277": {
+    "pattern": "boss_coin_grizzly_fire_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40278": {
+    "pattern": "boss_coin_advent_spirit_beast_water_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40279": {
+    "pattern": "boss_coin_advent_spirit_beast_water_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40280": {
+    "pattern": "boss_coin_advent_spirit_beast_water_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40281": {
+    "pattern": "boss_coin_discarded_dragon_wind_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40282": {
+    "pattern": "boss_coin_discarded_dragon_wind_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40283": {
+    "pattern": "boss_coin_discarded_dragon_wind_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40284": {
+    "pattern": "boss_coin_discarded_dragon_light_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40285": {
+    "pattern": "boss_coin_discarded_dragon_light_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40286": {
+    "pattern": "boss_coin_discarded_dragon_light_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40287": {
+    "pattern": "boss_coin_discarded_dragon_dark_revival_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40288": {
+    "pattern": "boss_coin_discarded_dragon_dark_revival_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40289": {
+    "pattern": "boss_coin_discarded_dragon_dark_revival_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40290": {
+    "pattern": "hw21_cookies_1",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40291": {
+    "pattern": "hw21_cookies_2",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40292": {
+    "pattern": "hw21_cookies_3",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40293": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40294": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40295": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40296": {
+    "pattern": "xm21_exchange_item_01",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40297": {
+    "pattern": "xm21_exchange_item_02",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40298": {
+    "pattern": "xm21_exchange_item_03",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40299": {
+    "pattern": "boss_coin_evil_envy_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40300": {
+    "pattern": "boss_coin_evil_envy_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40301": {
+    "pattern": "boss_coin_evil_envy_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40302": {
+    "pattern": "boss_coin_advent_spirit_beast_water2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40303": {
+    "pattern": "boss_coin_advent_spirit_beast_water2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40304": {
+    "pattern": "boss_coin_advent_spirit_beast_water2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40305": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_3_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40306": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_3_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40307": {
+    "pattern": "boss_coin_multi_battle_pickup_empress_3_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40308": {
+    "pattern": "boss_coin_advent_hw22_1",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40309": {
+    "pattern": "boss_coin_advent_hw22_2",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40310": {
+    "pattern": "boss_coin_advent_hw22_3",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40311": {
+    "pattern": "boss_epuration_exchange_item_01",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40312": {
+    "pattern": "boss_epuration_exchange_item_02",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40313": {
+    "pattern": "equipment_enhancement_material_boss_epuration_01",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40314": {
+    "pattern": "boss_epuration_point",
+    "salePrice": 0,
+    "useKind": 19,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99
+  },
+  "40315": {
+    "pattern": "boss_coin_advent_xm22_1",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "40316": {
+    "pattern": "boss_coin_advent_xm22_2",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "40317": {
+    "pattern": "boss_coin_advent_xm22_3",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "40401": {
+    "pattern": "steam_robot_material_red_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40402": {
+    "pattern": "steam_robot_material_blue_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40403": {
+    "pattern": "steam_robot_material_yellow_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40404": {
+    "pattern": "steam_robot_material_green_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40405": {
+    "pattern": "steam_robot_material_white_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40406": {
+    "pattern": "steam_robot_material_black_r4",
+    "salePrice": 300,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 2000
+  },
+  "40407": {
+    "pattern": "steam_robot_material_red_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "40408": {
+    "pattern": "steam_robot_material_blue_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "40409": {
+    "pattern": "steam_robot_material_yellow_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "40410": {
+    "pattern": "steam_robot_material_green_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "40411": {
+    "pattern": "steam_robot_material_white_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "40412": {
+    "pattern": "steam_robot_material_black_r5",
+    "salePrice": 500,
+    "useKind": 1,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 10
+  },
+  "49000": {
+    "pattern": "boss_coin_fragment_silver",
+    "salePrice": 1,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 999999
+  },
+  "49001": {
+    "pattern": "boss_coin_fragment_gold",
+    "salePrice": 2,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "49002": {
+    "pattern": "boss_coin_fragment_purple",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "49100": {
+    "pattern": "prize_ranking_event_01",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49200": {
+    "pattern": "encyclopedia_point",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999
+  },
+  "49300": {
+    "pattern": "hard_multi_battle_token",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49302": {
+    "pattern": "boss_coin_advent_spirit_beast_fire_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49303": {
+    "pattern": "boss_coin_advent_spirit_beast_fire_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49304": {
+    "pattern": "boss_coin_advent_spirit_beast_fire_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49305": {
+    "pattern": "boss_coin_advent_spirit_beast_light_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49306": {
+    "pattern": "boss_coin_advent_spirit_beast_light_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49307": {
+    "pattern": "boss_coin_advent_spirit_beast_light_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49308": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49309": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49310": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49311": {
+    "pattern": "boss_coin_advent_spirit_beast_storm_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49312": {
+    "pattern": "boss_coin_advent_spirit_beast_storm_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49313": {
+    "pattern": "boss_coin_advent_spirit_beast_storm_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49314": {
+    "pattern": "boss_coin_advent_spirit_beast_dark_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49315": {
+    "pattern": "boss_coin_advent_spirit_beast_dark_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49316": {
+    "pattern": "boss_coin_advent_spirit_beast_dark_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49317": {
+    "pattern": "boss_coin_advent_spirit_beast_storm2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49318": {
+    "pattern": "boss_coin_advent_spirit_beast_storm2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49319": {
+    "pattern": "boss_coin_advent_spirit_beast_storm2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49320": {
+    "pattern": "boss_coin_advent_spirit_beast_fire2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49321": {
+    "pattern": "boss_coin_advent_spirit_beast_fire2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49322": {
+    "pattern": "boss_coin_advent_spirit_beast_fire2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49323": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder3_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49324": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder3_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49325": {
+    "pattern": "boss_coin_advent_spirit_beast_thunder3_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49326": {
+    "pattern": "boss_coin_advent_spirit_beast_light2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49327": {
+    "pattern": "boss_coin_advent_spirit_beast_light2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49328": {
+    "pattern": "boss_coin_advent_spirit_beast_light2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49329": {
+    "pattern": "boss_coin_advent_spirit_beast_dark2_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49330": {
+    "pattern": "boss_coin_advent_spirit_beast_dark2_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49331": {
+    "pattern": "boss_coin_advent_spirit_beast_dark2_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "49332": {
+    "pattern": "boss_coin_advent_steam_robot_fire_1",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "49333": {
+    "pattern": "boss_coin_advent_steam_robot_fire_2",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "49334": {
+    "pattern": "boss_coin_advent_steam_robot_fire_3",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "50001": {
+    "pattern": "xmas_01_item_2",
+    "salePrice": 100,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50002": {
+    "pattern": "xmas_01_item_1",
+    "salePrice": 100,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50100": {
+    "pattern": "valen20_01_item_2",
+    "salePrice": 100,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50101": {
+    "pattern": "valen20_01_item_1",
+    "salePrice": 100,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50102": {
+    "pattern": "valen20_01_item_present",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 100,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50103": {
+    "pattern": "valen21_01_item_2",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50104": {
+    "pattern": "valen21_01_item_1",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50105": {
+    "pattern": "valen22_01_item_present",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 100,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50106": {
+    "pattern": "whiteday_22_stamina_present_01",
+    "salePrice": 50,
+    "useKind": 2,
+    "useValue": 100,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50200": {
+    "pattern": "Zcollab_exchange_item_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50201": {
+    "pattern": "Zcollab_exchange_item_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50210": {
+    "pattern": "Zcollab_exchange_item_11",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50211": {
+    "pattern": "Zcollab_exchange_item_12",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50300": {
+    "pattern": "Rcollab_exchange_item_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50301": {
+    "pattern": "Rcollab_exchange_item_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50400": {
+    "pattern": "gcollab_exchange_item_01",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50401": {
+    "pattern": "gcollab_exchange_item_02",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50402": {
+    "pattern": "gcollab_exchange_item_03",
+    "salePrice": 30,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "50600": {
+    "pattern": "revival_Rcollab_exchange_item_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50601": {
+    "pattern": "revival_Rcollab_exchange_item_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50700": {
+    "pattern": "Pcollab_02_exchange_item_01",
+    "salePrice": 3,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50701": {
+    "pattern": "Pcollab_02_exchange_item_02",
+    "salePrice": 10,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "50702": {
+    "pattern": "Pcollab_02_exchange_item_03",
+    "salePrice": 30,
+    "useKind": 15,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "50800": {
+    "pattern": "u_collabo_exchange_item_01",
+    "salePrice": 3,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "50801": {
+    "pattern": "u_collabo_exchange_item_02",
+    "salePrice": 10,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "60001": {
+    "pattern": "side_story_event_quest_unlock_certificate",
+    "salePrice": 1,
+    "useKind": 18,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "60002": {
+    "pattern": "token_cyberpunk01_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60003": {
+    "pattern": "token_fakeprincess01_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60004": {
+    "pattern": "token_summer_2020_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60005": {
+    "pattern": "token_yokai_emaki_01_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60006": {
+    "pattern": "token_anv1_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60007": {
+    "pattern": "token_valen20_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60008": {
+    "pattern": "token_desert_bonds_01_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60009": {
+    "pattern": "token_cyberpunk02_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60010": {
+    "pattern": "token_summer_2021_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60011": {
+    "pattern": "token_crown_beasts_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "60012": {
+    "pattern": "token_anv2_side_story_event",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "70001": {
+    "pattern": "rush_event_item_01",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "70002": {
+    "pattern": "rush_event_item_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "70003": {
+    "pattern": "rush_event_item_03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "70004": {
+    "pattern": "rush_event_item_04",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 99999
+  },
+  "80001": {
+    "pattern": "target_item_drop_event_yuragi_no_shizuku",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80002": {
+    "pattern": "target_item_drop_event_yuragi_no_shizuku_001",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80003": {
+    "pattern": "target_item_drop_event_yuragi_no_shizuku_3rd",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80101": {
+    "pattern": "collect_item_event_drop_01_001",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80102": {
+    "pattern": "collect_item_event_drop_01_002",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80103": {
+    "pattern": "collect_item_event_drop_01_003",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80104": {
+    "pattern": "collect_item_event_drop_01_004",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80105": {
+    "pattern": "collect_item_event_drop_01_005",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80106": {
+    "pattern": "collect_item_event_drop_01_006",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80107": {
+    "pattern": "collect_item_event_drop_01_007",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80108": {
+    "pattern": "collect_item_event_drop_fall_2021",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80109": {
+    "pattern": "collect_item_event_drop_01_011",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80110": {
+    "pattern": "collect_item_event_drop_01_012",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80111": {
+    "pattern": "material_trader_item_01_001",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80112": {
+    "pattern": "collect_item_event_drop_01_013",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80113": {
+    "pattern": "collect_item_event_drop_01_014",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 999999
+  },
+  "80201": {
+    "pattern": "collect_item_event_drop_02_001",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80202": {
+    "pattern": "collect_item_event_drop_02_002",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80203": {
+    "pattern": "collect_item_event_drop_02_003",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80204": {
+    "pattern": "collect_item_event_drop_02_004",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80205": {
+    "pattern": "collect_item_event_drop_02_005",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80206": {
+    "pattern": "collect_item_event_drop_02_006",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80207": {
+    "pattern": "collect_item_event_drop_02_007",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80208": {
+    "pattern": "collect_item_event_drop_02_012",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80212": {
+    "pattern": "collect_item_event_drop_02_013",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "80213": {
+    "pattern": "collect_item_event_drop_02_014",
+    "salePrice": 0,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "90010": {
+    "pattern": "haniwa_medal_bronze",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "90020": {
+    "pattern": "haniwa_medal_silver",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "90030": {
+    "pattern": "haniwa_medal_gold",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "90040": {
+    "pattern": "haniwa_medal_bronze_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "90050": {
+    "pattern": "haniwa_medal_silver_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "90060": {
+    "pattern": "haniwa_medal_gold_02",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "90070": {
+    "pattern": "haniwa_medal_bronze_03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 99999
+  },
+  "90080": {
+    "pattern": "haniwa_medal_silver_03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 99999
+  },
+  "90090": {
+    "pattern": "haniwa_medal_gold_03",
+    "salePrice": 1,
+    "useKind": 9,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 99999
+  },
+  "100000": {
+    "pattern": "craft_point",
+    "salePrice": 5,
+    "useKind": 16,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "100001": {
+    "pattern": "main_chapter_orb_1",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100002": {
+    "pattern": "main_chapter_orb_2",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100003": {
+    "pattern": "main_chapter_orb_3",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100004": {
+    "pattern": "main_chapter_orb_4",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100005": {
+    "pattern": "main_chapter_orb_5",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100006": {
+    "pattern": "main_chapter_orb_6",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100007": {
+    "pattern": "main_chapter_orb_7",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100008": {
+    "pattern": "main_chapter_orb_8",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100009": {
+    "pattern": "main_chapter_orb_9",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100010": {
+    "pattern": "main_chapter_orb_10",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "100011": {
+    "pattern": "main_chapter_orb_11",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200001": {
+    "pattern": "practice_trophy_1",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200002": {
+    "pattern": "practice_trophy_2",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200003": {
+    "pattern": "practice_trophy_3",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200004": {
+    "pattern": "practice_trophy_4",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200005": {
+    "pattern": "practice_trophy_5",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "200006": {
+    "pattern": "trophy_maou_hunt",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "300001": {
+    "pattern": "non_playable_equipment_1",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "300002": {
+    "pattern": "non_playable_equipment_2",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "500000": {
+    "pattern": "treasure_cave_quest_item",
+    "salePrice": 0,
+    "useKind": 19,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 99999
+  },
+  "980001": {
+    "pattern": "multi_special_exchange_ticket_01_A",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "980002": {
+    "pattern": "multi_special_exchange_ticket_01_B",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "980003": {
+    "pattern": "multi_special_exchange_ticket_01_C",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "980004": {
+    "pattern": "multi_special_exchange_ticket_02_A",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "990007": {
+    "pattern": "startdash_exchange_ticket",
+    "salePrice": 100,
+    "useKind": 13,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "990008": {
+    "pattern": "star_grain",
+    "salePrice": 0,
+    "useKind": 20,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 999999
+  },
+  "999000": {
+    "pattern": "gacha_ticket_bonus",
+    "salePrice": 50,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "999001": {
+    "pattern": "wildcard_ten_times_gacha_character_ticket",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999002": {
+    "pattern": "special_exchange_ticket",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999003": {
+    "pattern": "wildcard_once_gacha_character_ticket",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999004": {
+    "pattern": "wildcard_ten_times_gacha_equipment_ticket",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999005": {
+    "pattern": "wildcard_once_gacha_equipment_ticket",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999006": {
+    "pattern": "special_exchange_equipment_ticket",
+    "salePrice": 100,
+    "useKind": 12,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "999008": {
+    "pattern": "wildcard_once_gacha_rare4_character_ticket",
+    "salePrice": 100,
+    "useKind": 8,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "1010001": {
+    "pattern": "sword_0001",
+    "salePrice": 10,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "1060001": {
+    "pattern": "staff_0001",
+    "salePrice": 10,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "1080001": {
+    "pattern": "shield_0001",
+    "salePrice": 10,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 1,
+    "maxStack": 9999
+  },
+  "2010002": {
+    "pattern": "sword_0002",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "2020001": {
+    "pattern": "axe_0001",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "2030001": {
+    "pattern": "spear_0001",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "2040001": {
+    "pattern": "bow_0001",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "2050001": {
+    "pattern": "book_0001",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "2070001": {
+    "pattern": "fist_0001",
+    "salePrice": 50,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 2,
+    "maxStack": 9999
+  },
+  "3010006": {
+    "pattern": "sword_0006",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010007": {
+    "pattern": "sword_0007",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010008": {
+    "pattern": "sword_0008",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010013": {
+    "pattern": "sword_0013",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010023": {
+    "pattern": "sword_0023_april",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010027": {
+    "pattern": "sword_0027",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010035": {
+    "pattern": "sword_0035",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3010053": {
+    "pattern": "sword_0053",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3020003": {
+    "pattern": "axe_0003",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3020006": {
+    "pattern": "axe_0006",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3020011": {
+    "pattern": "axe_0011",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3020012": {
+    "pattern": "axe_0012",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3030006": {
+    "pattern": "spear_0006",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3030007": {
+    "pattern": "spear_0007",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3030012": {
+    "pattern": "spear_0012",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3030013": {
+    "pattern": "spear_0013",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3030027": {
+    "pattern": "spear_0027",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3040003": {
+    "pattern": "bow_0003",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3040006": {
+    "pattern": "bow_0006",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3040032": {
+    "pattern": "bow_0032",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3050002": {
+    "pattern": "book_0002",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3050005": {
+    "pattern": "book_0005",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3050010": {
+    "pattern": "book_0010",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3060002": {
+    "pattern": "staff_0002",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3060003": {
+    "pattern": "staff_0003",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3060007": {
+    "pattern": "staff_0007",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3060010": {
+    "pattern": "staff_0010",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3070006": {
+    "pattern": "fist_0006",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3070010": {
+    "pattern": "fist_0010",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3070018": {
+    "pattern": "fist_0018",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3070022": {
+    "pattern": "fist_0022",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3080002": {
+    "pattern": "shield_0002",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3080008": {
+    "pattern": "shield_0008",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3080009": {
+    "pattern": "shield_0009",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3080017": {
+    "pattern": "shield_0017",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3090036": {
+    "pattern": "acce_0036",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "3100007": {
+    "pattern": "gun_0007",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 3,
+    "maxStack": 9999
+  },
+  "4010003": {
+    "pattern": "sword_0003",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010010": {
+    "pattern": "sword_0010",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010014": {
+    "pattern": "sword_0014",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010015": {
+    "pattern": "sword_0015",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010017": {
+    "pattern": "sword_0017",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010018": {
+    "pattern": "sword_0018",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010021": {
+    "pattern": "sword_rare4_phl_blade",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010024": {
+    "pattern": "sword_0024_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010048": {
+    "pattern": "sword_0048_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010049": {
+    "pattern": "sword_0049_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010052": {
+    "pattern": "sword_0052_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4010071": {
+    "pattern": "sword_0071_storyevent",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020007": {
+    "pattern": "axe_0007",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020013": {
+    "pattern": "axe_0013",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020014": {
+    "pattern": "axe_0014",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020016": {
+    "pattern": "axe_0016",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020019": {
+    "pattern": "axe_0019_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020021": {
+    "pattern": "axe_0021_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020033": {
+    "pattern": "axe_0033_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4020034": {
+    "pattern": "axe_0034_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030003": {
+    "pattern": "spear_0003",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030004": {
+    "pattern": "spear_0004",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030008": {
+    "pattern": "spear_0008",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030009": {
+    "pattern": "spear_0009",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030014": {
+    "pattern": "spear_0014",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030019": {
+    "pattern": "spear_0019",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030024": {
+    "pattern": "spear_0024",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4030032": {
+    "pattern": "spear_0032_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040007": {
+    "pattern": "bow_0007",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040008": {
+    "pattern": "bow_0008",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040012": {
+    "pattern": "bow_0012",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040021": {
+    "pattern": "bow_0021",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040023": {
+    "pattern": "bow_0023_coop",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040024": {
+    "pattern": "bow_0024_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040027": {
+    "pattern": "bow_0027_boss_unique",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4040034": {
+    "pattern": "bow_0034_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050004": {
+    "pattern": "book_0004",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050007": {
+    "pattern": "book_0007",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050011": {
+    "pattern": "book_0011",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050019": {
+    "pattern": "book_0019_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050021": {
+    "pattern": "book_0021_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050023": {
+    "pattern": "book_0023_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050030": {
+    "pattern": "book_0030_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4050031": {
+    "pattern": "book_0031_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060005": {
+    "pattern": "staff_0005",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060011": {
+    "pattern": "staff_0011",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060022": {
+    "pattern": "staff_0022",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060023": {
+    "pattern": "staff_0023_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060028": {
+    "pattern": "staff_0028",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060031": {
+    "pattern": "staff_0031_raid_revival",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060032": {
+    "pattern": "staff_0032",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060035": {
+    "pattern": "staff_0035",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4060036": {
+    "pattern": "staff_0036_storyevent",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070004": {
+    "pattern": "fist_0004",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070007": {
+    "pattern": "fist_0007",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070011": {
+    "pattern": "fist_0011",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070012": {
+    "pattern": "fist_0012",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070016": {
+    "pattern": "fist_0016_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070031": {
+    "pattern": "fist_0031_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070034": {
+    "pattern": "fist_0034_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070037": {
+    "pattern": "fist_0037_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070038": {
+    "pattern": "fist_0038_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4070041": {
+    "pattern": "fist_0041_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080003": {
+    "pattern": "shield_0003",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080015": {
+    "pattern": "shield_0015",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080016": {
+    "pattern": "shield_0016_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080019": {
+    "pattern": "shield_0019",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080021": {
+    "pattern": "shield_0021",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080023": {
+    "pattern": "shield_0023_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080024": {
+    "pattern": "shield_0024_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4080027": {
+    "pattern": "shield_0027",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4090006": {
+    "pattern": "acce_0006_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4090012": {
+    "pattern": "acce_0012_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4090033": {
+    "pattern": "acce_0033_boss_unique",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4090037": {
+    "pattern": "acce_0037_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4090043": {
+    "pattern": "acce_0043_storyevent",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4100003": {
+    "pattern": "gun_0003_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4100008": {
+    "pattern": "gun_0008_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "4100014": {
+    "pattern": "gun_0014_story_event",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 4,
+    "maxStack": 9999
+  },
+  "5010004": {
+    "pattern": "sword_0004",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010005": {
+    "pattern": "sword_0005",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010011": {
+    "pattern": "sword_0011",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010012": {
+    "pattern": "sword_0012",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010019": {
+    "pattern": "sword_0019",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010020": {
+    "pattern": "sword_0020_coop",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010022": {
+    "pattern": "sword_0022_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010025": {
+    "pattern": "sword_0025_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010026": {
+    "pattern": "sword_0026_PCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010028": {
+    "pattern": "sword_0028",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010029": {
+    "pattern": "sword_0029_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010030": {
+    "pattern": "sword_0030_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010031": {
+    "pattern": "sword_0031_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010032": {
+    "pattern": "sword_0032_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010033": {
+    "pattern": "sword_0033_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010034": {
+    "pattern": "sword_0034_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010036": {
+    "pattern": "sword_0036_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010037": {
+    "pattern": "sword_0037_coop",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010038": {
+    "pattern": "sword_0038_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010039": {
+    "pattern": "sword_0039_Gcollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010040": {
+    "pattern": "sword_0040_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010041": {
+    "pattern": "sword_0041_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010042": {
+    "pattern": "sword_0042_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010043": {
+    "pattern": "sword_0043_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010044": {
+    "pattern": "sword_0044_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010045": {
+    "pattern": "sword_0045_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010046": {
+    "pattern": "sword_0046_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010050": {
+    "pattern": "sword_0050_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010051": {
+    "pattern": "sword_0051_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010054": {
+    "pattern": "sword_0054_coop",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010055": {
+    "pattern": "sword_0055_story_event",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010056": {
+    "pattern": "sword_0056_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010057": {
+    "pattern": "sword_0057_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010058": {
+    "pattern": "sword_0058_PCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010059": {
+    "pattern": "sword_0059_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010060": {
+    "pattern": "sword_0060_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010061": {
+    "pattern": "sword_0061",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010062": {
+    "pattern": "sword_0062_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010063": {
+    "pattern": "sword_0063_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010064": {
+    "pattern": "sword_0064_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010065": {
+    "pattern": "sword_0065_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010068": {
+    "pattern": "sword_0068_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010070": {
+    "pattern": "sword_0070_epuration",
+    "salePrice": 100,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010072": {
+    "pattern": "sword_0072_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5010073": {
+    "pattern": "sword_0073_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020008": {
+    "pattern": "axe_0008",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020009": {
+    "pattern": "axe_0009",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020010": {
+    "pattern": "axe_0010",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020017": {
+    "pattern": "axe_0017",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020018": {
+    "pattern": "axe_0018_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020020": {
+    "pattern": "axe_0020_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020022": {
+    "pattern": "axe_0022_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020023": {
+    "pattern": "axe_0023_RCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020024": {
+    "pattern": "axe_0024",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020025": {
+    "pattern": "axe_0025_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020026": {
+    "pattern": "axe_0026_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020027": {
+    "pattern": "axe_0027_coop",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020028": {
+    "pattern": "axe_0028_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020029": {
+    "pattern": "axe_0029_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020030": {
+    "pattern": "axe_0030",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020031": {
+    "pattern": "axe_0031_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020032": {
+    "pattern": "axe_0032_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020035": {
+    "pattern": "axe_0035_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020036": {
+    "pattern": "axe_0036_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020037": {
+    "pattern": "axe_0037",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020038": {
+    "pattern": "axe_0038_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020039": {
+    "pattern": "axe_0039_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020040": {
+    "pattern": "axe_0040_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5020041": {
+    "pattern": "axe_0041",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030005": {
+    "pattern": "spear_0005",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030011": {
+    "pattern": "spear_0011",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030016": {
+    "pattern": "spear_0016",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030017": {
+    "pattern": "spear_0017",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030018": {
+    "pattern": "spear_0018",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030020": {
+    "pattern": "spear_0020_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030021": {
+    "pattern": "spear_0021_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030022": {
+    "pattern": "spear_0022_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030023": {
+    "pattern": "spear_0023_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030025": {
+    "pattern": "spear_0025",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030026": {
+    "pattern": "spear_0026_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030028": {
+    "pattern": "spear_0028_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030029": {
+    "pattern": "spear_0029_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030030": {
+    "pattern": "spear_0030_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030033": {
+    "pattern": "spear_0033_Gcollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030034": {
+    "pattern": "spear_0034_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030035": {
+    "pattern": "spear_0035_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030036": {
+    "pattern": "spear_0036_raid",
+    "salePrice": 300,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030037": {
+    "pattern": "spear_0037_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030038": {
+    "pattern": "spear_0038_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030039": {
+    "pattern": "spear_0039_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030040": {
+    "pattern": "spear_0040_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5030041": {
+    "pattern": "spear_0041_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040009": {
+    "pattern": "bow_0009",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040010": {
+    "pattern": "bow_0010",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040014": {
+    "pattern": "bow_0014",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040016": {
+    "pattern": "bow_0016",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040017": {
+    "pattern": "bow_0017_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040018": {
+    "pattern": "bow_0018_coop",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040019": {
+    "pattern": "bow_0019_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040020": {
+    "pattern": "bow_0020_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040022": {
+    "pattern": "bow_0022",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040025": {
+    "pattern": "bow_0025_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040026": {
+    "pattern": "bow_0026_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040028": {
+    "pattern": "bow_0028_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040029": {
+    "pattern": "bow_0029_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040030": {
+    "pattern": "bow_0030_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040031": {
+    "pattern": "bow_0031_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040033": {
+    "pattern": "bow_0033_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5040035": {
+    "pattern": "bow_0035_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050009": {
+    "pattern": "book_0009",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050013": {
+    "pattern": "book_0013",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050014": {
+    "pattern": "book_0014",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050015": {
+    "pattern": "book_0015_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050016": {
+    "pattern": "book_0016_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050017": {
+    "pattern": "book_0017_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050018": {
+    "pattern": "book_0018_PCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050020": {
+    "pattern": "book_0020_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050022": {
+    "pattern": "book_0022_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050024": {
+    "pattern": "book_0024_RCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050025": {
+    "pattern": "book_0025_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050026": {
+    "pattern": "book_0026",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050027": {
+    "pattern": "book_0027_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050028": {
+    "pattern": "book_0028_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050032": {
+    "pattern": "book_0032_story_event",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050033": {
+    "pattern": "book_0033_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050034": {
+    "pattern": "book_0034_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050036": {
+    "pattern": "book_0036_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050037": {
+    "pattern": "book_0037_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5050038": {
+    "pattern": "book_0038_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060009": {
+    "pattern": "staff_0009",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060013": {
+    "pattern": "staff_0013",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060015": {
+    "pattern": "staff_0015",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060016": {
+    "pattern": "staff_0016_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060017": {
+    "pattern": "staff_0017_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060018": {
+    "pattern": "staff_rare5_24_7",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060019": {
+    "pattern": "staff_0019_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060020": {
+    "pattern": "staff_0020_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060021": {
+    "pattern": "staff_0021_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060024": {
+    "pattern": "staff_0024_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060025": {
+    "pattern": "staff_0025",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060026": {
+    "pattern": "staff_0026_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060027": {
+    "pattern": "staff_0027_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060029": {
+    "pattern": "staff_0029_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060030": {
+    "pattern": "staff_0030_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060033": {
+    "pattern": "staff_0033_Pcollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060034": {
+    "pattern": "staff_0034_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060037": {
+    "pattern": "staff_0037_decay",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060040": {
+    "pattern": "staff_0040_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060041": {
+    "pattern": "staff_0041_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060042": {
+    "pattern": "staff_0042_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5060044": {
+    "pattern": "staff_0044",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070009": {
+    "pattern": "fist_0009",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070017": {
+    "pattern": "fist_0017_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070019": {
+    "pattern": "fist_0019_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070020": {
+    "pattern": "fist_0020_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070021": {
+    "pattern": "fist_0021_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070023": {
+    "pattern": "fist_0023",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070024": {
+    "pattern": "fist_0024_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070025": {
+    "pattern": "fist_0025_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070026": {
+    "pattern": "fist_0026_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070027": {
+    "pattern": "fist_0027",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070028": {
+    "pattern": "fist_0028_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070029": {
+    "pattern": "fist_0029_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070030": {
+    "pattern": "fist_0030_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070032": {
+    "pattern": "fist_0032_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070033": {
+    "pattern": "fist_0033_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070035": {
+    "pattern": "fist_0035_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070036": {
+    "pattern": "fist_0036",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070039": {
+    "pattern": "fist_0039_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5070040": {
+    "pattern": "fist_0040_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080007": {
+    "pattern": "shield_0007",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080011": {
+    "pattern": "shield_0011",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080012": {
+    "pattern": "shield_0012",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080013": {
+    "pattern": "shield_0013",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080014": {
+    "pattern": "shield_0014_xmas",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080018": {
+    "pattern": "shield_0018_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080020": {
+    "pattern": "shield_0020_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080022": {
+    "pattern": "shield_0022_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080025": {
+    "pattern": "shield_0025_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080026": {
+    "pattern": "shield_0026_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080028": {
+    "pattern": "shield_0028_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080029": {
+    "pattern": "shield_0029_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5080031": {
+    "pattern": "shield_0031_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090001": {
+    "pattern": "acce_0001_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090002": {
+    "pattern": "acce_0002",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090003": {
+    "pattern": "acce_0003",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090004": {
+    "pattern": "acce_0004",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090005": {
+    "pattern": "acce_0005_PCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090007": {
+    "pattern": "acce_0007_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090008": {
+    "pattern": "acce_0008_ZCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090009": {
+    "pattern": "acce_0009_ZCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090010": {
+    "pattern": "acce_0010_ZCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090011": {
+    "pattern": "acce_0011_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090013": {
+    "pattern": "acce_0013_RCollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090014": {
+    "pattern": "acce_0014_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090015": {
+    "pattern": "acce_0015_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090016": {
+    "pattern": "acce_0016_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090017": {
+    "pattern": "acce_0017_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090018": {
+    "pattern": "acce_0018_decay",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090019": {
+    "pattern": "acce_0019_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090020": {
+    "pattern": "acce_0020_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090021": {
+    "pattern": "acce_0021_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090023": {
+    "pattern": "acce_0023_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090024": {
+    "pattern": "acce_0024_raid_revival",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090025": {
+    "pattern": "acce_0025_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090026": {
+    "pattern": "acce_0026_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090027": {
+    "pattern": "acce_0027_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090028": {
+    "pattern": "acce_0028_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090029": {
+    "pattern": "acce_0029_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090030": {
+    "pattern": "acce_0030_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090031": {
+    "pattern": "acce_0031_Pcollab",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090032": {
+    "pattern": "acce_0032_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090034": {
+    "pattern": "acce_0034_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090035": {
+    "pattern": "acce_0035_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090038": {
+    "pattern": "acce_0038_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090039": {
+    "pattern": "acce_0039_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090040": {
+    "pattern": "acce_0040_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090041": {
+    "pattern": "acce_0041_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090042": {
+    "pattern": "acce_0042_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090044": {
+    "pattern": "acce_0044_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5090045": {
+    "pattern": "acce_0045_total",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100001": {
+    "pattern": "gun_rare5_positron_shooter",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100002": {
+    "pattern": "gun_0002",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100004": {
+    "pattern": "gun_0004_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100005": {
+    "pattern": "gun_0005_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100006": {
+    "pattern": "gun_0006_raid",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100009": {
+    "pattern": "gun_0009_coop",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100010": {
+    "pattern": "gun_0010_storyevent",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100011": {
+    "pattern": "gun_0011_score",
+    "salePrice": 0,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100012": {
+    "pattern": "gun_0012_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100013": {
+    "pattern": "gun_0013_boss_unique",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100015": {
+    "pattern": "gun_0015_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100016": {
+    "pattern": "gun_0016_newbie",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100017": {
+    "pattern": "gun_0017_storyevent",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  },
+  "5100018": {
+    "pattern": "gun_0018_haniwa",
+    "salePrice": 500,
+    "useKind": 11,
+    "useValue": 0,
+    "rarity": 5,
+    "maxStack": 9999
+  }
+}

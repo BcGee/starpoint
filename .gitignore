@@ -21,3 +21,5 @@ out
 scripts/__pycache__
 scripts/in
 web/public/tailwind.css
+assets/gacha.json.bak-*
+scripts/out/

@@ -15,7 +15,8 @@ Symbol | Meaning
 ### ``na.wdfp.kakaogames.com/latest/api/index.php``
 Endpoint | Status
 :------- | :-------
-[/active_mission/receive](./routes/active_mission_receive.md) | :no_entry:
+``/active_mission/receive`` | :white_check_mark:
+``/active_mission/receive_incentive`` | :white_check_mark:
 [/asset/get_path](./routes/asset_get_path.md) | :warning:
 [/asset/version_info](./routes/asset_version_info.md) | :warning:
 [/attention/check](./routes/attention_check.md) | :white_check_mark:
@@ -29,6 +30,8 @@ Endpoint | Status
 [/character/over_limit](./routes/character_over_limit.md) | :white_check_mark:
 [/character/receive_bond_token](./routes/character_receive_bond_token.md) | :white_check_mark:
 [/character/set_illustration_settings](./routes/character_set_illustration_settings.md) | :white_check_mark:
+``/carnival_event/index`` | :white_check_mark:
+``/carnival_event/get_party`` | :white_check_mark:
 [/encyclopedia/index](./routes/encyclopedia_index.md) | :white_check_mark:
 [/encyclopedia/read_keyword](./routes/encyclopedia_read_keyword.md) | :white_check_mark:
 [/equipment/set_protection](./routes/equipment_set_protection.md) | :white_check_mark:
@@ -54,13 +57,15 @@ Endpoint | Status
 [/gacha/exec](./routes/gacha_exec.md) | :warning:
 [/history/receive](./routes/history_receive.md) | :white_check_mark:
 [/how_to_get/get_list](./routes/how_to_get_get_list.md) | :warning:
+``/item/sell`` | :white_check_mark:
+``/item/use_item`` | :white_check_mark:
 [/load](./routes/load.md) | :white_check_mark:
 [/lounge/get_list](./routes/lounge_get_list.md) | :white_check_mark:
 [/mail/index](./routes/mail_index.md) | :white_check_mark:
 [/mail/receive](./routes/mail_receive.md) | :white_check_mark:
 [/mail/receive_all](./routes/mail_receive_all.md) | :white_check_mark:
-[/mission/get_mission_progress](./routes/mission_get_mission_progress.md) | :warning:
-[/mission/update_mission_progress](./routes/mission_update_mission_progress.md) | :warning:
+[/mission/get_mission_progress](./routes/mission_get_mission_progress.md) | :white_check_mark:
+[/mission/update_mission_progress](./routes/mission_update_mission_progress.md) | :white_check_mark:
 [/multi_battle_quest/abort](./routes/multi_battle_quest_abort.md) | :no_entry:
 [/multi_battle_quest/create_room](./routes/multi_battle_quest_create_room.md) | :no_entry:
 [/multi_battle_quest/disband_room](./routes/multi_battle_quest_disband_room.md) | :no_entry:
@@ -79,6 +84,7 @@ Endpoint | Status
 [/party_group/edit](./routes/party_group_edit.md) | :white_check_mark:
 [/payment/item_list](./routes/payment_item_list.md) | :white_check_mark:
 [/profile/get_my_profile](./routes/profile_get_my_profile.md) | :white_check_mark:
+``/quest/unlock`` | :white_check_mark:
 ``/ranking_event/get_summary`` | :white_check_mark:
 ``/ranking_event/receive_reward`` | :white_check_mark:
 [/reproduce/post](./routes/reproduce_post.md) | :white_check_mark:

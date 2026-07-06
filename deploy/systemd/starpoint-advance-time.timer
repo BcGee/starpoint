@@ -1,0 +1,9 @@
+[Unit]
+Description=Daily StarPoint time advance at 05:00 KST (20:00 UTC)
+
+[Timer]
+OnCalendar=*-*-* 20:00:00 UTC
+Persistent=true
+
+[Install]
+WantedBy=timers.target

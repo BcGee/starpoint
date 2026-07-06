@@ -1,6 +1,6 @@
 import { randomBytes } from "crypto";
 import getDatabase, { Database } from ".";
-import { generateViewerId, getServerTime } from "../utils";
+import { generateViewerId, getServerTime, getServerDate } from "../utils";
 import { Account, DailyChallengePointListCampaign, DailyChallengePointListEntry, MergedPlayerData, PartyCategory, Player, PlayerActiveMission, PlayerBoxGacha, PlayerBoxGachaDrawnReward, PlayerCharacter, PlayerCharacterBondToken, PlayerCharacterExBoost, PlayerDrawnQuest, PlayerEquipment, PlayerGachaCampaign, PlayerGachaInfo, PlayerMultiSpecialExchangeCampaign, PlayerParty, PlayerPartyGroup, PlayerPeriodicRewardPoint, PlayerQuestProgress, PlayerRushEvent, PlayerRushEventClearedFolders, PlayerRushEventPlayedParty, PlayerStartDashExchangeCampaign, RawAccount, RawDailyChallengePointListCampaign, RawDailyChallengePointListEntry, RawPlayer, RawPlayerActiveMission, RawPlayerActiveMissionStage, RawPlayerBoxGacha, RawPlayerCharacter, RawPlayerCharacterBondToken, RawPlayerCharacterManaNode, RawPlayerClearedRegularMission, RawPlayerDrawnQuest, RawPlayerEquipment, RawPlayerGachaCampaign, RawPlayerGachaInfo, RawPlayerItem, RawPlayerMultiSpecialExchangeCampaign, RawPlayerOption, RawPlayerParty, RawPlayerPartyGroup, RawPlayerQuestProgress, RawPlayerRushEvent, RawPlayerRushEventClearedFolder, RawPlayerRushEventPlayedParty, RawPlayerRushEventRanking, RawPlayerStartDashExchangeCampaign, RawPlayerTriggeredTutorial, RawSession, RushEventBattleType, GetRushEventEndlessRankingListResult, Session, SessionType, UserRushEventEndlessBattleRanking, UserRushEventPlayedParty } from "./types";
 import { deserializeBoolean, deserializeNumberList, getDefaultPlayerData, serializeBoolean, serializeNumberList } from "./utils";
 import { getPlayerRushEventEndlessBattleRankingSync } from "../lib/rush";
@@ -2428,6 +2428,51 @@ function insertPlayerActiveMissionsSync(
 }
 
 /**
+ * 스텝업(active_mission) 스테이지를 '수령됨(received)'으로 기록한다.
+ * 미션 행이 없으면 먼저 생성한다. 이미 수령한 스테이지면 false, 새로 수령했으면 true 반환.
+ *
+ * @param playerId 플레이어 ID
+ * @param missionId 미션 ID
+ * @param stage 스테이지 번호 (= stage row id)
+ * @returns 이번에 새로 수령했으면 true, 이미 수령한 상태였으면 false
+ */
+export function upsertPlayerActiveMissionStageReceivedSync(
+    playerId: number,
+    missionId: number,
+    stage: number
+): boolean {
+    return db.transaction(() => {
+        // 미션 행 보장 (progress 는 표시용, 0 으로 시작).
+        db.prepare(`
+        INSERT OR IGNORE INTO players_active_missions (id, progress, player_id)
+        VALUES (?, 0, ?)
+        `).run(missionId, playerId)
+
+        // 현재 스테이지 상태 확인.
+        const existing = db.prepare(`
+        SELECT status FROM players_active_missions_stages
+        WHERE id = ? AND mission_id = ? AND player_id = ?
+        `).get(stage, missionId, playerId) as { status: number } | undefined
+
+        if (existing !== undefined) {
+            if (deserializeBoolean(existing.status)) return false // 이미 수령
+            db.prepare(`
+            UPDATE players_active_missions_stages
+            SET status = 1
+            WHERE id = ? AND mission_id = ? AND player_id = ?
+            `).run(stage, missionId, playerId)
+            return true
+        }
+
+        db.prepare(`
+        INSERT INTO players_active_missions_stages (id, status, player_id, mission_id)
+        VALUES (?, 1, ?, ?)
+        `).run(stage, playerId, missionId)
+        return true
+    })()
+}
+
+/**
  * Converts a RawPlayerBoxGacha object into a PlayerBoxGacha object.
  * 
  * @param raw The raw object to convert.
@@ -4473,7 +4518,7 @@ export function deletePlayerSync(
 
 export function collectPlayerDataPooledExpSync(
     player: Player,
-    dateNow: Date = new Date()
+    dateNow: Date = getServerDate()
 ) {
     const serverTimeNow = getServerTime(dateNow)
     const poolTime = getServerTime(player.expPooledTime)
@@ -4772,4 +4817,144 @@ export function playerHasMailForDayKeySync(
     WHERE player_id = ? AND reason_id = ? AND description = ?
     `).get(playerId, reasonId, dayKey)
     return row !== undefined
+}
+
+// ---------------------------------------------------------------------------
+// Mission progress (STAGE 2) — players_mission_progress
+// ---------------------------------------------------------------------------
+
+export interface RawPlayerMissionProgress {
+    player_id: number
+    mission_pattern: string
+    mission_id: number
+    category: number
+    event_id: number | null
+    stage: number
+    progress_value: number
+    received: number
+}
+
+/**
+ * Returns all stored mission progress rows for a player, keyed by mission_pattern.
+ */
+export function getPlayerMissionProgressSync(
+    playerId: number
+): Record<string, RawPlayerMissionProgress> {
+    const rows = db.prepare(`
+    SELECT player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received
+    FROM players_mission_progress
+    WHERE player_id = ?
+    `).all(playerId) as RawPlayerMissionProgress[]
+    const out: Record<string, RawPlayerMissionProgress> = {}
+    for (const r of rows) out[r.mission_pattern] = r
+    return out
+}
+
+/**
+ * Returns stored progress for the given mission_ids (used by get_mission_progress
+ * to echo saved progress back to the client). Keyed by mission_id.
+ */
+export function getPlayerMissionProgressByIdsSync(
+    playerId: number,
+    missionIds: number[]
+): Record<number, RawPlayerMissionProgress> {
+    if (missionIds.length === 0) return {}
+    const placeholders = missionIds.map(() => "?").join(",")
+    const rows = db.prepare(`
+    SELECT player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received
+    FROM players_mission_progress
+    WHERE player_id = ? AND mission_id IN (${placeholders})
+    `).all(playerId, ...missionIds) as RawPlayerMissionProgress[]
+    const out: Record<number, RawPlayerMissionProgress> = {}
+    for (const r of rows) out[r.mission_id] = r
+    return out
+}
+
+/**
+ * Upserts a mission's progress by pattern. Sets progress_value to the larger of the
+ * existing and new value (progress never regresses). Creates the row if absent.
+ */
+export function setPlayerMissionProgressSync(
+    playerId: number,
+    params: {
+        missionPattern: string,
+        missionId: number,
+        category: number,
+        eventId?: number | null,
+        stage?: number,
+        progressValue: number
+    }
+): void {
+    db.prepare(`
+    INSERT INTO players_mission_progress (player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+    ON CONFLICT(player_id, mission_pattern) DO UPDATE SET
+        progress_value = MAX(progress_value, excluded.progress_value),
+        mission_id = excluded.mission_id,
+        category = excluded.category,
+        event_id = excluded.event_id,
+        stage = excluded.stage
+    `).run(
+        playerId,
+        params.missionPattern,
+        params.missionId,
+        params.category,
+        params.eventId ?? null,
+        params.stage ?? 1,
+        params.progressValue
+    )
+}
+
+/**
+ * Returns whether a mission's reward has already been sent (reward_sent flag).
+ */
+export function isMissionRewardSentSync(playerId: number, missionPattern: string): boolean {
+    const row = db.prepare(`
+    SELECT reward_sent FROM players_mission_progress WHERE player_id = ? AND mission_pattern = ?
+    `).get(playerId, missionPattern) as { reward_sent: number } | undefined
+    return row !== undefined && row.reward_sent === 1
+}
+
+/**
+ * Marks a mission's reward as sent so it is never granted twice.
+ */
+export function markMissionRewardSentSync(playerId: number, missionPattern: string): void {
+    db.prepare(`
+    UPDATE players_mission_progress SET reward_sent = 1 WHERE player_id = ? AND mission_pattern = ?
+    `).run(playerId, missionPattern)
+}
+
+/**
+ * Increments a mission's progress by `delta` (server-accumulated battle missions).
+ * Creates the row at `delta` if absent.
+ */
+export function incrementPlayerMissionProgressSync(
+    playerId: number,
+    params: {
+        missionPattern: string,
+        missionId: number,
+        category: number,
+        eventId?: number | null,
+        stage?: number,
+        delta: number
+    }
+): void {
+    db.prepare(`
+    INSERT INTO players_mission_progress (player_id, mission_pattern, mission_id, category, event_id, stage, progress_value, received)
+    VALUES (?, ?, ?, ?, ?, ?, ?, 0)
+    ON CONFLICT(player_id, mission_pattern) DO UPDATE SET
+        progress_value = progress_value + excluded.progress_value,
+        mission_id = excluded.mission_id,
+        category = excluded.category,
+        event_id = excluded.event_id,
+        stage = excluded.stage
+    `).run(
+        playerId,
+        params.missionPattern,
+        params.missionId,
+        params.category,
+        params.eventId ?? null,
+        params.stage ?? 1,
+        params.delta
+    )
 }

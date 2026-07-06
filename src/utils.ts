@@ -1,32 +1,51 @@
 import { randomInt } from "crypto"
 import { FastifyRequest } from "fastify"
 
-// The server's current date.
-let serverTime: Date | null = null;
+// Server time is stored as an ANCHOR, not a frozen instant, so the clock KEEPS TICKING
+// from the pinned date. `anchorServerMs` = the in-game epoch (ms) we pinned to, and
+// `anchorRealMs` = the real wall-clock (ms) at the moment we pinned it. The current
+// server time is then `anchorServerMs + (Date.now() - anchorRealMs)` — i.e. the pinned
+// date plus however much real time has elapsed since. This makes time-based mechanics
+// (stamina natural recovery, daily reset, event windows) actually progress in real time
+// instead of being frozen. When no anchor is set, we fall back to the real clock.
+let anchorServerMs: number | null = null;
+let anchorRealMs: number = Date.now();
 
 /**
- * Returns the current server time as a unix epoch.
- * 
- * @param date An optional date; The date to get the time of.
- * @returns The unix epoch.
+ * Returns the current server time as a unix epoch (seconds), ticking from the anchor.
+ *
+ * @param date An optional date; if provided, returns THAT date's epoch (unchanged behaviour
+ *             for callers that pass a specific stored timestamp, e.g. stamina_heal_time).
+ * @returns The unix epoch in seconds.
  */
 export function getServerTime(
-    date: Date = new Date()
+    date?: Date
 ): number {
-    return Math.floor((serverTime ?? date).getTime() / 1000) //1710116388//
+    if (date !== undefined) return Math.floor(date.getTime() / 1000)
+    return Math.floor(getServerDate().getTime() / 1000)
 }
 
 /**
- * Gets the current server time as a Date.
- * 
+ * Gets the current server time as a Date, ticking from the anchor.
+ *
  * @returns The current server time as a date.
  */
 export function getServerDate(): Date {
-    return serverTime ?? new Date()
+    if (anchorServerMs === null) return new Date()
+    return new Date(anchorServerMs + (Date.now() - anchorRealMs))
 }
 
+/**
+ * Pins the server clock. Passing a Date sets the anchor to that in-game moment and starts
+ * the clock ticking from now; passing null reverts to the real wall clock.
+ */
 export function setServerTime(date: Date | null) {
-    serverTime = date;
+    if (date === null) {
+        anchorServerMs = null
+    } else {
+        anchorServerMs = date.getTime()
+        anchorRealMs = Date.now()
+    }
 }
 
 /**

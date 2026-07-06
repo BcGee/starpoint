@@ -1,0 +1,1295 @@
+{
+ "events": {
+  "1": {
+   "key": "step_up_mission",
+   "name": "스텝 업 미션",
+   "stageCount": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null
+  },
+  "2": {
+   "key": "contents_guide",
+   "name": "コンテンツガイド",
+   "stageCount": 1,
+   "startDate": "2025-06-27 14:00:00",
+   "endDate": null
+  },
+  "3": {
+   "key": "real_incentive_mission_event",
+   "name": "100万円プレゼント企画",
+   "stageCount": null,
+   "startDate": "2024-07-25 15:00:00",
+   "endDate": "2024-09-01 23:59:59"
+  }
+ },
+ "missions": {
+  "11010": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_character_episode",
+   "description": "캐릭터 에피소드 보기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 101,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "11020": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_equip_equipment",
+   "description": "장비 아이템 장착하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 100000,
+      "amount": 150
+     }
+    ]
+   }
+  },
+  "11030": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_equip_upgrade",
+   "description": "장비 각성 하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 100000,
+      "amount": 150
+     }
+    ]
+   }
+  },
+  "11040": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_unison_character_set",
+   "description": "유니존 캐릭터 편성하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 500
+     }
+    ]
+   }
+  },
+  "11050": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_main_1_clear",
+   "description": "메인 퀘스트 1장 클리어하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999005,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "11060": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_any_daily_element",
+   "description": "한 속성의 '데일리 퀘스트 흔들리는 미궁' 클리어하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 1,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 5,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 9,
+      "amount": 10
+     }
+    ]
+   }
+  },
+  "11070": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_mana_board",
+   "description": "어빌리티 강화'에서 '마나 보드'로 어빌리티 해방하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "mana",
+      "amount": 2000
+     }
+    ]
+   }
+  },
+  "11080": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_daily_exp_mana",
+   "description": "데일리 퀘스트 흔들리는 미궁 경험치 & 마나' 클리어하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 13,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 46,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 42,
+      "amount": 10
+     }
+    ]
+   }
+  },
+  "11090": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_inject_exp",
+   "description": "'Lv강화'에서 캐릭터 경험치 올리기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 1000
+     }
+    ]
+   }
+  },
+  "11100": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_main_2_clear",
+   "description": "메인 퀘스트 2장 클리어하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999003,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "11110": {
+   "eventId": "1",
+   "order": 1,
+   "category": "입문편",
+   "pattern": "step_up_1_all_clear",
+   "description": "입문편 미션 모두 클리어하기",
+   "stage": 1,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 300
+     }
+    ]
+   }
+  },
+  "12010": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_treasure_shop",
+   "description": "'특별 상품'에서 아이템 구입하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "mana",
+      "amount": 5000
+     }
+    ]
+   }
+  },
+  "12020": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_main_3_clear",
+   "description": "메인 퀘스트 3장 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999005,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "12030": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_character_level",
+   "description": "캐릭터 Lv 40이상으로 올리기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 3000
+     }
+    ]
+   }
+  },
+  "12040": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_character_evolve",
+   "description": "캐릭터 진화시키기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 2,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 6,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 10,
+      "amount": 10
+     }
+    ]
+   }
+  },
+  "12050": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_main_4_clear",
+   "description": "메인 퀘스트 4장 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999003,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "12060": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_daily_exp_mana_50",
+   "description": "데일리 퀘스트'의 Lv50퀘스트 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 102,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "12070": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_ex_1_clear",
+   "description": "'EX퀘스트' 1장 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 14,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 47,
+      "amount": 10
+     },
+     {
+      "kind": "item",
+      "id": 43,
+      "amount": 10
+     }
+    ]
+   }
+  },
+  "12080": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_boss_battle",
+   "description": "보스 배틀 클리어하기 x 3",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 49000,
+      "amount": 100
+     }
+    ]
+   }
+  },
+  "12090": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_boss_battle_middle",
+   "description": "중급 보스 배틀 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 49001,
+      "amount": 50
+     }
+    ]
+   }
+  },
+  "12100": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_yuragi_hokai",
+   "description": "'흔들리는 미궁 붕괴역'의 '심층에 이르는 문' 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 99,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "12110": {
+   "eventId": "1",
+   "order": 2,
+   "category": "초급편",
+   "pattern": "step_up_2_all_clear",
+   "description": "초급편 미션 모두 클리어하기",
+   "stage": 2,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 300
+     }
+    ]
+   }
+  },
+  "13010": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_main_5_clear",
+   "description": "메인 퀘스트 5장 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999003,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "13020": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_character_evolve",
+   "description": "캐릭터 6명 진화시키기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 10002,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "13030": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_main_6_clear",
+   "description": "메인 퀘스트 6장 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999005,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "13040": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_character_over_limit",
+   "description": "캐릭터 오버 리미트하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 5000
+     }
+    ]
+   }
+  },
+  "13050": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_daily_exp_mana_60",
+   "description": "'데일리 퀘스트'의 Lv60 퀘스트 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 102,
+      "amount": 3
+     }
+    ]
+   }
+  },
+  "13060": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_yuragi_hokai_50",
+   "description": "'흔들리는 미궁 붕괴역'의 Lv50 퀘스트 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 99,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "13070": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_yuragi_yugen",
+   "description": "'흔들리는 미궁 유현역'의 퀘스트 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "mana",
+      "amount": 10000
+     }
+    ]
+   }
+  },
+  "13080": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_boss_battle_upper",
+   "description": "상급 보스 배틀 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 49001,
+      "amount": 100
+     }
+    ]
+   }
+  },
+  "13090": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_main_1_6_complete",
+   "description": "메인 퀘스트 6장까지 모두 S+클리어로 COMPLETE하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 3,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 7,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 11,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "13100": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_boss_coin_exchange_equip",
+   "description": "'보스 코인 교환'에서 장비 아이템 교환하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 15,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 48,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 44,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "13110": {
+   "eventId": "1",
+   "order": 3,
+   "category": "중급편",
+   "pattern": "step_up_3_all_clear",
+   "description": "중급편 미션 모두 클리어하기",
+   "stage": 3,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 300
+     }
+    ]
+   }
+  },
+  "14010": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_try_practice",
+   "description": "'연습 배틀'에 도전하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 8000
+     }
+    ]
+   }
+  },
+  "14020": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_main_7_clear",
+   "description": "메인 퀘스트 7장 클리어하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999003,
+      "amount": 1
+     }
+    ]
+   }
+  },
+  "14030": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_main_1_6_ex_complete",
+   "description": "EX퀘스트 6장까지 모두 S+클리어로 COMPLETE하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999005,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "14040": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_boss_battle_upper_plus",
+   "description": "상급+ 보스 배틀 클리어하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 49002,
+      "amount": 100
+     }
+    ]
+   }
+  },
+  "14050": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_equipment_upgrade_to_5",
+   "description": "장비를 Lv5까지 각성시키기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 4,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 8,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 12,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "14060": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_use_ability_soul",
+   "description": "어빌리티 소울을 캐릭터에게 장착시키기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 16,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 49,
+      "amount": 5
+     },
+     {
+      "kind": "item",
+      "id": 45,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "14070": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_obtain_bond_token",
+   "description": "인연의 증표 획득하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "mana",
+      "amount": 15000
+     }
+    ]
+   }
+  },
+  "14080": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_join_katana_ghost",
+   "description": "무라쿠모를 동료로 만들기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 11003,
+      "amount": 3
+     }
+    ]
+   }
+  },
+  "14090": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_yuragi_hokai_60",
+   "description": "'흔들리는 미궁 붕괴역'의 Lv60 퀘스트 클리어하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 99,
+      "amount": 3
+     }
+    ]
+   }
+  },
+  "14100": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_yuragi_hokai_70",
+   "description": "'흔들리는 미궁 붕괴역'의 Lv70 퀘스트 클리어하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 102,
+      "amount": 4
+     }
+    ]
+   }
+  },
+  "14110": {
+   "eventId": "1",
+   "order": 4,
+   "category": "상급편",
+   "pattern": "step_up_4_all_clear",
+   "description": "상급편 미션 모두 클리어하기",
+   "stage": 4,
+   "startDate": "2022-07-25 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 600
+     }
+    ]
+   }
+  },
+  "20001": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "contents_guide_start",
+   "description": "콘텐츠 가이드를 시작하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": []
+   }
+  },
+  "20002": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "formation_make",
+   "description": "리더에 셰이롱, 2번째 메인에 라키샤, 보상인 2개의 장비를 유효하게 편성해 협력 배틀을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 500000,
+      "amount": 6
+     },
+     {
+      "kind": "pooled_exp",
+      "amount": 759976
+     },
+     {
+      "kind": "mana",
+      "amount": 226480
+     }
+    ]
+   }
+  },
+  "20003": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "upbuild_chara",
+   "description": "셰이롱을 레벨 80으로 만들고 협력 배틀을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 250
+     }
+    ]
+   }
+  },
+  "20004": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "vs_ruin_golem",
+   "description": "보스 배틀: 루인 골렘 초월급을 협력 배틀로 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 10003,
+      "amount": 8
+     }
+    ]
+   }
+  },
+  "20005": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "boostup_chara",
+   "description": "셰이롱을 레벨 100으로 만들고 협력 배틀을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 14006,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "20006": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "vs_challenge_single",
+   "description": "셰이롱을 리더로 해서 루인 골렘 초월급+를 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 53,
+      "amount": 94
+     },
+     {
+      "kind": "item",
+      "id": 54,
+      "amount": 84
+     },
+     {
+      "kind": "item",
+      "id": 55,
+      "amount": 68
+     }
+    ]
+   }
+  },
+  "20007": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "manaboard_open",
+   "description": "셰이롱의 4~6 어빌리티를 획득하고 협력 배틀을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 500
+     }
+    ]
+   }
+  },
+  "20008": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "vs_challenge_single_hell",
+   "description": "어느 하나의 챌린지 싱글 배틀 지옥급을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 750
+     }
+    ]
+   }
+  },
+  "20009": {
+   "eventId": "2",
+   "order": 1,
+   "category": "콘텐츠 가이드",
+   "pattern": "vs_abyss_beast",
+   "description": "임경역 어비스의 짐승을 클리어하자",
+   "stage": 1,
+   "startDate": "2024-06-27 14:00:00",
+   "endDate": null,
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 1500
+     }
+    ]
+   }
+  },
+  "21010": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_party_edit",
+   "description": "キャラを編成しよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999003,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "21020": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_main_1_clear",
+   "description": "1章をクリアしよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 101,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "21030": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_multi_special_exchange",
+   "description": "「みんなでキャラチョイス」に参加しよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 100000,
+      "amount": 500
+     }
+    ]
+   }
+  },
+  "21040": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_mana_board",
+   "description": "アビリティを習得しよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "mana",
+      "amount": 2000
+     }
+    ]
+   }
+  },
+  "21050": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_multi_battle_clear",
+   "description": "協力バトルをクリアしよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 102,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "21060": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_boss_coin_exchange",
+   "description": "ボスコイン交換所でなにか交換しよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 1000
+     }
+    ]
+   }
+  },
+  "21070": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_main_2_clear",
+   "description": "2章をクリアしよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "equipment",
+      "id": 999005,
+      "amount": 2
+     }
+    ]
+   }
+  },
+  "21080": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_gacha",
+   "description": "10連無料ガチャを2回引いてみよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "pooled_exp",
+      "amount": 2000
+     }
+    ]
+   }
+  },
+  "21090": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_any_daily_element",
+   "description": "「揺らぎの迷宮 育成アイテム」をクリアしよう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "item",
+      "id": 106,
+      "amount": 5
+     }
+    ]
+   }
+  },
+  "21100": {
+   "eventId": "3",
+   "order": 0,
+   "category": "100万円",
+   "pattern": "real_incentive_1_event_clear",
+   "description": "「遥かな王道、継承の騎士道」の「過去より浮かび上がるもの」を見よう",
+   "stage": 1,
+   "startDate": "2024-07-25 14:00:00",
+   "endDate": "2024-08-08 13:59:59",
+   "rewardsByStage": {
+    "1": [
+     {
+      "kind": "stone",
+      "amount": 300
+     }
+    ]
+   }
+  }
+ }
+}

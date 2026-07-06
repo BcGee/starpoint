@@ -4,10 +4,11 @@ import { getQuestFromCategorySync, getRushEventFolderClearRewards } from "../../
 import { getCharactersEvolutionImgLevels, givePlayerCharactersExpSync } from "../../lib/character";
 import { givePlayerRewardsSync, givePlayerRewardSync, givePlayerScoreRewardsSync } from "../../lib/quest";
 import { BattleQuest, EquipmentItemReward, PlayerRewardResult, QuestCategory } from "../../lib/types";
-import { generateDataHeaders, getServerTime } from "../../utils";
+import { generateDataHeaders, getServerTime, getServerDate } from "../../utils";
 import { rushEventFolderMaxRounds } from "./rushEvent";
 import { RushEventBattleType, UserRushEventPlayedParty } from "../../data/types";
 import { getSerializedPlayerRushEventPlayedPartiesSync } from "../../lib/rush";
+import { accumulateBattleMissions } from "../../lib/missionAccumulate";
 
 interface StartBody {
     quest_id: number
@@ -181,6 +182,17 @@ const routes = async (fastify: FastifyInstance) => {
                     clearRank: clearRank,
                     highScore: body.score
                 })
+            }
+
+            // STAGE 2: accumulate battle-mission progress. The client never pushes battle
+            // mission progress via update_mission_progress (confirmed by SWF + mitm); the
+            // server must advance it here from the finish statistics. Also logs the raw
+            // stats ([BATTLE/stats]) so client_checks can be confirmed against live traffic.
+            try {
+                const stats = (body.statistics ?? {}) as unknown as import("../../lib/battleMissionProgress").FinishStatistics
+                accumulateBattleMissions(playerId, stats, getServerDate().getTime(), questId, questCategory)
+            } catch (e) {
+                console.log("[BATTLE/mission] accumulate error: " + (e as Error).message)
             }
         }
 
